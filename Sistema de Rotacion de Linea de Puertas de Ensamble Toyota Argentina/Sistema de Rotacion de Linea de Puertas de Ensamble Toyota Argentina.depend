@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1647912219 source:c:\users\win10\onedrive - frgp.utn.edu.ar\tercer semestre\laboratorio ii\proyectos\sistema de rotacion de linea de puertas de ensamble toyota argentina\main.cpp
+	<iostream>
+	<cstring>
+	<ctime>
+	<cstdlib>
+	"clases.h"
+	"funciones.h"
+
+1647912219 c:\users\win10\onedrive - frgp.utn.edu.ar\tercer semestre\laboratorio ii\proyectos\sistema de rotacion de linea de puertas de ensamble toyota argentina\clases.h
+
+1647912219 c:\users\win10\onedrive - frgp.utn.edu.ar\tercer semestre\laboratorio ii\proyectos\sistema de rotacion de linea de puertas de ensamble toyota argentina\funciones.h
+
