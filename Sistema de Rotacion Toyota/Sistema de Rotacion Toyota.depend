@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1647922995 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\main.cpp
+	<iostream>
+	<cstring>
+	<ctime>
+	<cstdlib>
+	"clases.h"
+	"funciones.h"
+
+1647922995 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\clases.h
+
+1647922995 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funciones.h
+
