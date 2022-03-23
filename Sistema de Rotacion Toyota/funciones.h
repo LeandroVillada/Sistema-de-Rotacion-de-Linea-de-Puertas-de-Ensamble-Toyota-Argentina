@@ -29,11 +29,24 @@ void mostrarEmpleados()
     int pos = 0;
     while (reg.leerDeDisco(pos++))
     {
-        if (reg.get_estado())
-        {
+         if (reg.get_estado())
+         {
             reg.mostrar();
             puts("");
-        }
+         }
+    }
+}
+void mostrarEmpleadosInactivo()
+{
+    Empleados reg;
+    int pos = 0;
+    while (reg.leerDeDisco(pos++))
+    {
+         if (!reg.get_estado())
+         {
+            reg.mostrar();
+            puts("");
+         }
     }
 }
 void crearArchivoEmpleadoNuevo()

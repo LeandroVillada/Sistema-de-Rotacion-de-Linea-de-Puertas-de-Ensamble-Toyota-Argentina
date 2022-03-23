@@ -125,7 +125,7 @@ public:
     }
 };
 
-class Direccion
+/* class Direccion
 {
 private:
     char calle[60], ciudad[60], provincia[60], pais[60];
@@ -180,7 +180,7 @@ public:
         cout << "CODIGO POSTAL: " << codigoPostal << endl;
         cout << "PAIS: " << pais << endl;
     }
-};
+}; */
 
 class Empleados
 {
@@ -189,7 +189,7 @@ private:
     char nombreEmpleado[60];
     char apellidoEmpleado[60];
     bool estado;
-    Direccion direccion;
+    // Direccion direccion;
 
 public:
     Empleados(int legajo = 0, const char *nombreEmpleado = "NO INGRESADO", const char *apellidoEmpleado = "NO INGRESADO")
@@ -266,13 +266,13 @@ public:
     void set_nombreEmpleado(const char *nombre) { strcpy(nombreEmpleado, nombre); }
     void set_apellidoEmpleado(const char *apellido) { strcpy(apellidoEmpleado, apellido); }
     void set_estado(bool estado) { this->estado = estado; }
-    void set_direccion(Direccion direccion) { this->direccion = direccion; }
+    // void set_direccion(Direccion direccion) { this->direccion = direccion; }
     // GETS
     int get_legajo() { return legajo; }
     const char *get_nombreEmpleado() { return nombreEmpleado; }
     const char *get_apellidoEmpleado() { return apellidoEmpleado; }
     bool get_estado() { return estado; }
-    Direccion get_direccion() { return direccion; }
+    // Direccion get_direccion() { return direccion; }
     // FUNCIONES
     bool cargar()
     {
@@ -295,6 +295,7 @@ public:
         cout << "LEGAJO: " << legajo << endl;
         cout << "NOMBRES DEL EMPLEADO: " << nombreEmpleado << endl;
         cout << "APELLIDOS DEL EMPLEADO: " << apellidoEmpleado << endl;
+//        cout << "ESTADO: " << estado << endl;
     }
     bool buscarLegajoExistente(int legajo)
     {
@@ -313,19 +314,21 @@ public:
         int pos = 0;
         while (reg.leerDeDisco(pos))
         {
-            if ((legajo == reg.get_legajo()) && (reg.get_estado() == true))
+            if (legajo == reg.get_legajo())
                 return pos;
             pos++;
         }
         return -1;
     }
-    void darBajaPorLegajo(int legajo)
+    bool buscarLegajoInactivo(int legajo)
     {
         Empleados reg;
         int pos = buscarLegajo(legajo);
         reg.leerDeDisco(pos);
-        reg.set_estado(false);
-        reg.modificarEnDisco(pos);
+        if (!reg.get_estado())
+            return true;
+        else
+            return false;
     }
 };
 
