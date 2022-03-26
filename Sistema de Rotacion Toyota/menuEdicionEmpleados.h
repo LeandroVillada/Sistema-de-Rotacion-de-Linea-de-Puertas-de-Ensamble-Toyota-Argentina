@@ -36,6 +36,7 @@ void menuEmpleadosEdicion()
         case 4:
             editarNombreEmpleado();
             system("pause>nul");
+            break;
         case 5:
             editarApellidoEmpleado();
             system("pause>nul");
