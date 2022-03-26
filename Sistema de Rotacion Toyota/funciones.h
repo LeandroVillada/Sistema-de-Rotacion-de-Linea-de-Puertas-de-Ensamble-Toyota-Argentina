@@ -16,6 +16,14 @@ void cargarCadenas(char *pal, int tam)
     pal[i] = '\0';
     fflush(stdin);
 }
+void ponerFalsoVectorBoleano(bool *vec, int tam)
+{
+    for (int i = 0; i < tam; i++)
+    {
+        vec[i] = false;
+    }
+}
+
 void cargarEmpleado()
 {
     Empleados reg;
@@ -28,35 +36,24 @@ void cargarEmpleado()
         cout << "\nNO SE PUDO CARGAR EL EMPLEADO.";
     }
 }
-void cargarHabilidadesEmpleado()
+void cargarEmpleados()
 {
-    Empleados reg;
-    int legajo;
-    cout << "INGRESAR EL LEGAJO DEL EMPLEADO: ";
-    cin >> legajo;
-    int pos = reg.buscarLegajo(legajo);
-    cout << "INGRESAR EL NUMERO DEL PUESTO QUE SABE REALIZAR (1 a 26)." << endl;
-    int puesto;
-    bool habilidades[HABILIDADES];
-    cout << "PUESTO: ";
-    cin >> puesto;
-    while (puesto > 0 && puesto < 27)
+    cout << "INGRESAR CANTIDAD DE EMPLEADOS A CARGAR: ";
+    int empleados;
+    cin >> empleados;
+
+    for (int i = 0; i < empleados; i++)
     {
-        if (puesto % 2 == 0)
+        Empleados reg;
+        if (reg.cargar())
         {
-            habilidades[puesto / 2 - 1] = true;
+            cout << "\nEMPLEADO CARGADO.";
         }
         else
         {
-            habilidades[(puesto + 1) / 2 - 1] = true;
+            cout << "\nNO SE PUDO CARGAR EL EMPLEADO.";
         }
-        cout << "PUESTO: ";
-        cin >> puesto;
     }
-    reg.leerDeDisco(pos);
-    reg.set_habilidades(habilidades);
-    reg.modificarEnDisco(pos);
-    cout << "HABILIDADES DEL EMPLEADO CARGADAS.";
 }
 void mostrarEmpleados()
 {
@@ -70,6 +67,26 @@ void mostrarEmpleados()
             puts("");
         }
     }
+}
+void mostrarEmpleadoPorLegajo()
+{
+    Empleados reg;
+    cout << "INGRESAR LEGAJO A BUSCAR: ";
+    int legajo;
+    cin >> legajo;
+    if (!reg.buscarLegajoExistente(legajo))
+    {
+        cout << "El legajo ingresado no existe." << endl;
+        return;
+    }
+    if (reg.buscarLegajoExistente(legajo))
+    {
+        cout << "El legajo ingresado esta dado de baja." << endl;
+        return;
+    }
+    int pos = reg.buscarLegajo(legajo);
+    reg.leerDeDisco(pos);
+    reg.mostrar();
 }
 void mostrarEmpleadosInactivo()
 {

@@ -11,11 +11,12 @@ void submenuEmpleados()
         system("cls");
         cout << "SUBMENU EMPLEADOS" << endl;
         cout << "\n\t1. Cargar Empleado" << endl;
-        cout << "\t2. Cargar Habilidades del Empleado." << endl;
-        cout << "\t3. Editar Datos de los Empleados." << endl;
-        cout << "\t4. Mostrar Empleados." << endl;
-        cout << "\t5. Mostrar Empleados Inactivos." << endl;
-        cout << "\t6. Crear Archivo Nuevo de Empleados" << endl;
+        cout << "\t2. Editar Datos de los Empleados." << endl;
+        cout << "\t3. Mostrar Empleados." << endl;
+        cout << "\t4. Mostrar Empleados Inactivos." << endl;
+        cout << "\t5. Crear Archivo Nuevo de Empleados" << endl;
+        cout << "\t6. Buscar Empleado por Legajo" << endl;
+        cout << "\t7. Cargar Empleados" << endl;
         cout << "\t0. Volver al Menu Principal." << endl;
         cout << "\nSELECCIONE UNA OPCION:  ";
         cin >> opc;
@@ -27,22 +28,26 @@ void submenuEmpleados()
             system("pause>nul");
             break;
         case 2:
-            cargarHabilidadesEmpleado();
-            system("pause>nul");
-            break;
-        case 3:
             menuEmpleadosEdicion();
             break;
-        case 4:
+        case 3:
             mostrarEmpleados();
             system("pause>nul");
             break;
-        case 5:
+        case 4:
             mostrarEmpleadosInactivo();
             system("pause>nul");
             break;
-        case 6:
+        case 5:
             crearArchivoEmpleadoNuevo();
+            system("pause>nul");
+            break;
+        case 6:
+            mostrarEmpleadoPorLegajo();
+            system("pause>nul");
+            break;
+        case 7:
+            cargarEmpleados();
             system("pause>nul");
             break;
         case 0:

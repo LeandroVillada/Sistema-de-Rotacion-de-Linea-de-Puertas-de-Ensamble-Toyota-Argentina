@@ -7,7 +7,7 @@
 using namespace std;
 
 const int PUESTOS = 26;
-const int HABILIDADES = PUESTOS/2;
+const int HABILIDADES = PUESTOS / 2;
 
 #include "clases.h"
 #include "funciones.h"

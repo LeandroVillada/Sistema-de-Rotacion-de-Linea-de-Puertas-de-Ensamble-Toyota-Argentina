@@ -2,6 +2,7 @@
 #define CLASES_H_INCLUDED
 
 void cargarCadenas(char *pal, int tam);
+void ponerFalsoVectorBoleano(bool *, int);
 
 class Fecha
 {
@@ -149,9 +150,9 @@ public:
         strcpy(this->nombreEmpleado, nombreEmpleado);
         strcpy(this->apellidoEmpleado, apellidoEmpleado);
         this->disponibilidad = disponibilidad;
+        ponerFalsoVectorBoleano(habilidades, HABILIDADES);
         estado = true;
     }
-    // ~Empleados() {}
     // FUNCIONES ARCHIVOS
     bool leerDeDisco(int pos)
     {
@@ -244,10 +245,11 @@ public:
         cargarCadenas(nombreEmpleado, 59);
         cout << "APELLIDOS DEL EMPLEADO: ";
         cargarCadenas(apellidoEmpleado, 59);
+        cargarHabilidades();
         grabarEnDisco();
         return true;
     }
-    void cargarHabilidades(int pos)
+    void cargarHabilidades()
     {
         cout << "INGRESAR EL NUMERO DEL PUESTO QUE SABE REALIZAR (1 a 26)." << endl;
         int puesto;
@@ -266,9 +268,8 @@ public:
             cout << "PUESTO: ";
             cin >> puesto;
         }
-        modificarEnDisco(pos);
     }
-    void eliminarHabilidades(int pos)
+    void eliminarHabilidades()
     {
         cout << "INGRESAR EL NUMERO DEL PUESTO QUE NO SABE REALIZAR (1 a 26)." << endl;
         int puesto;
@@ -287,13 +288,12 @@ public:
             cout << "PUESTO: ";
             cin >> puesto;
         }
-        modificarEnDisco(pos);
     }
     void mostrar()
     {
         cout << "LEGAJO: " << legajo << endl;
-        cout << "NOMBRES DEL EMPLEADO: " << nombreEmpleado << endl;
-        cout << "APELLIDOS DEL EMPLEADO: " << apellidoEmpleado << endl;
+        cout << "NOMBRE: " << nombreEmpleado << endl;
+        cout << "APELLIDO: " << apellidoEmpleado << endl;
         if (disponibilidad)
         {
             cout << "DISPONIBLE: SI" << endl;
@@ -302,6 +302,15 @@ public:
         {
             cout << "DISPONIBLE: NO" << endl;
         }
+        cout << "PUESTOS QUE SABE REALIZAR: " << endl;
+        for (int i = 1; i <= HABILIDADES; i++)
+        {
+            if (habilidades[i - 1])
+            {
+                cout << "Puesto: " << (i * 2) - 1 << ", " << i * 2 << "\t";
+            }
+        }
+        puts("");
     }
     bool buscarLegajoExistente(int legajo)
     {

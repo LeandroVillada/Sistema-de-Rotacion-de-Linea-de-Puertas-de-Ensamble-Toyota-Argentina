@@ -140,5 +140,39 @@ void editarApellidoEmpleado()
     reg.modificarEnDisco(pos);
     cout << "Apellido editado con exito." << endl;
 }
+void agregarHabilidadesEmpleado()
+{
+    Empleados reg;
+    int legajo;
+    cout << "LEGAJO A SUMAR HABILIDADES: ";
+    cin >> legajo;
+    if (!reg.buscarLegajoExistente(legajo))
+    {
+        cout << "El legajo ingresado no existe." << endl;
+        return;
+    }
+    int pos = reg.buscarLegajo(legajo);
+    reg.leerDeDisco(pos);
+    reg.cargarHabilidades();
+    reg.modificarEnDisco(pos);
+    cout << "HABILIDADES CARGADAS.";
+}
+void eliminarHabilidadesEmpleado()
+{
+    Empleados reg;
+    int legajo;
+    cout << "LEGAJO A ELIMINAR HABILIDADES: ";
+    cin >> legajo;
+    if (!reg.buscarLegajoExistente(legajo))
+    {
+        cout << "El legajo ingresado no existe." << endl;
+        return;
+    }
+    int pos = reg.buscarLegajo(legajo);
+    reg.leerDeDisco(pos);
+    reg.eliminarHabilidades();
+    reg.modificarEnDisco(pos);
+    cout << "HABILIDADES ELIMINADAS.";
+}
 
 #endif // FUNCIONEDITAREMPLEADOS_H_INCLUDED
