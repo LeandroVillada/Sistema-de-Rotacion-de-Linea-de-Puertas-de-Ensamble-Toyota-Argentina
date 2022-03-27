@@ -9,7 +9,8 @@ using namespace std;
 #include "clases.h"
 #include "funciones.h"
 #include "submenuEmpleados.h"
-
+#include "submenuEmpleados.h"
+#include "submenuRotacion.h"
 int main()
 {
     // Variables
@@ -22,15 +23,22 @@ int main()
         system("cls");
         cout << "MENU PRINCIPAL" << endl;
         cout << "\n\t1. Menu de Empleados." << endl;
+        cout << "\t2. Armar Rotacion." << endl;
         cout << "\t0. Salir del Programa" << endl;
         cout << "\nSELECCIONE UNA OPCION:  ";
         cin >> opc;
         system("cls");
         switch (opc)
         {
+
         case 1:
             submenuEmpleados();
             break;
+
+        case 2:
+            submenuRotation();
+            break;
+
         case 0: // Fin del Programa
             return 0;
         default:

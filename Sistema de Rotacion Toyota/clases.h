@@ -189,11 +189,14 @@ private:
     char nombreEmpleado[60];
     char apellidoEmpleado[60];
     bool estado;
+    bool disponibilidad;
+    int operacionesaprendidas [26];
     // Direccion direccion;
 
 public:
     Empleados(int legajo = 0, const char *nombreEmpleado = "NO INGRESADO", const char *apellidoEmpleado = "NO INGRESADO")
     {
+
         if (legajo != 0)
             this->legajo = legajo;
         else
