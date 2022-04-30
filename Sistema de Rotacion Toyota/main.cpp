@@ -22,8 +22,11 @@ int main()
         system("color 6");
         system("cls");
         cout << "MENU PRINCIPAL" << endl;
-        cout << "\n\t1. Menu de Empleados." << endl;
-        cout << "\t2. Armar Rotacion." << endl;
+        cout << "\t1. Cargar Operario nuevo." << endl;
+        cout << "\n\t2. Modificar datos de Empleados." << endl;
+        cout << "\t3. Modificar Disponibilid para Rotacion." << endl;
+        cout << "\t4. Armar Rotacion." << endl;
+        cout << "\t5. Guardar Rotacion." << endl;
         cout << "\t0. Salir del Programa" << endl;
         cout << "\nSELECCIONE UNA OPCION:  ";
         cin >> opc;
