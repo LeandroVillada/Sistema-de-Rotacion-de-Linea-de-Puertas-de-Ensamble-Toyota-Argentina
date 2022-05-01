@@ -9,8 +9,10 @@ using namespace std;
 #include "clases.h"
 #include "funciones.h"
 #include "submenuEmpleados.h"
-#include "submenuEmpleados.h"
 #include "submenuRotacion.h"
+#include "menuEdicionEmpleados.h"
+#include "menuDisponibilidad.h"
+
 int main()
 {
     // Variables
@@ -22,27 +24,37 @@ int main()
         system("color 6");
         system("cls");
         cout << "MENU PRINCIPAL" << endl;
-        cout << "\t1. Cargar Operario nuevo." << endl;
+        cout << "\n\t1. Cargar Operario nuevo." << endl;
         cout << "\n\t2. Modificar datos de Empleados." << endl;
-        cout << "\t3. Modificar Disponibilid para Rotacion." << endl;
-        cout << "\t4. Armar Rotacion." << endl;
-        cout << "\t5. Guardar Rotacion." << endl;
-        cout << "\t0. Salir del Programa" << endl;
-        cout << "\nSELECCIONE UNA OPCION:  ";
+        cout << "\n\t3. Modificar Disponibilid para Rotacion." << endl;
+        cout << "\n\t4. Armar Rotacion." << endl; ///armar archivo con menu
+        cout << "\n\t0. Salir del Programa" << endl;
+        cout << "\n\SELECCIONE UNA OPCION:  ";
         cin >> opc;
         system("cls");
         switch (opc)
         {
-
         case 1:
-            submenuEmpleados();
+
             break;
 
         case 2:
-            submenuRotation();
+
+            ///menu con las opciones de edicion de legajos
+            menuEmpleadosEdicion();
+
+            break;
+        case 3:
+
+            ///menu que arma la lista con los disponibles para armar una rotacion
+            modidicarDisponibilidadRotacion();
+
+            break;
+        case 4:
+            ///menu armar rotacion
             break;
 
-        case 0: // Fin del Programa
+        case 0:
             return 0;
         default:
             cout << "OPCION INGRESADA INCORRECTA.";

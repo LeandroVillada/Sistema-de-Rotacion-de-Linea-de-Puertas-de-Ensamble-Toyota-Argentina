@@ -11,14 +11,14 @@ void submenuEmpleados()
         system("cls");
 
         cout << "SUBMENU EMPLEADOS" << endl;
-        cout << "\n\t1. Cargar Empleado" << endl;
+
         cout << "\t2. Editar Datos de Empleado." << endl;
         //Funcion de prueba
-        cout << "\t3. Mostrar Empleados Disponibles." << endl;
-        cout << "\t4. Mostrar Empleados Inactivos." << endl;
+       // cout << "\t3. Mostrar Empleados Disponibles." << endl;
+       // cout << "\t4. Mostrar Empleados Inactivos." << endl;
 
-        //Creacion de operario nuevo
-        cout << "\t5. Crear Archivo Nuevo de Empleados" << endl;
+
+
 
         //cout << "\t5. Cambiar disponibilidad de Empleado" << endl;
         cout << "\t0. Volver al Menu Principal." << endl;

@@ -20,7 +20,7 @@
 1648065704 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\menuedicionempleados.h
 	"funcionEditarEmpleados.h"
 
-1648331301 source:m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\main.cpp
+1651368931 source:m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\main.cpp
 	<iostream>
 	<cstring>
 	<ctime>
@@ -28,20 +28,23 @@
 	"clases.h"
 	"funciones.h"
 	"submenuEmpleados.h"
-	"submenuEmpleados.h"
 	"submenuRotacion.h"
+	"menuEdicionEmpleados.h"
+	"menuDisponibilidad.h"
 
-1648319376 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\clases.h
+1651027582 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\clases.h
 
-1648074020 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones.h
+1651027582 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones.h
 
-1648146068 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenuempleados.h
+1651362394 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenuempleados.h
 	"menuEdicionEmpleados.h"
 
-1648074020 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\menuedicionempleados.h
+1651368414 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\menuedicionempleados.h
 	"funcionEditarEmpleados.h"
 
-1648074020 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funcioneditarempleados.h
+1651027582 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funcioneditarempleados.h
 
-1648331374 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenurotacion.h
+1651027582 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenurotacion.h
+
+1651369355 m:\documents\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\menudisponibilidad.h
 

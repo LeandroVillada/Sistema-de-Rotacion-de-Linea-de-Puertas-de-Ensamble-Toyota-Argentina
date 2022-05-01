@@ -36,12 +36,9 @@
 		<Unit filename="funcionEditarEmpleados.h" />
 		<Unit filename="funciones.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="menuDisponibilidad.h" />
 		<Unit filename="menuEdicionEmpleados.h" />
 		<Unit filename="submenuEmpleados.h" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
