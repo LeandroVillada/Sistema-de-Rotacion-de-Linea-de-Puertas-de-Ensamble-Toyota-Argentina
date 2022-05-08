@@ -1,20 +1,5 @@
 #include "Empleados.h"
 
-// FUNCIONES PRIVADAS
-// void Empleados::asignarOperaciones()
-// {
-//     for (int i = 0; i < 26; i++)
-//     {
-//         _operacionesAprendidas[i] = true;
-//     }
-// }
-// void Empleados::asignarOperaciones(bool *operacionesAprendidas)
-// {
-//     for (int i = 0; i < 26; i++)
-//     {
-//         _operacionesAprendidas[i] = operacionesAprendidas[i];
-//     }
-// }
 
 // CONSTRUCTORES
 Empleados::Empleados()
@@ -23,7 +8,6 @@ Empleados::Empleados()
     _nombre = "";
     _apellido = "";
     _disponibilidad = true;
-    // asignarOperaciones();
     _estado = true;
 }
 // FUNCIONES ARCHIVOS
@@ -80,18 +64,26 @@ int Empleados::cantidadRegistros()
 }
 // SETTS
 void Empleados::setLegajo(int legajo) { _legajo = legajo; }
+
 void Empleados::setNombre(std::string nombre) { _nombre = nombre; }
+
 void Empleados::setApellido(std::string apellido) { _apellido = apellido; }
+
 void Empleados::setDisponibilidad(bool disponibilidad) { _disponibilidad = disponibilidad; }
-// void Empleados::setOperacionesAprendidas(bool *operacionesAprendidas) { asignarOperaciones(operacionesAprendidas); }
+
 void Empleados::setEstado(bool estado) { _estado = estado; }
+
 // GETTS
 int Empleados::getLegajo() { return _legajo; }
+
 std::string Empleados::getNombre() { return _nombre; }
+
 std::string Empleados::getApellido() { return _apellido; }
+
 bool Empleados::getDisponibilidad() { return _disponibilidad; }
-// bool *Empleados::getOperacionesAprendidas() { return _operacionesAprendidas; }
+
 bool Empleados::getEstado() { return _estado; }
+
 // FUNCIONES PUBLICAS
 bool Empleados::buscarLegajoExistente(int legajo)
 {
@@ -126,3 +118,16 @@ bool Empleados::LegajoDisponible(int legajo)
     else
         return false;
 }
+
+bool Empleados::buscarLegajoInactivo(int legajo)
+{
+        Empleados reg;
+        int pos = reg.buscarPosicionLegajo(legajo);
+        reg.leerDeDisco(pos);
+        if (!reg.getEstado())
+            return true;
+        else
+            return false;
+    }
+
+

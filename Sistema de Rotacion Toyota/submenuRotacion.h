@@ -8,8 +8,8 @@ void submenuRotation()
         system("cls");
         cout << "Armado de Rotacion" << endl;
         cout << endl;
-        cout << "\n\t1. Agregar TM a Disponibles: " << endl;
-        cout << "\t2. Eliminar TM de Disponibles: " <<endl;
+        cout << "\n\t1. Agregar TM a Disponibles para rotar: " << endl;
+        cout << "\t2. Eliminar TM de Disponibles para Rotar: " <<endl;
         cout << "\t3. Mostrar Lista Completa de TM Disponibles para Rotacion: " <<endl;
         cout << "\t4. Armar Rotacion Semanal: " <<endl;
         cout << "\t0. Volver al Menu Principal." << endl;

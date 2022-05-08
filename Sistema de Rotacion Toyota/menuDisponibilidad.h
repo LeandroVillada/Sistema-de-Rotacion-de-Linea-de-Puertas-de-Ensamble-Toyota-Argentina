@@ -13,6 +13,7 @@ void modidicarDisponibilidadRotacion(){
         cout << "\n\t2. Confirmar disponibilidad." << endl;
         cout << "\n\t3. Eliminar disponibilidad." << endl;
         cout << "\n\t0. Volver al Menu Principal." << endl;
+        cout << "\nSELECCIONE UNA OPCION:  ";
 
         cin >> opcion;
 

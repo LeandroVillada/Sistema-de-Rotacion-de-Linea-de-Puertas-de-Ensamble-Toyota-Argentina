@@ -11,12 +11,11 @@ void menuEmpleadosEdicion()
         system("cls");
         cout << "MENU EDICCION DE EMPLEADOS" << endl;
         cout << "\n\t1. Dar de Baja un Legajo." << endl;
-        cout << "\n\t2. Cambiar Operario Trabajando." << endl;
-        cout << "\n\t3. Agregar Operaciones Aprendidas." << endl;
-        cout << "\n\t4. Eliminar Operaciones Aprendidas." << endl;
-        cout << "\n\t5. Editar Nombre y apellido." << endl;
+        cout << "\n\t2. Dar de Alta un Legajo." << endl;
+        cout << "\n\t3. Editar Nombre." << endl;
+        cout << "\n\t4. Editar Apellido." << endl;
         cout << "\n\t0. Volver al Menu de Principal" << endl;
-        cout << "\n\SELECCIONE UNA OPCION:  ";
+        cout << "\nSeleccione una opcion :  ";
         cin >> opc;
         system("cls");
         switch (opc)
@@ -24,22 +23,22 @@ void menuEmpleadosEdicion()
         case 1:
             darBajaLegajo();
             system("pause>nul");
+
             break;
         case 2:
-            ///funcion modifique operario activo
-
+            darAltaLegajo();
             system("pause>nul");
+
             break;
         case 3:
-            ///funcion agrege operaciones aprendidas
+            editarNombreEmpleado();
             system("pause>nul");
+
             break;
         case 4:
-            ///funcion eliminar operaciones aprendidas
+            editarApellidoEmpleado();
             system("pause>nul");
-        case 5:
-            ///funcion editar nombre y apellido
-            system("pause>nul");
+
             break;
         case 0:
             return;

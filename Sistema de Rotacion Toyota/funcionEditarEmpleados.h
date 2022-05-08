@@ -20,15 +20,17 @@ void darBajaLegajo()
         return;
     }
     // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
-    int pos = reg.buscarLegajo(legajo);
+    int pos = reg.buscarPosicionLegajo(legajo);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
     reg.leerDeDisco(pos);
     // Cambiamos el valor del estado del registro
-    reg.set_estado(false);
+    reg.setEstado(false);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     reg.modificarEnDisco(pos);
     cout << "Legajo dado de baja con exito." << endl;
 }
+
+
 void darAltaLegajo()
 {
     Empleados reg;
@@ -48,16 +50,18 @@ void darAltaLegajo()
         return;
     }
     // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
-    int pos = reg.buscarLegajo(legajo);
+    int pos = reg.buscarPosicionLegajo(legajo);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
     reg.leerDeDisco(pos);
     // Cambiamos el valor del estado del registro
-    reg.set_estado(true);
+    reg.setEstado(true);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     reg.modificarEnDisco(pos);
     cout << "Legajo dado de alta con exito." << endl;
 }
-void editarLegajoEmpleado()
+
+
+/*void editarLegajoEmpleado()
 {
     Empleados reg;
     int legajo;
@@ -88,6 +92,8 @@ void editarLegajoEmpleado()
     reg.modificarEnDisco(pos);
     cout << "Legajo editado con exito." << endl;
 }
+*/
+
 void editarNombreEmpleado()
 {
     Empleados reg;
@@ -101,19 +107,21 @@ void editarNombreEmpleado()
         return;
     }
     // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
-    int pos = reg.buscarLegajo(legajo);
+    int pos = reg.buscarPosicionLegajo(legajo);
     char nombre[60];
-    cout << "Nombre Nuevo: ";
+    cout << "Ingrese Nombre Nuevo: ";
     // Utilizamos la funcion cargarCadenas(mandando nombre y el tamanio -1).
     cargarCadenas(nombre, 59);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
     reg.leerDeDisco(pos);
     // Actualizamos el nombre del registro
-    reg.set_nombreEmpleado(nombre);
+    reg.setNombre(nombre);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     reg.modificarEnDisco(pos);
     cout << "Nombre editado con exito." << endl;
 }
+
+
 void editarApellidoEmpleado()
 {
     Empleados reg;
@@ -127,7 +135,7 @@ void editarApellidoEmpleado()
         return;
     }
     // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
-    int pos = reg.buscarLegajo(legajo);
+    int pos = reg.buscarPosicionLegajo(legajo);
     char apellido[60];
     cout << "Apellido Nuevo: ";
     // Utilizamos la funcion cargarCadenas(mandando apellido y el tamanio -1).
@@ -135,7 +143,7 @@ void editarApellidoEmpleado()
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
     reg.leerDeDisco(pos);
     // Actualizamos el apellido del registro
-    reg.set_apellidoEmpleado(apellido);
+    reg.setApellido(apellido);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     reg.modificarEnDisco(pos);
     cout << "Apellido editado con exito." << endl;

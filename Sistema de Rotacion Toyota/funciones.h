@@ -15,15 +15,16 @@ void cargarCadenas(char *pal, int tam)
     fflush(stdin);
 }
 
-void cargarEmpleado()
+/*void cargarEmpleado()
 {
     Empleados reg;
     if (reg.cargar())
         cout << "\nEMPLEADO CARGADO.";
     else
         cout << "\nNO SE PUDO CARGAR EL EMPLEADO.";
-}
-void mostrarEmpleados()
+}*/
+
+/*void mostrarEmpleados()
 {
     Empleados reg;
     int pos = 0;
@@ -35,25 +36,29 @@ void mostrarEmpleados()
             puts("");
          }
     }
-}
-void mostrarEmpleadosInactivo()
+}*/
+
+/*void mostrarEmpleadosInactivo()
 {
     Empleados reg;
     int pos = 0;
     while (reg.leerDeDisco(pos++))
     {
-         if (!reg.get_estado())
+         if (!reg.getEstado())
          {
             reg.mostrar();
             puts("");
          }
     }
-}
-void crearArchivoEmpleadoNuevo()
+}*/
+
+/*void crearArchivoEmpleadoNuevo()
 {
     Empleados reg;
     reg.crearArchivo();
     cout << "ARCHIVO CREADO.";
-}
+}*/
+
+
 
 #endif // FUNCIONES_H_INCLUDED

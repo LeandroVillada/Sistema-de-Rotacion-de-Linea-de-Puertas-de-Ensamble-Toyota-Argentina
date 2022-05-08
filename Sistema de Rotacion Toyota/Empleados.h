@@ -7,11 +7,7 @@ private:
     std::string _nombre;
     std::string _apellido;
     bool _disponibilidad;
-    bool _operacionesAprendidas[26];
     bool _estado;
-    // FUNCIONES PRIVADAS
-    // void asignarOperaciones();
-    // void asignarOperaciones(bool *);
 
 public:
     // CONSTRUCTORES
@@ -26,14 +22,12 @@ public:
     void setNombre(std::string);
     void setApellido(std::string);
     void setDisponibilidad(bool);
-    // void setOperacionesAprendidas(bool *);
     void setEstado(bool);
     // GETS
     int getLegajo();
     std::string getNombre();
     std::string getApellido();
     bool getDisponibilidad();
-    // bool *getOperacionesAprendidas();
     bool getEstado();
     // FUNCIONES PUBLICAS
     bool buscarLegajoExistente(int);
@@ -41,4 +35,5 @@ public:
     bool LegajoDisponible(int);
     bool cargar();
     void mostrar();
+    bool buscarLegajoInactivo(int);
 };

@@ -32,13 +32,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="clases.h" />
+		<Unit filename="Empleados.cpp" />
+		<Unit filename="Empleados.h" />
 		<Unit filename="funcionEditarEmpleados.h" />
 		<Unit filename="funciones.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menuDisponibilidad.h" />
 		<Unit filename="menuEdicionEmpleados.h" />
-		<Unit filename="submenuEmpleados.h" />
+		<Unit filename="menuNuevoOperario.h" />
+		<Unit filename="submenuRotacion.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
