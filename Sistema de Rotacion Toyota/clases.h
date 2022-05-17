@@ -125,63 +125,6 @@ public:
     }
 };
 
-class Direccion
-{
-private:
-    char calle[60], ciudad[60], provincia[60], pais[60];
-    int altura, codigoPostal;
-
-public:
-    Direccion(const char *calle = "NO INGRESADO", const char *ciudad = "NO INGRESADO", const char *provincia = "NO INGRESADO", const char *pais = "NO INGRESADO", int altura = 0, int codigoPostal = 0)
-    {
-        strcpy(this->calle, calle);
-        strcpy(this->ciudad, ciudad);
-        strcpy(this->provincia, provincia);
-        strcpy(this->pais, pais);
-        this->altura = altura;
-        this->codigoPostal = codigoPostal;
-    }
-    // SETS
-    void setCalle(const char *pal) { strcpy(calle, pal); }
-    void setCiudad(const char *pal) { strcpy(ciudad, pal); }
-    void setProvincia(const char *pal) { strcpy(provincia, pal); }
-    void setPais(const char *pal) { strcpy(pais, pal); }
-    void setAltura(int n) { altura = n; }
-    void setCodigoPostal(int n) { codigoPostal = n; }
-    // GETS
-    const char *getCalle() { return calle; }
-    const char *getCiudad() { return ciudad; }
-    const char *getProvincia() { return provincia; }
-    const char *getPais() { return pais; }
-    int getAltura() { return altura; }
-    int getCodigoPostal() { return codigoPostal; }
-    //  FUNCIONES
-    void cargar()
-    {
-        cout << "CALLE: ";
-        cargarCadenas(calle, 39);
-        cout << "ALTURA: ";
-        cin >> altura;
-        cout << "CIUDAD: ";
-        cargarCadenas(ciudad, 39);
-        cout << "PROVINCIA: ";
-        cargarCadenas(provincia, 39);
-        cout << "CODIGO POSTAL: ";
-        cin >> codigoPostal;
-        cout << "PAIS: ";
-        cargarCadenas(pais, 39);
-    }
-    void mostrar()
-    {
-        cout << "CALLE: " << calle << endl;
-        cout << "ALTURA: " << altura << endl;
-        cout << "CIUDAD: " << ciudad << endl;
-        cout << "PROVINCIA: " << provincia << endl;
-        cout << "CODIGO POSTAL: " << codigoPostal << endl;
-        cout << "PAIS: " << pais << endl;
-    }
-};
-
 class Empleados
 {
 private:
@@ -189,11 +132,14 @@ private:
     char nombreEmpleado[60];
     char apellidoEmpleado[60];
     bool estado;
-    Direccion direccion;
+    bool disponibilidad;
+    int operacionesaprendidas [26];
+    // Direccion direccion;
 
 public:
     Empleados(int legajo = 0, const char *nombreEmpleado = "NO INGRESADO", const char *apellidoEmpleado = "NO INGRESADO")
     {
+
         if (legajo != 0)
             this->legajo = legajo;
         else
@@ -266,13 +212,13 @@ public:
     void set_nombreEmpleado(const char *nombre) { strcpy(nombreEmpleado, nombre); }
     void set_apellidoEmpleado(const char *apellido) { strcpy(apellidoEmpleado, apellido); }
     void set_estado(bool estado) { this->estado = estado; }
-    void set_direccion(Direccion direccion) { this->direccion = direccion; }
+    // void set_direccion(Direccion direccion) { this->direccion = direccion; }
     // GETS
     int get_legajo() { return legajo; }
     const char *get_nombreEmpleado() { return nombreEmpleado; }
     const char *get_apellidoEmpleado() { return apellidoEmpleado; }
     bool get_estado() { return estado; }
-    Direccion get_direccion() { return direccion; }
+    // Direccion get_direccion() { return direccion; }
     // FUNCIONES
     bool cargar()
     {
@@ -313,19 +259,21 @@ public:
         int pos = 0;
         while (reg.leerDeDisco(pos))
         {
-            if ((legajo == reg.get_legajo()) && (reg.get_estado() == true))
+            if (legajo == reg.get_legajo())
                 return pos;
             pos++;
         }
         return -1;
     }
-    void darBajaPorLegajo(int legajo)
+    bool buscarLegajoInactivo(int legajo)
     {
         Empleados reg;
-        int pos = buscarLegajo(legajo);
+        int pos = buscarLegajoExistente(legajo);
         reg.leerDeDisco(pos);
-        reg.set_estado(false);
-        reg.modificarEnDisco(pos);
+        if (!reg.get_estado())
+            return true;
+        else
+            return false;
     }
 };
 

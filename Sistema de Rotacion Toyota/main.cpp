@@ -1,13 +1,9 @@
 /// Autores: Villada Leandro, Barrios Marcos.
 
 #include <iostream>
-#include <cstring>
-#include <ctime>
-#include <cstdlib>
 using namespace std;
 
-#include "clases.h"
-#include "funciones.h"
+#include "submenus.h"
 
 int main()
 {
@@ -20,32 +16,41 @@ int main()
         system("color 6");
         system("cls");
         cout << "MENU PRINCIPAL" << endl;
-        cout << "\n\t1. Cargar Empleado" << endl;
-        cout << "\t2. Mostrar Empleados" << endl;
-        cout << "\t3. Crear Archivo Nuevo de Empleados" << endl;
-        cout << "\t0. Salir del Programa" << endl;
-        cout << "\nSELECCIONE UNA OPCION:  ";
+        cout << "\n\t1. Cargar Operario nuevo." << endl;
+        cout << "\n\t2. Modificar datos de Empleados." << endl;
+        cout << "\n\t3. Modificar Disponibilid para Rotacion." << endl;
+        cout << "\n\t4. Armar Rotacion." << endl; ///armar archivo con menu
+        cout << "\n\t0. Salir del Programa" << endl;
+        cout << "\n\tSELECCIONE UNA OPCION:  ";
         cin >> opc;
         system("cls");
         switch (opc)
         {
         case 1:
-            cargarEmpleado();
-            system("pause>nul");
+            ///menu para cargar un nuevo legajo
+            cargarNuevo();
             break;
+
         case 2:
-            mostrarEmpleados();
-            system("pause>nul");
+            ///menu con las opciones de edicion de legajos
+            menuEmpleadosEdicion();
+
             break;
         case 3:
-            crearArchivoEmpleadoNuevo();
-            system("pause>nul");
+            ///menu que arma la lista con los disponibles para armar una rotacion
+            subMenuDisponibilidad();
+
             break;
-        case 0: // Fin del Programa
+        case 4:
+            ///menu armar rotacion
+            submenuRotation();
+            break;
+
+        case 0:
             return 0;
         default:
             cout << "OPCION INGRESADA INCORRECTA.";
-            system("pasuse>nul");
+            system("pause>nul");
             break;
         }
     }
