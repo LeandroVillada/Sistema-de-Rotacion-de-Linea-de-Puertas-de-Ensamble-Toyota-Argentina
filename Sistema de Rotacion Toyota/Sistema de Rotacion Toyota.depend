@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1652812692 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\main.cpp
+1652813425 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\main.cpp
 	<iostream>
 	"submenus.h"
 
@@ -7,7 +7,7 @@
 
 1652801512 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funciones.h
 
-1652806421 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funcioneditarempleados.h
+1652813011 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funcioneditarempleados.h
 
 1648067519 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenuempleados.h
 	"menuEdicionEmpleados.h"
@@ -66,7 +66,7 @@
 	<string>
 	"Empleados.h"
 
-1652812692 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenurotacion.h
+1652813425 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenurotacion.h
 	<iostream>
 	"FuncionArmadoRotacion.h"
 
@@ -91,11 +91,12 @@
 
 1652806421 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\rotacion.h
 
-1652812692 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenurotacion.cpp
+1652813425 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenurotacion.cpp
 	"SubmenuRotacion.h"
 
-1652806421 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenuedicionempleados.cpp
+1652820964 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenuedicionempleados.cpp
 	"SubmenuEdicionEmpleados.h"
+	"Funciones Empleados.h"
 
 1652806421 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenuedicionempleados.h
 	<iostream>
@@ -107,17 +108,18 @@
 	"SubmenuDisponibilidad.h"
 	"Funciones Empleados.h"
 
-1652806421 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenudisponibilidad.h
+1652820442 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenudisponibilidad.h
 	<iostream>
+	"Funciones Disponibilidad.h"
 
-1652806421 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenudisponibilidad.cpp
+1652820551 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\submenudisponibilidad.cpp
 	"SubmenuDisponibilidad.h"
 
-1652806421 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funciones empleados.h
+1652820837 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funciones empleados.h
 	"Empleados.h"
 	<iostream>
 
-1652806421 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funciones empleados.cpp
+1652820818 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funciones empleados.cpp
 	"Funciones Empleados.h"
 
 1652810961 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\menuarmadorotacion.h
@@ -126,7 +128,7 @@
 	<windows.h>
 	"rlutil.h"
 
-1652812692 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\rlutil.h
+1652813425 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\rlutil.h
 	<iostream>
 	<string>
 	<cstdio>
@@ -140,12 +142,19 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1652812692 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funcionarmadorotacion.h
+1652813425 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funcionarmadorotacion.h
 	<iostream>
 	<cstdlib>
 	<windows.h>
 	"rlutil.h"
 
-1652812692 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funcionarmadorotacion.cpp
+1652813425 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funcionarmadorotacion.cpp
 	"FuncionArmadoRotacion.h"
+
+1652820254 c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funciones disponibilidad.h
+	"Empleados.h"
+	<iostream>
+
+1652820421 source:c:\users\win10\documents\repositorio github\sistema de rotacion de linea de puertas de ensamble toyota argentina\sistema de rotacion toyota\funciones disponibilidad.cpp
+	"Funciones Disponibilidad.h"
 

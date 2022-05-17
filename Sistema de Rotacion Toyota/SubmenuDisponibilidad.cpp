@@ -1,4 +1,3 @@
-
 #include "SubmenuDisponibilidad.h"
 
 void subMenuDisponibilidad()
@@ -11,24 +10,26 @@ void subMenuDisponibilidad()
     {
         system("cls");
         cout << "MENU CAMBIO DE DISPONIBILIDAD" << endl;
+
         cout << "\n\t1. Listar Operarios Activos para rotacion." << endl;
         cout << "\n\t2. Confirmar disponibilidad." << endl;
         cout << "\n\t3. Eliminar disponibilidad." << endl;
         cout << "\n\t0. Volver al Menu Principal." << endl;
+
         cout << "\nSELECCIONE UNA OPCION:  ";
-
         cin >> opcion;
-
+        system("cls");
         switch (opcion)
         {
 
         case 1:
-            // funcio
+            listarOperariosDisponiblesParaRotar();
             system("pause>nul");
             break;
 
         case 2:
             // funcion
+            cargarOperariosDisponibles();
             system("pause>nul");
             break;
 
