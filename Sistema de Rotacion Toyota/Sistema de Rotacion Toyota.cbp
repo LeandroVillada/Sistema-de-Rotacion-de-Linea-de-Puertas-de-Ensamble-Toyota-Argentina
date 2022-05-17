@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Empleados.cpp" />
 		<Unit filename="Empleados.h" />
+		<Unit filename="FuncionArmadoRotacion.cpp" />
+		<Unit filename="FuncionArmadoRotacion.h" />
 		<Unit filename="Funciones Empleados.cpp" />
 		<Unit filename="Funciones Empleados.h" />
 		<Unit filename="Funciones Globales.cpp" />
@@ -49,6 +51,7 @@
 		<Unit filename="funcionEditarEmpleados.cpp" />
 		<Unit filename="funcionEditarEmpleados.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="rlutil.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
