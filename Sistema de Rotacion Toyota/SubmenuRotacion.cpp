@@ -1,4 +1,4 @@
-#include "submenuRotacion.h"
+#include "SubmenuRotacion.h"
 void submenuRotation()
 {
     int opciones;
@@ -23,6 +23,7 @@ void submenuRotation()
         case 1:
             // agregarDispTM ();
             cout << "funcion agregar tm disponibles" << endl;
+            agregarEmpleadosDisponiblesParaRotar();
             system("pause>nul");
             break;
 
