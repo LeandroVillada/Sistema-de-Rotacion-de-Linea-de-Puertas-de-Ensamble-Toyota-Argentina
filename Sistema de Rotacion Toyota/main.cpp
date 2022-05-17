@@ -1,17 +1,9 @@
 /// Autores: Villada Leandro, Barrios Marcos.
 
 #include <iostream>
-#include <cstring>
-#include <ctime>
-#include <cstdlib>
 using namespace std;
 
-#include "Empleados.h"
-#include "funciones.h"
-#include "menuNuevoOperario.h"
-#include "submenuRotacion.h"
-#include "menuEdicionEmpleados.h"
-#include "menuDisponibilidad.h"
+#include "submenus.h"
 
 int main()
 {
@@ -46,7 +38,7 @@ int main()
             break;
         case 3:
             ///menu que arma la lista con los disponibles para armar una rotacion
-            modidicarDisponibilidadRotacion();
+            subMenuDisponibilidad();
 
             break;
         case 4:

@@ -1,5 +1,7 @@
 #pragma once
+
+#include "Empleados.h"
 #include <iostream>
 using namespace std;
 
-void submenuRotation();
+void cargarNuevo();

@@ -1,11 +1,8 @@
-#ifndef MENUEDICIONEMPLEADOS_H_INCLUDED
-#define MENUEDICIONEMPLEADOS_H_INCLUDED
-
-#include "funcionEditarEmpleados.h"
+#include "SubmenuEdicionEmpleados.h"
 
 void menuEmpleadosEdicion()
 {
-    int opc;
+    int opciones;
     while (true)
     {
         system("cls");
@@ -16,9 +13,9 @@ void menuEmpleadosEdicion()
         cout << "\n\t4. Editar Apellido." << endl;
         cout << "\n\t0. Volver al Menu de Principal" << endl;
         cout << "\nSeleccione una opcion :  ";
-        cin >> opc;
+        cin >> opciones;
         system("cls");
-        switch (opc)
+        switch (opciones)
         {
         case 1:
             darBajaLegajo();
@@ -43,11 +40,9 @@ void menuEmpleadosEdicion()
         case 0:
             return;
         default:
-            cout << "OPCION INGRESADA INCORRECTA.";
+            cout << "OPCION INGRESADA INCORRECTA.\n";
             system("pause>nul");
             break;
         }
     }
 }
-
-#endif // MENUEDICIONEMPLEADOS_H_INCLUDED

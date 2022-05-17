@@ -1,6 +1,5 @@
 #pragma once
 
-#include < string>
 class Rotacion
 {
 private:

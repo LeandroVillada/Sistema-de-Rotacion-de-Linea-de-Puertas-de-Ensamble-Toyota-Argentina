@@ -1,11 +1,11 @@
 #pragma once
-#include <string>
+#include <iostream>
 class Empleados
 {
 private:
     int _legajo;
-    std::string _nombre;
-    std::string _apellido;
+    char _nombre[50];
+    char _apellido[50];
     bool _disponibilidad;
     bool _estado;
 
@@ -25,8 +25,8 @@ public:
     void setEstado(bool);
     // GETS
     int getLegajo();
-    std::string getNombre();
-    std::string getApellido();
+    const char *getNombre();
+    const char *getApellido();
     bool getDisponibilidad();
     bool getEstado();
     // FUNCIONES PUBLICAS

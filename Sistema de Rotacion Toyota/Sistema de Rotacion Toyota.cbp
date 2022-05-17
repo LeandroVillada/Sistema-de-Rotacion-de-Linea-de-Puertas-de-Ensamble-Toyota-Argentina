@@ -34,13 +34,25 @@
 		</Compiler>
 		<Unit filename="Empleados.cpp" />
 		<Unit filename="Empleados.h" />
+		<Unit filename="Funciones Empleados.cpp" />
+		<Unit filename="Funciones Empleados.h" />
+		<Unit filename="Funciones Globales.cpp" />
+		<Unit filename="Funciones Globales.h" />
+		<Unit filename="Rotacion.cpp" />
+		<Unit filename="Rotacion.h" />
+		<Unit filename="SubmenuDisponibilidad.cpp" />
+		<Unit filename="SubmenuDisponibilidad.h" />
+		<Unit filename="SubmenuEdicionEmpleados.cpp" />
+		<Unit filename="SubmenuEdicionEmpleados.h" />
+		<Unit filename="SubmenuRotacion.cpp" />
+		<Unit filename="SubmenuRotacion.h" />
+		<Unit filename="funcionEditarEmpleados.cpp" />
 		<Unit filename="funcionEditarEmpleados.h" />
-		<Unit filename="funciones.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="menuDisponibilidad.h" />
-		<Unit filename="menuEdicionEmpleados.h" />
-		<Unit filename="menuNuevoOperario.h" />
-		<Unit filename="submenuRotacion.h" />
-		<Extensions />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
