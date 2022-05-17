@@ -1,4 +1,5 @@
 #include "SubmenuEdicionEmpleados.h"
+#include "Funciones Empleados.h"
 
 void menuEmpleadosEdicion()
 {
@@ -34,6 +35,11 @@ void menuEmpleadosEdicion()
             break;
         case 4:
             editarApellidoEmpleado();
+            system("pause>nul");
+
+            break;
+        case 5:
+            listarOperarios();
             system("pause>nul");
 
             break;

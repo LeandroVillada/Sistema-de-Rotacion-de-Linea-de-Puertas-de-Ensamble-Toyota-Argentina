@@ -32,3 +32,21 @@ void cargarNuevo()
     }
     system("pause>nul");
 }
+
+void listarOperarios()
+{
+    Empleados reg;
+    int pos = 0;
+    while (reg.leerDeDisco(pos++))
+    {
+        if (reg.getEstado())
+        {
+            std::cout << "LEGAJO: " << reg.getLegajo() << std::endl;
+            std::cout << "NOMBRE: " << reg.getNombre() << std::endl;
+            std::cout << "APELLIDO: " << reg.getApellido() << std::endl;
+            std::cout << "DISPONIBILIDAD: " << reg.getDisponibilidad() << std::endl;
+            std::cout << "ESTADO: " << reg.getEstado() << std::endl;
+            puts("");
+        }
+    }
+}
