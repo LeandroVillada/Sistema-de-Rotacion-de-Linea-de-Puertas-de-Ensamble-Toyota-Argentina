@@ -36,6 +36,7 @@
 		<Unit filename="Empleados.h" />
 		<Unit filename="funcionEditarEmpleados.h" />
 		<Unit filename="funciones.h" />
+		<Unit filename="funcionesArmadoRotacion.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menuDisponibilidad.h" />
 		<Unit filename="menuEdicionEmpleados.h" />

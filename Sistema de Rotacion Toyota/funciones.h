@@ -15,6 +15,20 @@ void cargarCadenas(char *pal, int tam)
     fflush(stdin);
 }
 
+void ponercero(int v[], int tam){
+int i;
+for(i=0;i<(tam-1);i++){
+v[i]=0;
+}
+}
+
+void gotoxy(short x, short y){
+    COORD a;
+    a.X = x;
+    a.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),a);
+}
+
 /*void cargarEmpleado()
 {
     Empleados reg;

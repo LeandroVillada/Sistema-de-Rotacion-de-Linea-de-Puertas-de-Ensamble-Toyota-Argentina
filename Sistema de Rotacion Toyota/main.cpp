@@ -4,6 +4,7 @@
 #include <cstring>
 #include <ctime>
 #include <cstdlib>
+#include <windows.h>
 using namespace std;
 
 #include "Empleados.h"
@@ -12,6 +13,7 @@ using namespace std;
 #include "submenuRotacion.h"
 #include "menuEdicionEmpleados.h"
 #include "menuDisponibilidad.h"
+#include "funcionesArmadoRotacion.h"
 
 int main()
 {

@@ -1,6 +1,7 @@
 #ifndef SUBMENUROTACION_H_INCLUDED
 #define SUBMENUROTACION_H_INCLUDED
 
+#include "funcionesArmadoRotacion.h"
 void submenuRotation()
 {
     int opc;
@@ -39,7 +40,8 @@ void submenuRotation()
             break;
 
         case 4:
-
+            int operariosParaRotar[26];
+            menuArmadoRotacion(contarLegajosActivosDisponibles(), asignarLegajosDisponibles(), operariosParaRotar );
             cout << "funcion armar rotacion" <<endl;
             system("pause>nul");
             break;
