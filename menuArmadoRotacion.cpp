@@ -3,6 +3,7 @@
 
 using namespace std;
 #include <windows.h>
+#include "rlutil.h"
 
 void gotoxy(short x, short y){
 
@@ -23,7 +24,7 @@ v[i]=0;
 int main() {
 
     int cantDisp=5,
-    legajosDisponibles[cantDisp]={1111,0,3333,4444,5555},
+    legajosDisponibles[]={1111,0,3333,4444,5555},
     operariosParaRotar[5]={4,5,0,0,8}, legRotar,t=0, contDisp=0, contIngre=0,
     r=0, contdisp=0;
     //ponercero(operariosParaRotar, 6);
