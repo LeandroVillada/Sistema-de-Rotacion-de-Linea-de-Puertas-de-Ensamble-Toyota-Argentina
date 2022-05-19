@@ -1,5 +1,4 @@
 #include "Rotacion.h"
-#include<cstdio>
 
 // FUNCIONES ARCHIVOS
 

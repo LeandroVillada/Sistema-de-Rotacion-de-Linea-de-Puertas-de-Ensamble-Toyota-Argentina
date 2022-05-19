@@ -1,14 +1,12 @@
 #include "Empleados.h"
-#include <cstdio>
-#include <cstring>
-#include <iostream>
+
 
 // CONSTRUCTORES
 Empleados::Empleados()
 {
     _legajo = 0;
-    strcpy(_nombre, "");
-    strcpy(_apellido, "");
+    _nombre = "";
+    _apellido = "";
     _disponibilidad = true;
     _estado = true;
 }
@@ -67,9 +65,9 @@ int Empleados::cantidadRegistros()
 // SETTS
 void Empleados::setLegajo(int legajo) { _legajo = legajo; }
 
-void Empleados::setNombre(std::string nombre) { strcpy(_nombre, nombre.c_str()); }
+void Empleados::setNombre(std::string nombre) { _nombre = nombre; }
 
-void Empleados::setApellido(std::string apellido) { strcpy(_apellido, apellido.c_str()); }
+void Empleados::setApellido(std::string apellido) { _apellido = apellido; }
 
 void Empleados::setDisponibilidad(bool disponibilidad) { _disponibilidad = disponibilidad; }
 
@@ -78,9 +76,9 @@ void Empleados::setEstado(bool estado) { _estado = estado; }
 // GETTS
 int Empleados::getLegajo() { return _legajo; }
 
-const char *Empleados::getNombre() { return _nombre; }
+std::string Empleados::getNombre() { return _nombre; }
 
-const char *Empleados::getApellido() { return _apellido; }
+std::string Empleados::getApellido() { return _apellido; }
 
 bool Empleados::getDisponibilidad() { return _disponibilidad; }
 
@@ -115,7 +113,7 @@ bool Empleados::LegajoDisponible(int legajo)
     Empleados reg;
     int pos = buscarPosicionLegajo(legajo);
     reg.leerDeDisco(pos);
-    if ((reg.getEstado()) && (reg.getDisponibilidad()))
+    if ((reg.getEstado())&&(reg.getDisponibilidad()))
         return true;
     else
         return false;
@@ -123,11 +121,13 @@ bool Empleados::LegajoDisponible(int legajo)
 
 bool Empleados::buscarLegajoInactivo(int legajo)
 {
-    Empleados reg;
-    int pos = reg.buscarPosicionLegajo(legajo);
-    reg.leerDeDisco(pos);
-    if (!reg.getEstado())
-        return true;
-    else
-        return false;
-}
+        Empleados reg;
+        int pos = reg.buscarPosicionLegajo(legajo);
+        reg.leerDeDisco(pos);
+        if (!reg.getEstado())
+            return true;
+        else
+            return false;
+    }
+
+
