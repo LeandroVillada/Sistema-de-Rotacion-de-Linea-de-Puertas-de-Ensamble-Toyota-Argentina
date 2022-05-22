@@ -42,6 +42,11 @@ int main()
             /// menu armar rotacion
             submenuRotation();
             break;
+        case 5:
+            /// menu armar rotacion
+            cargarDatosDeInicio();
+            system("pause>nul");
+            break;
         case 0:
             return 0;
         default:
