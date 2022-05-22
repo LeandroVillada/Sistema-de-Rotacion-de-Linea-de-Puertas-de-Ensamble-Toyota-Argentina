@@ -4,6 +4,7 @@ void submenuRotation()
     int opciones;
     while (true)
     {
+        system("color 6");
         system("cls");
         cout << "Armado de Rotacion" << endl;
         cout << endl;

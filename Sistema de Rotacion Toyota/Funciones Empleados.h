@@ -5,3 +5,7 @@
 using namespace std;
 
 void cargarNuevo();
+
+void listarOperarios();
+
+void cargarDatosDeInicio();
