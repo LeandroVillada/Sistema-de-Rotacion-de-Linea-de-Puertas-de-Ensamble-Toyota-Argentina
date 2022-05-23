@@ -22,8 +22,6 @@ void submenuRotation()
         {
 
         case 1:
-            // agregarDispTM ();
-            cout << "funcion agregar tm disponibles" << endl;
             agregarEmpleadosDisponiblesParaRotar();
             system("pause>nul");
             break;
