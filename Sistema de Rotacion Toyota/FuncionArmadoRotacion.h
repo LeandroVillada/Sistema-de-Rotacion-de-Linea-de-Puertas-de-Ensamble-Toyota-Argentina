@@ -4,15 +4,13 @@
 #include <cstdlib>
 
 using namespace std;
-#include <windows.h>
-#include "rlutil.h"
 
+#include "Empleados.h"
+#include "Funciones Disponibilidad.h"
+#include "Funciones Globales.h"
 
-void gotoxy(short x, short y);
+void listarLegajosDisponiblesParaRotacion(int *, int);
 
-void ponercero(int v[], int tam);
-void mostrarMensaje(string mensaje, int color, int colorFondo);
+void listarLegajosCargadosParaRotacion(int *);
 
-void confirmarSalida();
-
-int agregarEmpleadosDisponiblesParaRotar();
+void agregarEmpleadosDisponiblesParaRotar();

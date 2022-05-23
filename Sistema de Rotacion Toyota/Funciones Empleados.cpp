@@ -50,3 +50,35 @@ void listarOperarios()
         }
     }
 }
+
+void cargarDatosDeInicio()
+{
+    // BORRA TODOS LOS DATOS CARGADOS ANTERIORMENTE
+    FILE *p;
+    p = fopen("Empleados.dat", "wb");
+    fclose(p);
+
+    Empleados reg;
+    for (int i = 1; i <= 40; i++)
+    {
+        reg.setLegajo(i);
+        if (i == 10 || i == 20 || i == 30 || i == 40)
+        {
+            reg.setDisponibilidad(false);
+        }
+        else
+        {
+            reg.setDisponibilidad(true);
+        }
+        if (i == 25)
+        {
+            reg.setEstado(false);
+        }
+        else
+        {
+            reg.setEstado(true);
+        }
+        reg.grabarEnDisco();
+    }
+    std::cout<<"DATOS DE PRUEBA CARGADO.\n";
+}
