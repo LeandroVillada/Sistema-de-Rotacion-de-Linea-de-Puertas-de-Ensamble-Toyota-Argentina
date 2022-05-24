@@ -8,7 +8,6 @@ Fecha::Fecha()
     _anio = now->tm_year + 1900;
     _mes = now->tm_mon + 1;
     _dia = now->tm_mday;
-    _fecha_correcta = true;
     _dia_maximo = 0;
 }
 Fecha::Fecha(int dia, int mes, int anio)
@@ -16,7 +15,6 @@ Fecha::Fecha(int dia, int mes, int anio)
     _dia = dia;
     _mes = mes;
     _anio = anio;
-    _fecha_correcta = true;
     _dia_maximo = 0;
 }
 // SETTERS
@@ -115,10 +113,10 @@ bool Fecha::Cargar()
         }
         if (_dia >= 1 && _dia <= _dia_maximo)
         {
-            _fecha_correcta = 1;
+            return true;
         }
     }
-    return _fecha_correcta;
+    return false;
 }
 void Fecha::Mostrar()
 {
