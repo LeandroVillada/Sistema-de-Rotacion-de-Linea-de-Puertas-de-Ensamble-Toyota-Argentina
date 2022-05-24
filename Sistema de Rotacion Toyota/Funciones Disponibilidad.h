@@ -4,6 +4,5 @@
 
 int contarLegajosActivosDisponibles();
 void asignarLegajosAlVector(int *, int);
-int *cargarOperariosDisponibles();
 
 void listarOperariosDisponiblesParaRotar();

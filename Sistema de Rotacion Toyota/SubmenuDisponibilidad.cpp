@@ -29,7 +29,6 @@ void subMenuDisponibilidad()
 
         case 2:
             // funcion
-            cargarOperariosDisponibles();
             system("pause>nul");
             break;
 
