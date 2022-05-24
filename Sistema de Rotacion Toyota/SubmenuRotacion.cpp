@@ -2,6 +2,14 @@
 void submenuRotation()
 {
     int opciones;
+
+    int *legajosDisponibles;
+    legajosDisponibles = new int[contarLegajosActivosDisponibles()];
+    vectorEnCero(legajosDisponibles,contarLegajosActivosDisponibles());
+    
+    int operariosParaRotar[26];
+    vectorEnCero(operariosParaRotar,26);
+
     while (true)
     {
         system("color 6");
@@ -22,21 +30,18 @@ void submenuRotation()
         {
 
         case 1:
-            // agregarDispTM ();
-            cout << "funcion agregar tm disponibles" << endl;
-            agregarEmpleadosDisponiblesParaRotar();
+            agregarEmpleadosDisponiblesParaRotar(legajosDisponibles, operariosParaRotar);
             system("pause>nul");
             break;
 
         case 2:
-            // eliminarDispTM ();
             cout << "funcion eliminar tm faltantes" << endl;
             system("pause>nul");
             break;
 
         case 3:
-            // mostrarTMDdisponibles ();
-            cout << "funcion mostrar disponibles para rotacion" << endl;
+            listarLegajosCargadosParaRotacion(operariosParaRotar);
+            listarLegajosDisponiblesParaRotacion(legajosDisponibles, contarLegajosActivosDisponibles());
             system("pause>nul");
             break;
 
@@ -47,6 +52,7 @@ void submenuRotation()
             break;
 
         case 0:
+            delete legajosDisponibles;
             return;
         default:
             cout << "OPCION INGRESADA INCORRECTA.";

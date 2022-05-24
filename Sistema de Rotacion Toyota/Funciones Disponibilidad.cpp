@@ -26,20 +26,6 @@ void asignarLegajosAlVector(int *vector, int tam)
         }
     }
 }
-int *cargarOperariosDisponibles()
-{
-    Empleados reg;
-    int *disponibles;
-    disponibles = new int[contarLegajosActivosDisponibles()];
-    if (disponibles == NULL)
-    {
-        std::cout << "NO SE PUDO ASIGNAR MEMORIA.\n";
-        return NULL;
-    }
-    asignarLegajosAlVector(disponibles, contarLegajosActivosDisponibles());
-    std::cout << "VECTOR CARGADO.\n";
-    return disponibles;
-}
 
 void listarOperariosDisponiblesParaRotar()
 {
