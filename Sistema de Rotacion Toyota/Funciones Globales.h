@@ -1,10 +1,13 @@
 #pragma once
 
 #include <cstdio>
+#include <ctime>
 
 void cargarCadenas(char *pal, int tam);
 
 void vectorEnCero(int *, int);
+
+void cargarAleatorio(int *, int, int);
 
 #include <iostream>
 #include <windows.h>
