@@ -32,20 +32,17 @@ void listarLegajosCargadosParaRotacion(int *operariosParaRotar)
     }
 }
 
-void agregarEmpleadosDisponiblesParaRotar()
+void agregarEmpleadosDisponiblesParaRotar(int *legajosDisponibles, int *operariosParaRotar)
 {
     int cantidadDisponible = contarLegajosActivosDisponibles();
-    int *legajosDisponibles;
-    legajosDisponibles = new int[cantidadDisponible];
-    if (legajosDisponibles == NULL)
-    {
-        std::cout << "NO SE PUDO ASIGNAR MEMORIA.\n";
-        return;
-    }
+    // legajosDisponibles = new int[cantidadDisponible];
+    // if (legajosDisponibles == NULL)
+    // {
+    //     std::cout << "NO SE PUDO ASIGNAR MEMORIA.\n";
+    //     return;
+    // }
     asignarLegajosAlVector(legajosDisponibles, cantidadDisponible);
 
-    // ESTE VECTOR PUEDE SER TRAIDO FUERA DE LA FUNCION PARA USARLO
-    int operariosParaRotar[26];
     vectorEnCero(operariosParaRotar, 26);
 
     int legajoIngresado, posicion;

@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
     // Variables
-    int opc;
+    int opciones;
 
     // Desarrollo del Programa
     while (true)
@@ -18,13 +18,13 @@ int main()
         cout << "MENU PRINCIPAL" << endl;
         cout << "\n\t1. Cargar Operario nuevo." << endl;
         cout << "\n\t2. Modificar datos de Empleados." << endl;
-        cout << "\n\t3. Modificar Disponibilid para Rotacion." << endl;
+        cout << "\n\t3. Modificar Disponibilidad para Rotacion." << endl;
         cout << "\n\t4. Armar Rotacion." << endl; /// armar archivo con menu
         cout << "\n\t0. Salir del Programa" << endl;
         cout << "\n\tSELECCIONE UNA OPCION:  ";
-        cin >> opc;
+        cin >> opciones;
         system("cls");
-        switch (opc)
+        switch (opciones)
         {
         case 1:
             /// menu para cargar un nuevo legajo

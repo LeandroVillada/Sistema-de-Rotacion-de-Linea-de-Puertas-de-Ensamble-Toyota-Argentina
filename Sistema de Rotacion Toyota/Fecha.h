@@ -8,7 +8,6 @@ private:
     int _mes;
     int _anio;
     int _dia_maximo;
-    bool _fecha_correcta;
 
 public:
     Fecha();

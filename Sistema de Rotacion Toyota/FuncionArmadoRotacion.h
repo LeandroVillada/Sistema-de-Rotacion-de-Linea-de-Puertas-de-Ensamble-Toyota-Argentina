@@ -13,4 +13,4 @@ void listarLegajosDisponiblesParaRotacion(int *, int);
 
 void listarLegajosCargadosParaRotacion(int *);
 
-void agregarEmpleadosDisponiblesParaRotar();
+void agregarEmpleadosDisponiblesParaRotar(int *,int *);
