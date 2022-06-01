@@ -13,4 +13,15 @@ void listarLegajosDisponiblesParaRotacion(int *, int);
 
 void listarLegajosCargadosParaRotacion(int *);
 
-void agregarEmpleadosDisponiblesParaRotar(int *,int *);
+void agregarEmpleadosDisponiblesParaRotar(int *, int *);
+
+#include "Rotacion.h"
+
+bool validarLegajoRepetido(int *, int);
+void cargarBloqueUno(int (*)[26], int *);
+void cargarBloqueDos(int (*)[26], int *);
+void cargarBloqueTres(int (*)[26], int *);
+void cargarBloqueCuatro(int (*)[26], int *);
+
+void mostrarRotacion();
+void armarRotacion(int *);

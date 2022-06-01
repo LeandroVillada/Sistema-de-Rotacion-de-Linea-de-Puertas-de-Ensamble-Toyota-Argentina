@@ -3,8 +3,11 @@
 class Rotacion
 {
 private:
-    int _legajo;
-    int _rotacion[26][4];
+    int _operarios[26];
+    int _semanaUno[26];
+    int _semanaDos[26];
+    int _semanaTres[26];
+    int _semanaCuatro[26];
 
 public:
     // FUNCIONES ARCHIVOS
@@ -12,13 +15,20 @@ public:
     bool grabarEnDisco();
     bool modificarEnDisco(int);
     int cantidadRegistros();
+    bool leerDeDiscoBKP(int);
     bool grabarEnBackUp();
     bool restaurarBackUP();
     bool exportar();
     // SETTS
-    void setLegajo(int);
-    void setRotacion(int*);
+    void setOperarios(int *);
+    void setSemanaUno(int *);
+    void setSemanaDos(int *);
+    void setSemanaTres(int *);
+    void setSemanaCuatro(int *);
     // GETTS
-    int getLegajo();
-    int **getRotacion();
+    int *getOperarios();
+    int *getSemanaUno();
+    int *getSemanaDos();
+    int *getSemanaTres();
+    int *getSemanaCuatro();
 };

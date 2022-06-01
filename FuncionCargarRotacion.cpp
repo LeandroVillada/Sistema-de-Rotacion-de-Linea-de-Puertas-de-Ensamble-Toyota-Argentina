@@ -3,7 +3,7 @@
 using namespace std;
 
 // Prototipos de Funciones
-int cargarPosicionAleatoria(int limite);
+int cargarAleatorio(int limite);
 bool validarLegajoRepetido(int *, int);
 void cargarBloqueUno(int (*)[26], int *);
 void cargarBloqueDos(int (*)[26], int *);
@@ -50,7 +50,7 @@ int main()
 }
 
 // Desarrollo de Funciones
-int cargarPosicionAleatoria(int limite)
+int cargarAleatorio(int limite)
 {
     return (rand() % limite);
 }
@@ -75,12 +75,12 @@ void cargarBloqueUno(int rotacion[][26], int *operariosParaRotar)
     srand(time(NULL));
     for (int i = 0; i < 26; i++)
     {
-        posicionGenerada = cargarPosicionAleatoria(26);
+        posicionGenerada = cargarAleatorio(26);
         cout << "NUMERO GENERADO: " << posicionGenerada << endl;
         while (validarLegajoRepetido(rotacion[0], operariosParaRotar[posicionGenerada]))
         {
             cout << "NUMERO REPETIDO: " << operariosParaRotar[posicionGenerada] << endl;
-            posicionGenerada = cargarPosicionAleatoria(26);
+            posicionGenerada = cargarAleatorio(26);
             cout << "NUMERO GENERADO: " << posicionGenerada << endl;
             cout << "SE CAMBIO POR: " << operariosParaRotar[posicionGenerada] << endl;
             contador++;
@@ -125,12 +125,12 @@ void cargarBloqueDos(int rotacion[][26], int *operariosParaRotar)
     srand(time(NULL));
     for (int i = 0; i < 26; i++)
     {
-        posicionGenerada = cargarPosicionAleatoria(26);
+        posicionGenerada = cargarAleatorio(26);
         cout << "NUMERO GENERADO: " << posicionGenerada << endl;
         while (validarLegajoRepetido(rotacion[1], operariosParaRotar[posicionGenerada]) || validarOperacionEspejosRepetidas(rotacion[0], operariosParaRotar[posicionGenerada], i))
         {
             cout << "NUMERO REPETIDO: " << operariosParaRotar[posicionGenerada] << endl;
-            posicionGenerada = cargarPosicionAleatoria(26);
+            posicionGenerada = cargarAleatorio(26);
             cout << "NUMERO GENERADO: " << posicionGenerada << endl;
             cout << "SE CAMBIO POR: " << operariosParaRotar[posicionGenerada] << endl;
             contador++;
@@ -156,12 +156,12 @@ void cargarBloqueTres(int rotacion[][26], int *operariosParaRotar)
     srand(time(NULL));
     for (int i = 0; i < 26; i++)
     {
-        posicionGenerada = cargarPosicionAleatoria(26);
+        posicionGenerada = cargarAleatorio(26);
         cout << "NUMERO GENERADO: " << posicionGenerada << endl;
         while (validarLegajoRepetido(rotacion[2], operariosParaRotar[posicionGenerada]) || validarOperacionEspejosRepetidas(rotacion[0], operariosParaRotar[posicionGenerada], i) || validarOperacionEspejosRepetidas(rotacion[1], operariosParaRotar[posicionGenerada], i))
         {
             cout << "NUMERO REPETIDO: " << operariosParaRotar[posicionGenerada] << endl;
-            posicionGenerada = cargarPosicionAleatoria(26);
+            posicionGenerada = cargarAleatorio(26);
             cout << "NUMERO GENERADO: " << posicionGenerada << endl;
             cout << "SE CAMBIO POR: " << operariosParaRotar[posicionGenerada] << endl;
             contador++;
@@ -186,12 +186,12 @@ void cargarBloqueCuatro(int rotacion[][26], int *operariosParaRotar)
     srand(time(NULL));
     for (int i = 0; i < 26; i++)
     {
-        posicionGenerada = cargarPosicionAleatoria(26);
+        posicionGenerada = cargarAleatorio(26);
         cout << "NUMERO GENERADO: " << posicionGenerada << endl;
         while (validarLegajoRepetido(rotacion[3], operariosParaRotar[posicionGenerada]) || validarOperacionEspejosRepetidas(rotacion[0], operariosParaRotar[posicionGenerada], i) || validarOperacionEspejosRepetidas(rotacion[1], operariosParaRotar[posicionGenerada], i) || validarOperacionEspejosRepetidas(rotacion[2], operariosParaRotar[posicionGenerada], i))
         {
             cout << "NUMERO REPETIDO: " << operariosParaRotar[posicionGenerada] << endl;
-            posicionGenerada = cargarPosicionAleatoria(26);
+            posicionGenerada = cargarAleatorio(26);
             cout << "NUMERO GENERADO: " << posicionGenerada << endl;
             cout << "SE CAMBIO POR: " << operariosParaRotar[posicionGenerada] << endl;
             contador++;
