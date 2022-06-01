@@ -5,10 +5,10 @@ void submenuRotation()
 
     int *legajosDisponibles;
     legajosDisponibles = new int[contarLegajosActivosDisponibles()];
-    vectorEnCero(legajosDisponibles,contarLegajosActivosDisponibles());
-    
+    vectorEnCero(legajosDisponibles, contarLegajosActivosDisponibles());
+
     int operariosParaRotar[26];
-    vectorEnCero(operariosParaRotar,26);
+    vectorEnCero(operariosParaRotar, 26);
 
     while (true)
     {
@@ -35,7 +35,7 @@ void submenuRotation()
             break;
 
         case 2:
-            cout << "funcion eliminar tm faltantes" << endl;
+            mostrarRotacion();
             system("pause>nul");
             break;
 
@@ -46,8 +46,7 @@ void submenuRotation()
             break;
 
         case 4:
-
-            cout << "funcion armar rotacion" << endl;
+            armarRotacion(operariosParaRotar);
             system("pause>nul");
             break;
 

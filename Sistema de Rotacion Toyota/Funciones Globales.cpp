@@ -24,14 +24,9 @@ void vectorEnCero(int *vector, int tam)
     }
 }
 
-void cargarAleatorio(int *v, int tam, int limite)
+int cargarAleatorio(int limite)
 {
-    int i;
-    srand(time(NULL));
-    for (i = 0; i < tam; i++)
-    {
-        v[i] = (rand() % limite) + 1;
-    }
+    return (rand() % limite);
 }
 
 void gotoxy(short x, short y)

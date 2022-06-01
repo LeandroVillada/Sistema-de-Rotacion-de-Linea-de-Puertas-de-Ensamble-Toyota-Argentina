@@ -7,22 +7,22 @@ void cargarCadenas(char *pal, int tam);
 
 void vectorEnCero(int *, int);
 
-void cargarAleatorio(int *, int, int);
+int cargarAleatorio(int);
 
 #include <iostream>
 #include <windows.h>
 #include "rlutil.h"
 
-void gotoxy(short x, short y);
+void gotoxy(short, short);
 
-void mostrarMensaje(std::string mensaje, int color, int colorFondo);
+void mostrarMensaje(std::string, int, int);
 
 void confirmarSalida();
 
-void recuadro(short iniX, short iniY, short ancho, short alto, short colorLinea = 15, short colorFondo = 11);
+void recuadro(short, short, short, short, short, short);
 
-void separadorH(short iniX, short iniY, short ancho, short colorLinea = rlutil::WHITE, short colorFondo = rlutil::BLACK);
+void separadorH(short, short, short, short, short, short);
 
-void separadorV(short iniX, short iniY, short alto, short colorLinea = rlutil::WHITE, short colorFondo = rlutil::BLACK);
+void separadorV(short, short, short, short, short, short);
 
-bool AjustarVentana(int Ancho, int Alto);
+bool AjustarVentana(int, int);
