@@ -132,37 +132,37 @@ void Rotacion::setOperarios(int *operarios)
         operarios[i] = operarios[i];
     }
 }
-void Rotacion::setSemanaUno(int *semana)
+void Rotacion::setBloqueUno(int *Bloque)
 {
     for (int i = 0; i < 26; i++)
     {
-        _semanaUno[i] = semana[i];
+        _bloqueUno[i] = Bloque[i];
     }
 }
-void Rotacion::setSemanaDos(int *semana)
+void Rotacion::setBloqueDos(int *Bloque)
 {
     for (int i = 0; i < 26; i++)
     {
-        _semanaDos[i] = semana[i];
+        _bloqueDos[i] = Bloque[i];
     }
 }
-void Rotacion::setSemanaTres(int *semana)
+void Rotacion::setBloqueTres(int *Bloque)
 {
     for (int i = 0; i < 26; i++)
     {
-        _semanaTres[i] = semana[i];
+        _bloqueTres[i] = Bloque[i];
     }
 }
-void Rotacion::setSemanaCuatro(int *semana)
+void Rotacion::setBloqueCuatro(int *Bloque)
 {
     for (int i = 0; i < 26; i++)
     {
-        _semanaCuatro[i] = semana[i];
+        _bloqueCuatro[i] = Bloque[i];
     }
 }
 // GETTS
 int *Rotacion::getOperarios() { return _operarios; }
-int *Rotacion::getSemanaUno() { return _semanaUno; }
-int *Rotacion::getSemanaDos() { return _semanaDos; }
-int *Rotacion::getSemanaTres() { return _semanaTres; }
-int *Rotacion::getSemanaCuatro() { return _semanaCuatro; }
+int *Rotacion::getBloqueUno() { return _bloqueUno; }
+int *Rotacion::getBloqueDos() { return _bloqueDos; }
+int *Rotacion::getBloqueTres() { return _bloqueTres; }
+int *Rotacion::getBloqueCuatro() { return _bloqueCuatro; }
