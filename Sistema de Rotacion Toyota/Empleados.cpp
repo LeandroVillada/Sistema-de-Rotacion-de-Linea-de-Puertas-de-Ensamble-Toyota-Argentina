@@ -131,3 +131,17 @@ bool Empleados::buscarLegajoInactivo(int legajo)
     else
         return false;
 }
+
+const char *Empleados::buscarApellidoPorLegajo(int legajo)
+{
+    Empleados aux;
+    aux.leerDeDisco(aux.buscarPosicionLegajo(legajo));
+    return aux.getApellido();
+}
+
+const char *Empleados::buscarNombrePorLegajo(int legajo)
+{
+    Empleados aux;
+    aux.leerDeDisco(aux.buscarPosicionLegajo(legajo));
+    return aux.getNombre();
+}

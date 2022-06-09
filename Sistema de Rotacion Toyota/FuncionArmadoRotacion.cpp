@@ -194,20 +194,43 @@ void cargarBloqueCuatro(int rotacion[][26], int *operariosParaRotar)
     }
 }
 
+void mostrarRotacionUno()
+{
+    Empleados aux;
+    Rotacion reg;
+    reg.leerDeDisco(0);
+    int y = 0;
+    for (int i = 0; i < 26; i++)
+    {
+        gotoxy(5, 5 + y);
+        // cout << "PUESTO: " << i + 1 << "\t LEGAJO: " << reg.getBloqueUno()[i];
+        cout << i + 1 << "\t" << reg.getBloqueUno()[i] << "\t";
+        cout << aux.buscarApellidoPorLegajo(reg.getBloqueUno()[i]);
+        cout << "\t" << aux.buscarNombrePorLegajo(reg.getBloqueUno()[i]);
+        y++;
+    }
+}
+
 void mostrarRotacion()
 {
     Rotacion reg;
     reg.leerDeDisco(0);
+    Empleados aux;
 
     int y = 0;
     gotoxy(3, 3);
     mostrarMensaje("Bloque 1: ", 15, 9);
-    for (int i = 0; i < 26; i++)
-    {
-        gotoxy(5, 5 + y);
-        cout << "PUESTO: " << i + 1 << "\t LEGAJO: " << reg.getBloqueUno()[i];
-        y++;
-    }
+    mostrarRotacionUno();
+    // for (int i = 0; i < 26; i++)
+    // {
+    //     gotoxy(5, 5 + y);
+    //     // cout << "PUESTO: " << i + 1 << "\t LEGAJO: " << reg.getBloqueUno()[i];
+    //     cout << i + 1 << "\t" << reg.getBloqueUno()[i] << "\t";
+    //     cout << aux.buscarApellidoPorLegajo(reg.getBloqueUno()[i]);
+    //     cout << "\t" << aux.buscarNombrePorLegajo(reg.getBloqueUno()[i]);
+    //     y++;
+    // }
+    system("pause");
     y = 0;
     gotoxy(33, 3);
     mostrarMensaje("Bloque 2: ", 15, 9);
