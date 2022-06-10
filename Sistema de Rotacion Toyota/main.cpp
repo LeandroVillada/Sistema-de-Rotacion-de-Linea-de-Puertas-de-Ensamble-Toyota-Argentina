@@ -8,13 +8,6 @@ using namespace std;
 
 int main()
 {
-    Empleados aux;
-    int pos = aux.buscarPosicionLegajo(22);
-    cout << pos << endl;
-    aux.leerDeDisco(pos);
-    cout << aux.getApellido() << endl;
-    system("pause");
-
     // Variables
     int opciones;
 

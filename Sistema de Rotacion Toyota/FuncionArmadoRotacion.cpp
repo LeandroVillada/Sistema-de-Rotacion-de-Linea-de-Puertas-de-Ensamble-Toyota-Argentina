@@ -205,8 +205,8 @@ void mostrarRotacionUno()
         gotoxy(5, 5 + y);
         // cout << "PUESTO: " << i + 1 << "\t LEGAJO: " << reg.getBloqueUno()[i];
         cout << i + 1 << "\t" << reg.getBloqueUno()[i] << "\t";
-        cout << aux.buscarApellidoPorLegajo(reg.getBloqueUno()[i]);
-        cout << "\t" << aux.buscarNombrePorLegajo(reg.getBloqueUno()[i]);
+        cout <<  "\t" << aux.buscarEmpleadoPorLegajo(reg.getBloqueUno()[i]).getNombre();
+        cout <<  "\t" << aux.buscarEmpleadoPorLegajo(reg.getBloqueUno()[i]).getApellido();
         y++;
     }
 }

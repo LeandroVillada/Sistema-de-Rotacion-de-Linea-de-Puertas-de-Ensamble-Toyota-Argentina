@@ -36,6 +36,5 @@ public:
     bool cargar();
     void mostrar();
     bool buscarLegajoInactivo(int);
-    const char*buscarApellidoPorLegajo(int);
-    const char*buscarNombrePorLegajo(int);
+    Empleados buscarEmpleadoPorLegajo(int);
 };
