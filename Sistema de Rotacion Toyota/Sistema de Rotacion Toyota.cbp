@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Empleados.cpp" />
 		<Unit filename="Empleados.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
 		<Unit filename="FuncionArmadoRotacion.cpp" />
 		<Unit filename="FuncionArmadoRotacion.h" />
 		<Unit filename="Funciones Disponibilidad.cpp" />

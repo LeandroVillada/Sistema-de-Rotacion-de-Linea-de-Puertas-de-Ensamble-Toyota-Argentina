@@ -1,5 +1,8 @@
 #pragma once
 #include <ctime>
+#include <iostream>
+#include <cstring>
+using namespace std;
 
 class Fecha
 {
@@ -7,7 +10,8 @@ private:
     int _dia;
     int _mes;
     int _anio;
-    int _dia_maximo;
+    bool esbisiesto(int);
+    void NumeroSerieaFecha(int);
 
 public:
     Fecha();
@@ -26,7 +30,19 @@ public:
     bool operator!=(Fecha);
     bool operator>(Fecha);
     bool operator<(Fecha);
+    Fecha operator+(int);
+    int operator -(Fecha &);
+    void operator +=(int);
+    int operator==(const char*);
+    friend istream & operator>>(istream &, Fecha &);
+    friend ostream & operator<<(ostream &, Fecha &);
     // FUNCIONES
+    int cantDiasMes();
+    int cantDiasHabilesMes();
+    int cantAniosHastaHoy();
+    int NumeroSerie();
+    void MostrarFecha();
+    void MostrarFechaTexto();
+    bool validarFecha();
     bool Cargar();
-    void Mostrar();
 };
