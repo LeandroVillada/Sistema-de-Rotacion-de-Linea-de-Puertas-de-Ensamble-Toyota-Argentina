@@ -12,7 +12,7 @@ void submenuRotation()
 
     while (true)
     {
-        system("color 6");
+        system("color 4");
         system("cls");
         cout << "Armado de Rotacion" << endl;
         cout << endl;

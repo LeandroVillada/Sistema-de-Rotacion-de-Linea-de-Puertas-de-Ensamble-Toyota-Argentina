@@ -15,6 +15,8 @@ void listarLegajosCargadosParaRotacion(int *);
 
 void agregarEmpleadosDisponiblesParaRotar(int *, int *);
 
+void mostrarMensajeCargaIngresados(int);
+
 #include "Rotacion.h"
 
 bool validarLegajoRepetido(int *, int);

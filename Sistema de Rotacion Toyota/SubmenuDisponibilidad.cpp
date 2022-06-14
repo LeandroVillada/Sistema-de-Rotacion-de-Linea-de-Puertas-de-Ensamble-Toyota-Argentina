@@ -8,6 +8,7 @@ void subMenuDisponibilidad()
     int opcion;
     while (true)
     {
+        system("color 2");
         system("cls");
         cout << "MENU CAMBIO DE DISPONIBILIDAD" << endl;
 

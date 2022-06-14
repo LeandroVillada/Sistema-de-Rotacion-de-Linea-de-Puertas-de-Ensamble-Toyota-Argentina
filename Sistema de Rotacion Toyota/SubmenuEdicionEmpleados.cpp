@@ -6,6 +6,7 @@ void menuEmpleadosEdicion()
     int opciones;
     while (true)
     {
+        system("color 6");
         system("cls");
         cout << "MENU EDICCION DE EMPLEADOS" << endl;
         cout << "\n\t1. Dar de Baja un Legajo." << endl;

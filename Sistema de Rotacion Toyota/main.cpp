@@ -14,7 +14,7 @@ int main()
     // Desarrollo del Programa
     while (true)
     {
-        system("color 6");
+        system("color 3");
         system("cls");
         cout << "MENU PRINCIPAL" << endl;
         cout << "\n\t1. Cargar Operario nuevo." << endl;
