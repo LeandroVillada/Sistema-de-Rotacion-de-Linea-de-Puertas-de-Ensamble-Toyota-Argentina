@@ -122,6 +122,7 @@ void editarNombreEmpleado()
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     reg.modificarEnDisco(pos);
     cout << "Nombre editado con exito." << endl;
+
 }
 
 

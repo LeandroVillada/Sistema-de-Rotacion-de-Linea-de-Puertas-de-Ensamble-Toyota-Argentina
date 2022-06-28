@@ -10,8 +10,9 @@ void listarLegajosDisponiblesParaRotacion(int *legajosDisponibles, int cantidadD
     {
         if (legajosDisponibles[q] != 0)
         {
-            gotoxy(20, 5 + y);
-            cout<<emp.buscarEmpleadoPorLegajo(legajosDisponibles[q]).getApellido()<<"\t";
+            gotoxy(10, 5 + y);
+            cout<<emp.buscarEmpleadoPorLegajo(legajosDisponibles[q]).getApellido();
+            gotoxy(35, 5 + y);
             cout << legajosDisponibles[q] << endl;
             y++;
         }
@@ -28,8 +29,9 @@ void listarLegajosCargadosParaRotacion(int *operariosParaRotar)
     {
         if (operariosParaRotar[w] != 0)
         {
-            gotoxy(90, 5 + y);
-            cout<<emp.buscarEmpleadoPorLegajo(operariosParaRotar[w]).getApellido()<<"\t";
+            gotoxy(85, 5 + y);
+            cout<<emp.buscarEmpleadoPorLegajo(operariosParaRotar[w]).getApellido();
+            gotoxy(105, 5 + y);
             cout << operariosParaRotar[w] << endl;
             y++;
         }
@@ -167,7 +169,7 @@ void cargarBloqueDos(int rotacion[][26], int *operariosParaRotar)
 {
 
     int posicionGenerada;
-    srand(time(NULL));
+    srand(120);
     for (int i = 0; i < 26; i++)
     {
         posicionGenerada = cargarAleatorio(26);
@@ -184,7 +186,7 @@ void cargarBloqueTres(int rotacion[][26], int *operariosParaRotar)
 {
 
     int posicionGenerada;
-    srand(time(NULL));
+    srand(300);
     for (int i = 0; i < 26; i++)
     {
         posicionGenerada = cargarAleatorio(26);
@@ -200,7 +202,7 @@ void cargarBloqueCuatro(int rotacion[][26], int *operariosParaRotar)
 {
 
     int posicionGenerada;
-    srand(time(NULL));
+    srand(450);
     for (int i = 0; i < 26; i++)
     {
         posicionGenerada = cargarAleatorio(26);
@@ -218,8 +220,8 @@ void encabezado(){
     cout<<endl;
     cout <<" PUESTO"<<"\t"<<"\t";
     cout <<"LEGAJO"<<"\t"<<"\t";
-    cout <<"APELLIDO Y NOMBRE"<<endl;
-    cout <<"--------------------------------------------------"<<endl;
+    cout <<"APELLIDO             NOMBRE"<<endl;
+    cout <<"---------------------------------------------------------------"<<endl;
 }
 
 void mostrarRotacionUno()
@@ -227,14 +229,21 @@ void mostrarRotacionUno()
     Empleados aux;
     Rotacion reg;
     reg.leerDeDisco(0);
+    int y=0;
 
     for (int i = 0; i < 26; i++)
     {
-        cout << "   "<<i + 1 << "\t" << "          "<< reg.getBloqueUno()[i] << "\t";
-        cout << "            "<<aux.buscarEmpleadoPorLegajo(reg.getBloqueUno()[i]).getApellido()<<" ";
+        gotoxy(4, 4 + y);
+        cout <<i + 1;
+        gotoxy(19, 4 + y);
+        cout << reg.getBloqueUno()[i];
+        gotoxy(33, 4 + y);
+        cout <<aux.buscarEmpleadoPorLegajo(reg.getBloqueUno()[i]).getApellido();
+        gotoxy(54, 4 + y);
         cout <<aux.buscarEmpleadoPorLegajo(reg.getBloqueUno()[i]).getNombre()<<endl;
+        y++;
     }
-    cout <<"--------------------------------------------------"<<endl;
+    cout <<"---------------------------------------------------------------"<<endl;
 }
 
 void mostrarRotacionDos()
@@ -242,14 +251,21 @@ void mostrarRotacionDos()
     Empleados aux;
     Rotacion reg;
     reg.leerDeDisco(0);
+    int y=0;
 
     for (int i = 0; i < 26; i++)
     {
-        cout << "   "<<i + 1 << "\t" << "          "<< reg.getBloqueDos()[i] << "\t";
-        cout << "            "<< aux.buscarEmpleadoPorLegajo(reg.getBloqueDos()[i]).getApellido()<<" ";
+        gotoxy(4, 34 + y);
+        cout <<i + 1;
+        gotoxy(19, 34 + y);
+        cout << reg.getBloqueDos()[i];
+        gotoxy(33, 34 + y);
+        cout << aux.buscarEmpleadoPorLegajo(reg.getBloqueDos()[i]).getApellido();
+        gotoxy(54, 34 + y);
         cout << aux.buscarEmpleadoPorLegajo(reg.getBloqueDos()[i]).getNombre()<<endl;
+        y++;
     }
-    cout <<"--------------------------------------------------"<<endl;
+    cout <<"---------------------------------------------------------------"<<endl;
 }
 
 void mostrarRotacionTres()
@@ -257,14 +273,21 @@ void mostrarRotacionTres()
     Empleados aux;
     Rotacion reg;
     reg.leerDeDisco(0);
+    int y=0;
 
     for (int i = 0; i < 26; i++)
     {
-        cout << "   "<< i + 1 << "\t" << "          "<< reg.getBloqueTres()[i] << "\t";
-        cout << "            "<< aux.buscarEmpleadoPorLegajo(reg.getBloqueTres()[i]).getApellido()<<" ";
+        gotoxy(4, 64 + y);
+        cout <<i + 1;
+        gotoxy(19, 64 + y);
+        cout << reg.getBloqueTres()[i];
+        gotoxy(33, 64 + y);
+        cout << aux.buscarEmpleadoPorLegajo(reg.getBloqueTres()[i]).getApellido();
+        gotoxy(54, 64 + y);
         cout << aux.buscarEmpleadoPorLegajo(reg.getBloqueTres()[i]).getNombre()<<endl;
+        y++;
     }
-    cout <<"--------------------------------------------------"<<endl;
+    cout <<"---------------------------------------------------------------"<<endl;
 }
 
 void mostrarRotacionCuatro()
@@ -272,14 +295,21 @@ void mostrarRotacionCuatro()
     Empleados aux;
     Rotacion reg;
     reg.leerDeDisco(0);
+    int y=0;
 
     for (int i = 0; i < 26; i++)
     {
-        cout << "   "<< i + 1 << "\t" << "          "<< reg.getBloqueCuatro()[i] << "\t";
-        cout << "            "<< aux.buscarEmpleadoPorLegajo(reg.getBloqueCuatro()[i]).getApellido()<<" ";
+        gotoxy(4, 94 + y);
+        cout << i + 1;
+        gotoxy(19, 94 + y);
+        cout << reg.getBloqueCuatro()[i];
+        gotoxy(33, 94 + y);
+        cout << aux.buscarEmpleadoPorLegajo(reg.getBloqueCuatro()[i]).getApellido();
+        gotoxy(54, 94 + y);
         cout << aux.buscarEmpleadoPorLegajo(reg.getBloqueCuatro()[i]).getNombre()<<endl;
+        y++;
     }
-    cout <<"--------------------------------------------------"<<endl;
+    cout <<"---------------------------------------------------------------"<<endl;
 }
 
 void mostrarRotacion()
@@ -323,10 +353,10 @@ void armarRotacion(int *operariosParaRotar)
     int rotacion[4][26] = {0};
     cargarBloqueUno(rotacion, operariosParaRotar);
     mostrarMensaje("BLOQUE 1 GENERADA\n", 15, 9);
-    Sleep(4000);
+    Sleep(2000);
     cargarBloqueDos(rotacion, operariosParaRotar);
     mostrarMensaje("BLOQUE 2 GENERADA\n", 15, 9);
-    Sleep(4000);
+    Sleep(3000);
     cargarBloqueTres(rotacion, operariosParaRotar);
     mostrarMensaje("BLOQUE 3 GENERADA\n", 15, 9);
     Sleep(4000);

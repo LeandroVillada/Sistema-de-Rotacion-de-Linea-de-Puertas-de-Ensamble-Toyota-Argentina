@@ -14,13 +14,12 @@ void submenuRotation()
     {
         system("color 4");
         system("cls");
-        cout << "Armado de Rotacion" << endl;
-        cout << endl;
-        cout << "\n\t1. Agregar TM a Disponibles para rotar: " << endl;
-        cout << "\t2. Eliminar TM de Disponibles para Rotar: " << endl;
-        cout << "\t3. Mostrar Lista Completa de TM Disponibles para Rotacion: " << endl;
-        cout << "\t4. Armar Rotacion Semanal: " << endl;
-        cout << "\t0. Volver al Menu Principal." << endl;
+        cout << "\t\t\tARMADO DE ROTACION" << endl;
+        cout << "\n\t1. Agregar TM a Disponibles para rotar" << endl;
+        cout << "\n\t2. Eliminar TM de Disponibles para Rotar" << endl;
+        cout << "\n\t3. Mostrar Lista Completa de TM Disponibles para Rotacion" << endl;
+        cout << "\n\t4. Armar Rotacion Semanal" << endl;
+        cout << "\n\t0. Volver al Menu Principal" << endl<<endl;
 
         cout << "\nSeleccione una Opcion:  ";
         cin >> opciones;

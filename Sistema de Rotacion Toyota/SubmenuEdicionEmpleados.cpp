@@ -8,12 +8,13 @@ void menuEmpleadosEdicion()
     {
         system("color 6");
         system("cls");
-        cout << "MENU EDICCION DE EMPLEADOS" << endl;
-        cout << "\n\t1. Dar de Baja un Legajo." << endl;
-        cout << "\n\t2. Dar de Alta un Legajo." << endl;
-        cout << "\n\t3. Editar Nombre." << endl;
-        cout << "\n\t4. Editar Apellido." << endl;
-        cout << "\n\t0. Volver al Menu de Principal" << endl;
+        cout << "\t\t\tMENU EDICCION DE EMPLEADOS" << endl;
+        cout << "\n\t1. Dar de Baja un Legajo" << endl;
+        cout << "\n\t2. Dar de Alta un Legajo" << endl;
+        cout << "\n\t3. Editar Nombre" << endl;
+        cout << "\n\t4. Editar Apellido" << endl;
+        cout << "\n\t5. Listar Operarios" << endl;
+        cout << "\n\t0. Volver al Menu de Principal" << endl<<endl;
         cout << "\nSeleccione una opcion :  ";
         cin >> opciones;
         system("cls");
