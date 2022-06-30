@@ -39,3 +39,61 @@ void listarOperariosDisponiblesParaRotar()
         }
     }
 }
+
+void disponible(){
+    Empleados reg;
+    int legajo;
+    std::cout << "Ingresar el Legajo: ";
+    std::cin >> legajo;
+    // Aqui comprobamos si el legajo ingresado no existe.
+    if (!reg.buscarLegajoExistente(legajo))
+    {
+        std::cout << "El legajo ingresado no existe." << std::endl;
+        return;
+    }
+    if (reg.LegajoDisponible(legajo))
+    {
+        std::cout << "El legajo ingresado ya se encuentra disponible." << std::endl;
+        return;
+    }
+
+    // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
+    int pos = reg.buscarPosicionLegajo(legajo);
+    // Leemos el registro en la posicion de la variable pos para obtener el registro.
+    reg.leerDeDisco(pos);
+    // Cambiamos el valor del estado del registro
+    reg.setDisponibilidad(true);
+    // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
+    reg.modificarEnDisco(pos);
+    std::cout << "Legajo se encuentra con disponibilidad." << std::endl;
+
+}
+
+void NOdisponible(){
+    Empleados reg;
+    int legajo;
+    std::cout << "Ingresar el Legajo: ";
+    std::cin >> legajo;
+    // Aqui comprobamos si el legajo ingresado no existe.
+    if (!reg.buscarLegajoExistente(legajo))
+    {
+        std::cout << "El legajo ingresado no existe." << std::endl;
+        return;
+    }
+    if (!reg.LegajoDisponible(legajo))
+    {
+        std::cout << "El legajo ingresado ya se encuentra no disponible." << std::endl;
+        return;
+    }
+
+    // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
+    int pos = reg.buscarPosicionLegajo(legajo);
+    // Leemos el registro en la posicion de la variable pos para obtener el registro.
+    reg.leerDeDisco(pos);
+    // Cambiamos el valor del estado del registro
+    reg.setDisponibilidad(false);
+    // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
+    reg.modificarEnDisco(pos);
+    std::cout << "Legajo se encuentra sin disponibilidad." << std::endl;
+
+}

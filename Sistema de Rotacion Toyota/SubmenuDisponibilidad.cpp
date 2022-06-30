@@ -29,7 +29,12 @@ void subMenuDisponibilidad()
             break;
 
         case 2:
-            // funcion
+            disponible();
+            system("pause>nul");
+            break;
+
+        case 3:
+            NOdisponible();
             system("pause>nul");
             break;
 

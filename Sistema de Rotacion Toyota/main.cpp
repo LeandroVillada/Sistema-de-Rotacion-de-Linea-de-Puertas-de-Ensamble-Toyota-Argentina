@@ -43,7 +43,7 @@ int main()
             break;
         case 5:
             /// menu armar rotacion
-            cargarDatosDeInicio();
+            //cargarDatosDeInicio();
             system("pause>nul");
             break;
         case 0:
