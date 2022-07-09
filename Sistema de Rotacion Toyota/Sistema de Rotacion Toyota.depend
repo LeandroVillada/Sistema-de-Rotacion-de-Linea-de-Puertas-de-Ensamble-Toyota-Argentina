@@ -283,13 +283,13 @@
 	<cstring>
 	<iostream>
 
-1655081527 f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\empleados.h
+1657405657 f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\empleados.h
 	<iostream>
 
-1655081527 source:f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\fecha.cpp
+1657401822 source:f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\fecha.cpp
 	"Fecha.h"
 
-1655081527 f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\fecha.h
+1657401588 f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\fecha.h
 	<ctime>
 	<iostream>
 	<cstring>
@@ -305,7 +305,7 @@
 	"Funciones Globales.h"
 	"Rotacion.h"
 
-1656599837 f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones disponibilidad.h
+1657402439 f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones disponibilidad.h
 	"Empleados.h"
 	<iostream>
 
@@ -340,8 +340,9 @@
 
 1655081527 f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funcioneditarempleados.h
 
-1656599871 source:f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones disponibilidad.cpp
+1657405258 source:f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones disponibilidad.cpp
 	"Funciones Disponibilidad.h"
+	"Fecha.h"
 
 1655081527 source:f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones empleados.cpp
 	"Funciones Empleados.h"
@@ -380,8 +381,9 @@
 	"Rotacion.h"
 	<cstdio>
 
-1656599837 source:f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenudisponibilidad.cpp
+1657405979 source:f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenudisponibilidad.cpp
 	"SubmenuDisponibilidad.h"
+	"Licencias.h"
 
 1656451371 source:f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenuedicionempleados.cpp
 	"SubmenuEdicionEmpleados.h"
@@ -389,4 +391,16 @@
 
 1656453977 source:f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenurotacion.cpp
 	"SubmenuRotacion.h"
+
+1657406791 source:f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\licencias.cpp
+	"Empleados.h"
+	"Fecha.h"
+	"Licencias.h"
+	<cstdio>
+	<cstring>
+	<iostream>
+
+1657405967 f:\2. documentos\b. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\licencias.h
+	<iostream>
+	"Fecha.h"
 

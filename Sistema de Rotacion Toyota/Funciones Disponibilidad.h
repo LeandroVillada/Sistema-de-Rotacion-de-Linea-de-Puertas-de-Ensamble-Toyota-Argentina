@@ -8,3 +8,4 @@ void asignarLegajosAlVector(int *, int);
 void listarOperariosDisponiblesParaRotar();
 void disponible();
 void NOdisponible();
+void licencia();

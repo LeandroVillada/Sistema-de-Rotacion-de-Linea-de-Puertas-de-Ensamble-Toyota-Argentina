@@ -2,7 +2,7 @@
 #include <iostream>
 class Empleados
 {
-private:
+protected:
     int _legajo;
     char _nombre[50];
     char _apellido[50];

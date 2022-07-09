@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -44,6 +46,8 @@
 		<Unit filename="Funciones Empleados.h" />
 		<Unit filename="Funciones Globales.cpp" />
 		<Unit filename="Funciones Globales.h" />
+		<Unit filename="Licencias.cpp" />
+		<Unit filename="Licencias.h" />
 		<Unit filename="Rotacion.cpp" />
 		<Unit filename="Rotacion.h" />
 		<Unit filename="SubmenuDisponibilidad.cpp" />
@@ -56,10 +60,6 @@
 		<Unit filename="funcionEditarEmpleados.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="rlutil.h" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

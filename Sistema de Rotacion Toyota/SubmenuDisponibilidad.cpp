@@ -1,4 +1,5 @@
 #include "SubmenuDisponibilidad.h"
+#include "Licencias.h"
 
 void subMenuDisponibilidad()
 {
@@ -15,6 +16,7 @@ void subMenuDisponibilidad()
         cout << "\n\t1. Listar Operarios Activos para rotacion" << endl;
         cout << "\n\t2. Confirmar disponibilidad" << endl;
         cout << "\n\t3. Eliminar disponibilidad" << endl;
+        cout << "\n\t4. Licencia" << endl;
         cout << "\n\t0. Volver al Menu Principal" << endl<<endl;
 
         cout << "\nSeleccione una opcion :  ";
@@ -35,6 +37,11 @@ void subMenuDisponibilidad()
 
         case 3:
             NOdisponible();
+            system("pause>nul");
+            break;
+
+        case 4:
+            licencia();
             system("pause>nul");
             break;
 

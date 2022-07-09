@@ -10,8 +10,10 @@ private:
     int _dia;
     int _mes;
     int _anio;
+    //int hora;
     bool esbisiesto(int);
     void NumeroSerieaFecha(int);
+    void FechaHora(int);
 
 public:
     Fecha();
@@ -20,10 +22,12 @@ public:
     void setDia(int);
     void setMes(int);
     void setAnio(int);
+    //void setHora(int);
     // Gets
     int getDia();
     int getMes();
     int getAnio();
+    //int getHora();
     // OPERADOR
     void operator=(Fecha);
     bool operator==(Fecha);

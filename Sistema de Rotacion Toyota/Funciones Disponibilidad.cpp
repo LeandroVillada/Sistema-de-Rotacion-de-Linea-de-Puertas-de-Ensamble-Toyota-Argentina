@@ -1,4 +1,5 @@
 #include "Funciones Disponibilidad.h"
+#include "Fecha.h"
 
 int contarLegajosActivosDisponibles()
 {

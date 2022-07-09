@@ -51,15 +51,28 @@ void Fecha::NumeroSerieaFecha(int ns)
     _mes = i;
     _dia = dias_anio_actual - (suma - vmes[i - 1]);
 }
+/*
+void Fecha::FechaHora(int hora){
+    time_t rawtime;
+    struct tm timeinfo;
+
+    time (&rawtime);
+    timeinfo = *(localtime (&rawtime));
+
+    hora = timeinfo.tm_hour;
+}
+*/
 
 // SETTERS
 void Fecha::setDia(int d) { _dia = d; }
 void Fecha::setMes(int m) { _mes = m; }
 void Fecha::setAnio(int a) { _anio = a; }
+//void Fecha::setHora(int h) {hora=h;}
 // GETTERS
 int Fecha::getDia() { return _dia; }
 int Fecha::getMes() { return _mes; }
 int Fecha::getAnio() { return _anio; }
+//int Fecha::getHora() {return hora;}
 // OPERADORES
 void Fecha::operator=(Fecha aux)
 {
