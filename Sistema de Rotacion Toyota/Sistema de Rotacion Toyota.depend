@@ -404,3 +404,158 @@
 	<iostream>
 	"Fecha.h"
 
+1655081527 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\empleados.cpp
+	"Empleados.h"
+	<cstdio>
+	<cstring>
+	<iostream>
+
+1657405657 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\empleados.h
+	<iostream>
+
+1657401822 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\fecha.cpp
+	"Fecha.h"
+
+1657401588 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\fecha.h
+	<ctime>
+	<iostream>
+	<cstring>
+
+1667170724 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funcionarmadorotacion.cpp
+	"FuncionArmadoRotacion.h"
+	<ctime>
+
+1655217858 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funcionarmadorotacion.h
+	<iostream>
+	<cstdlib>
+	"Empleados.h"
+	"Funciones Disponibilidad.h"
+	"Funciones Globales.h"
+	"Rotacion.h"
+
+1666370070 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones disponibilidad.h
+	"Empleados.h"
+	<iostream>
+
+1655081527 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones globales.h
+	<cstdio>
+	<ctime>
+	<iostream>
+	<windows.h>
+	"rlutil.h"
+
+1655081527 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1655081527 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\rotacion.h
+
+1656456431 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funcioneditarempleados.cpp
+	"funcionEditarEmpleados.h"
+	"Empleados.h"
+	"Funciones Globales.h"
+	<iostream>
+
+1655081527 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funcioneditarempleados.h
+
+1666370070 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones disponibilidad.cpp
+	"Funciones Disponibilidad.h"
+	"Fecha.h"
+
+1655081527 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones empleados.cpp
+	"Funciones Empleados.h"
+
+1655081527 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones empleados.h
+	"Empleados.h"
+	<iostream>
+
+1655081527 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funciones globales.cpp
+	"Funciones Globales.h"
+
+1666370070 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\licencias.cpp
+	"Empleados.h"
+	"Fecha.h"
+	"Licencias.h"
+	<cstdio>
+	<cstring>
+	<iostream>
+
+1666370070 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\licencias.h
+	<iostream>
+	"Fecha.h"
+
+1666925834 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\main.cpp
+	<iostream>
+	"submenus.h"
+	"Empleados.h"
+	"MenuHorasTrabajadas.h"
+
+1655081527 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenus.h
+	"SubmenuRotacion.h"
+	"SubmenuEdicionEmpleados.h"
+	"SubmenuDisponibilidad.h"
+	"Funciones Empleados.h"
+
+1655081527 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenurotacion.h
+	<iostream>
+	"FuncionArmadoRotacion.h"
+
+1655081527 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenuedicionempleados.h
+	<iostream>
+	"funcionEditarEmpleados.h"
+
+1655081527 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenudisponibilidad.h
+	<iostream>
+	"Funciones Disponibilidad.h"
+
+1655081527 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\rotacion.cpp
+	"Rotacion.h"
+	<cstdio>
+
+1666370070 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenudisponibilidad.cpp
+	"SubmenuDisponibilidad.h"
+	"Licencias.h"
+
+1656451371 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenuedicionempleados.cpp
+	"SubmenuEdicionEmpleados.h"
+	"Funciones Empleados.h"
+
+1667170397 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenurotacion.cpp
+	"SubmenuRotacion.h"
+
+1666561723 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\horastrabajadasarchivo.cpp
+	"HorasTrabajadasArchivo.h"
+
+1666926635 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\horastrabajadas.cpp
+	"HorasTrabajadas.h"
+	"Empleados.h"
+	"HorasTrabajadasArchivo.h"
+	<cstdio>
+	<cstring>
+	<iostream>
+
+1666879038 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\horastrabajadas.h
+	"Fecha.h"
+
+1666560536 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\horastrabajadasarchivo.h
+	"HorasTrabajadas.h"
+
+1666926728 source:f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\menuhorastrabajadas.cpp
+	"HorasTrabajadas.h"
+	"Empleados.h"
+	"MenuHorasTrabajadas.h"
+
+1666823825 f:\2. documentos\2. utn\2do cuatri(1er año)\laboratorio de computacion ii\github\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\menuhorastrabajadas.h
+	<iostream>
+	"HorasTrabajadas.h"
+

@@ -1,5 +1,5 @@
 #include "FuncionArmadoRotacion.h"
-
+#include <ctime>
 void listarLegajosDisponiblesParaRotacion(int *legajosDisponibles, int cantidadDisponible)
 {
     Empleados emp;
@@ -152,7 +152,7 @@ bool validarOperacionEspejosRepetidas(int *rotacion, int Legajo, int posicionFor
 void cargarBloqueUno(int rotacion[][26], int *operariosParaRotar)
 {
     int posicionGenerada;
-    srand(time(NULL));
+    srand(20);
     for (int i = 0; i < 26; i++)
     {
         posicionGenerada = cargarAleatorio(26);
@@ -167,7 +167,6 @@ void cargarBloqueUno(int rotacion[][26], int *operariosParaRotar)
 
 void cargarBloqueDos(int rotacion[][26], int *operariosParaRotar)
 {
-
     int posicionGenerada;
     srand(120);
     for (int i = 0; i < 26; i++)
@@ -184,7 +183,6 @@ void cargarBloqueDos(int rotacion[][26], int *operariosParaRotar)
 
 void cargarBloqueTres(int rotacion[][26], int *operariosParaRotar)
 {
-
     int posicionGenerada;
     srand(300);
     for (int i = 0; i < 26; i++)
@@ -200,7 +198,6 @@ void cargarBloqueTres(int rotacion[][26], int *operariosParaRotar)
 
 void cargarBloqueCuatro(int rotacion[][26], int *operariosParaRotar)
 {
-
     int posicionGenerada;
     srand(450);
     for (int i = 0; i < 26; i++)
@@ -314,7 +311,7 @@ void mostrarRotacionCuatro()
 
 void mostrarRotacion()
 {
-   Rotacion reg;
+    Rotacion reg;
     reg.leerDeDisco(0);
     Empleados aux;
 

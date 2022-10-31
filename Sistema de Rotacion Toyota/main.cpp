@@ -3,6 +3,7 @@ using namespace std;
 
 #include "submenus.h"
 #include "Empleados.h"
+#include "MenuHorasTrabajadas.h"
 
 int main()
 {
@@ -19,6 +20,7 @@ int main()
         cout << "\n\t2. Modificar datos de Empleados" << endl;
         cout << "\n\t3. Modificar Disponibilidad para Rotacion" << endl;
         cout << "\n\t4. Armar Rotacion" << endl; /// armar archivo con menu
+        cout << "\n\t5. Horas Trabajadas" << endl;
         cout << "\n\t0. Salir del Programa" << endl<<endl;
         cout << "\nSELECCIONE UNA OPCION:  ";
         cin >> opciones;
@@ -42,7 +44,10 @@ int main()
             submenuRotation();
             break;
         case 5:
-            /// menu armar rotacion
+            /// menu horas trabajadas
+            MenuHoraTrabajadas();
+            break;
+        case 6:
             //cargarDatosDeInicio();
             system("pause>nul");
             break;

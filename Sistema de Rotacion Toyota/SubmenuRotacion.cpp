@@ -16,9 +16,9 @@ void submenuRotation()
         system("cls");
         cout << "\t\t\tARMADO DE ROTACION" << endl;
         cout << "\n\t1. Agregar TM a Disponibles para rotar" << endl;
-        cout << "\n\t2. Eliminar TM de Disponibles para Rotar" << endl;
+        cout << "\n\t2. Armar Rotacion Semanal" << endl;
         cout << "\n\t3. Mostrar Lista Completa de TM Disponibles para Rotacion" << endl;
-        cout << "\n\t4. Armar Rotacion Semanal" << endl;
+        cout << "\n\t4. Mostrar rotacion" << endl;
         cout << "\n\t0. Volver al Menu Principal" << endl<<endl;
 
         cout << "\nSeleccione una Opcion:  ";
@@ -34,7 +34,7 @@ void submenuRotation()
             break;
 
         case 2:
-            mostrarRotacion();
+            armarRotacion(operariosParaRotar);
             system("pause>nul");
             break;
 
@@ -45,7 +45,7 @@ void submenuRotation()
             break;
 
         case 4:
-            armarRotacion(operariosParaRotar);
+            mostrarRotacion();
             system("pause>nul");
             break;
 

@@ -46,8 +46,14 @@
 		<Unit filename="Funciones Empleados.h" />
 		<Unit filename="Funciones Globales.cpp" />
 		<Unit filename="Funciones Globales.h" />
+		<Unit filename="HorasTrabajadas.cpp" />
+		<Unit filename="HorasTrabajadas.h" />
+		<Unit filename="HorasTrabajadasArchivo.cpp" />
+		<Unit filename="HorasTrabajadasArchivo.h" />
 		<Unit filename="Licencias.cpp" />
 		<Unit filename="Licencias.h" />
+		<Unit filename="MenuHorasTrabajadas.cpp" />
+		<Unit filename="MenuHorasTrabajadas.h" />
 		<Unit filename="Rotacion.cpp" />
 		<Unit filename="Rotacion.h" />
 		<Unit filename="SubmenuDisponibilidad.cpp" />
