@@ -166,7 +166,7 @@ namespace rlutil {
  * YELLOW - Yellow (bright)
  * WHITE - White (bright)
  */
-enum {
+enum COLOR{
 	BLACK,
 	BLUE,
 	GREEN,
@@ -293,7 +293,7 @@ const RLUTIL_STRING_T ANSI_BACKGROUND_WHITE   = "\033[47m";
  * KEY_NUMPAD8 - Numpad 8
  * KEY_NUMPAD9 - Numpad 9
  */
-enum {
+enum KEYS{
 	KEY_ESCAPE  = 0,
 	KEY_ENTER   = 1,
 	KEY_SPACE   = 32,
