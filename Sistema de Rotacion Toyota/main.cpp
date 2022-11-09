@@ -2,7 +2,7 @@
 using namespace std;
 
 #include "submenus.h"
-#include "Empleados.h"
+#include "EmpleadosArchivo.h"
 #include "MenuHorasTrabajadas.h"
 
 int main()

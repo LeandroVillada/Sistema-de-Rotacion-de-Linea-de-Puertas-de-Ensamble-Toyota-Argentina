@@ -67,13 +67,19 @@ void Fecha::FechaHora(int hora){
 void Fecha::setDia(int d) { _dia = d; }
 void Fecha::setMes(int m) { _mes = m; }
 void Fecha::setAnio(int a) { _anio = a; }
-//void Fecha::setHora(int h) {hora=h;}
-// GETTERS
+// void Fecha::setHora(int h) {hora=h;}
+//  GETTERS
 int Fecha::getDia() { return _dia; }
 int Fecha::getMes() { return _mes; }
 int Fecha::getAnio() { return _anio; }
-//int Fecha::getHora() {return hora;}
-// OPERADORES
+string Fecha::toString()
+{
+    string fecha;
+    fecha = to_string(_dia) + "/" + to_string(_mes) + "/" + to_string(_anio);
+    return fecha;
+}
+// int Fecha::getHora() {return hora;}
+//  OPERADORES
 void Fecha::operator=(Fecha aux)
 {
     _anio = aux._anio;
@@ -160,28 +166,27 @@ ostream &operator<<(ostream &sale, Fecha &f)
 }
 Fecha Fecha::operator+(int masdias)
 {
-  Fecha aux;
-  int ns = NumeroSerie() + masdias;
-  aux.NumeroSerieaFecha(ns);
-  return aux;
+    Fecha aux;
+    int ns = NumeroSerie() + masdias;
+    aux.NumeroSerieaFecha(ns);
+    return aux;
 }
 void Fecha::operator+=(int masdias)
 {
-  int ns = NumeroSerie() + masdias;
-  NumeroSerieaFecha(ns);
+    int ns = NumeroSerie() + masdias;
+    NumeroSerieaFecha(ns);
 }
 int Fecha::operator-(Fecha &obj)
 {
-  return NumeroSerie() - obj.NumeroSerie();
+    return NumeroSerie() - obj.NumeroSerie();
 }
 int Fecha::cantDiasMes()
 {
-  int vmes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-  if (esbisiesto(_anio))
-    vmes[1] = 29;
-  return vmes[_mes - 1];
+    int vmes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (esbisiesto(_anio))
+        vmes[1] = 29;
+    return vmes[_mes - 1];
 }
-
 
 // FUNCIONES
 int Fecha::NumeroSerie() // Devuelve la cantidad de dias transcurridos desde el 01/01/1900
@@ -200,27 +205,27 @@ int Fecha::NumeroSerie() // Devuelve la cantidad de dias transcurridos desde el 
 }
 int Fecha::cantDiasHabilesMes()
 {
-  int totDias = cantDiasMes();
-  int dia, cant = 0;
-  Fecha aux = *this;
-  for (int i = 1; i <= totDias; i++)
-  {
-    dia = (aux.NumeroSerie() - 1) % 7;
-    if (dia < 5)
-      cant++;
-    aux += 1;
-  }
-  return cant;
+    int totDias = cantDiasMes();
+    int dia, cant = 0;
+    Fecha aux = *this;
+    for (int i = 1; i <= totDias; i++)
+    {
+        dia = (aux.NumeroSerie() - 1) % 7;
+        if (dia < 5)
+            cant++;
+        aux += 1;
+    }
+    return cant;
 }
 int Fecha::cantAniosHastaHoy()
 {
-  Fecha aux; // por usar un constructor por defecto tiene la fecha de hoy;
-  int cant = aux._anio - _anio;
-  if (_mes > aux._mes)
-    return cant - 1;
-  if (_mes == aux._mes && _dia > aux._dia)
-    return cant - 1;
-  return cant;
+    Fecha aux; // por usar un constructor por defecto tiene la fecha de hoy;
+    int cant = aux._anio - _anio;
+    if (_mes > aux._mes)
+        return cant - 1;
+    if (_mes == aux._mes && _dia > aux._dia)
+        return cant - 1;
+    return cant;
 }
 bool Fecha::validarFecha()
 {

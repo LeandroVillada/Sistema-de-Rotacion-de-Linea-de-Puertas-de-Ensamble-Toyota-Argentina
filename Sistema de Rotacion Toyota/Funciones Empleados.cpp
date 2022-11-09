@@ -2,6 +2,7 @@
 void cargarNuevo()
 {
     system("cls");
+    EmpleadosArchivo archivo;
     Empleados reg;
     int legajo;
     std::string nombre;
@@ -9,7 +10,7 @@ void cargarNuevo()
     cout << "--------Ingreso de Operario Nuevo--------" << endl;
     cout << "Ingrese Legajo de Operario Nuevo: ";
     cin >> legajo;
-    if (reg.buscarLegajoExistente(legajo))
+    if (archivo.buscarLegajoExistente(legajo))
     {
         cout << "Ese legajo ya existe." << endl;
         system("pause>nul");
@@ -22,7 +23,7 @@ void cargarNuevo()
     cout << "Ingrese Apellido de operario Nuevo: ";
     cin >> apellido;
     reg.setApellido(apellido);
-    if (reg.grabarEnDisco())
+    if (archivo.guardar(reg))
     {
         cout << "Se Agrego Operarios Nuevo" << endl;
     }
@@ -35,19 +36,20 @@ void cargarNuevo()
 
 void listarOperarios()
 {
-    Empleados reg;
-    int pos = 0;
-    while (reg.leerDeDisco(pos++))
+    EmpleadosArchivo Archivo;
+    int cantidad = Archivo.getCantidad();
+    Empleados* reg = new Empleados[cantidad];
+    Archivo.leerTodos(reg, cantidad);
+
+    for (int i = 0; i < cantidad; i++)
     {
-        if (reg.getEstado())
-        {
-            std::cout << "LEGAJO: " << reg.getLegajo() << std::endl;
-            std::cout << "NOMBRE: " << reg.getNombre() << std::endl;
-            std::cout << "APELLIDO: " << reg.getApellido() << std::endl;
-            std::cout << "DISPONIBILIDAD: " << reg.getDisponibilidad() << std::endl;
-            std::cout << "ESTADO: " << reg.getEstado() << std::endl;
+            std::cout << "LEGAJO: " << reg[i].getLegajo() << std::endl;
+            std::cout << "NOMBRE: " << reg[i].getNombre() << std::endl;
+            std::cout << "APELLIDO: " << reg[i].getApellido() << std::endl;
+            std::cout << "DISPONIBILIDAD: " << reg[i].getDisponibilidad() << std::endl;
+            std::cout << "ESTADO: " << reg[i].getEstado() << std::endl;
             puts("");
-        }
+        // cout << reg[i].toString() << endl;
     }
 }
 
@@ -59,6 +61,7 @@ void cargarDatosDeInicio()
     fclose(p);
 
     Empleados reg;
+    EmpleadosArchivo archivo;
     for (int i = 1; i <= 40; i++)
     {
         reg.setLegajo(i);
@@ -78,7 +81,7 @@ void cargarDatosDeInicio()
         {
             reg.setEstado(true);
         }
-        reg.grabarEnDisco();
+        archivo.guardar(reg);
     }
     std::cout<<"DATOS DE PRUEBA CARGADO.\n";
 }

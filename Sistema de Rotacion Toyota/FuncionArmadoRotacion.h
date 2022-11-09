@@ -5,7 +5,7 @@
 
 using namespace std;
 
-#include "Empleados.h"
+#include "EmpleadosArchivo.h"
 #include "Funciones Disponibilidad.h"
 #include "Funciones Globales.h"
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "Empleados.h"
+#include "EmpleadosArchivo.h"
 #include <iostream>
 
 int contarLegajosActivosDisponibles();

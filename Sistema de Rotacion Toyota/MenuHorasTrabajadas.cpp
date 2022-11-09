@@ -1,11 +1,12 @@
 #include "HorasTrabajadas.h"
-#include "Empleados.h"
+#include "EmpleadosArchivo.h"
 #include "MenuHorasTrabajadas.h"
 using namespace std;
 
 void MenuHoraTrabajadas(){
     HorasTrabajadas reg;
     Empleados aux;
+    EmpleadosArchivo archivo;
     int opcion, legajo=0, anio=0, mes=0;
     while (true)
     {
@@ -40,7 +41,7 @@ void MenuHoraTrabajadas(){
         case 3:
             cout<<"Que legajo desea saber las horas trabajadas: ";
             cin>>legajo;
-            if(aux.buscarLegajoExistente(legajo)==true){
+            if(archivo.buscarPosicionEmpleadoPorLegajo(legajo)!=-1){
                 reg.mostrarRegistrosPorLegajo(legajo);
             }
             else{
@@ -52,7 +53,7 @@ void MenuHoraTrabajadas(){
         case 4:
             cout<<"Que legajo desea saber las horas trabajadas: ";
             cin>>legajo;
-            if(aux.buscarLegajoExistente(legajo)==true){
+            if(archivo.buscarPosicionEmpleadoPorLegajo(legajo)!=-1){
                 reg.sumaHorasPorLegajo(legajo);
             }
             else{
@@ -69,7 +70,7 @@ void MenuHoraTrabajadas(){
         case 6:
             cout<<"Que legajo desea saber las horas trabajadas: ";
             cin>>legajo;
-            if(aux.buscarLegajoExistente(legajo)==true){
+            if(archivo.buscarPosicionEmpleadoPorLegajo(legajo)!=-1){
                 reg.PromedioPorLegajo(legajo);
             }
             else{
@@ -81,7 +82,7 @@ void MenuHoraTrabajadas(){
         case 7:
             cout<<"Que legajo desea saber las horas trabajadas: ";
             cin>>legajo;
-            if(aux.buscarLegajoExistente(legajo)==true){
+            if(archivo.buscarPosicionEmpleadoPorLegajo(legajo)!=-1){
                 cout<<"Que mes desea saber las horas trabajadas: ";
                 cin>>mes;
                 reg.PromedioPorLegajoYMes(legajo,mes);
@@ -95,7 +96,7 @@ void MenuHoraTrabajadas(){
         case 8:
             cout<<"Que legajo desea saber las horas trabajadas: ";
             cin>>legajo;
-            if(aux.buscarLegajoExistente(legajo)==true){
+            if(archivo.buscarPosicionEmpleadoPorLegajo(legajo)!=-1){
                 cout<<"Que anio desea saber las horas trabajadas: ";
                 cin>>anio;
                 reg.PromedioPorLegajoYAnio(legajo,anio);

@@ -1,5 +1,5 @@
 #include "HorasTrabajadas.h"
-#include "Empleados.h"
+#include "EmpleadosArchivo.h"
 #include "HorasTrabajadasArchivo.h"
 #include <cstdio>
 #include <cstring>
@@ -50,31 +50,37 @@ void HorasTrabajadas::Cargar() {
     }
 }
 */
-void HorasTrabajadas::Mostrar() {
+void HorasTrabajadas::Mostrar()
+{
     cout << "Legajo: ";
     cout << _legajo << endl;
     cout << fechaHoraTrabajadas;
     cout << "Horas Trabajadas: ";
-    cout << _horasTrabajadas << endl<< endl;
+    cout << _horasTrabajadas << endl
+         << endl;
 }
 
-bool HorasTrabajadas::grabarEnDisco(){
+bool HorasTrabajadas::grabarEnDisco()
+{
     FILE *p;
-    p=fopen("horasTrabajadas.dat", "ab");
-    if(p==NULL) return -1;
+    p = fopen("horasTrabajadas.dat", "ab");
+    if (p == NULL)
+        return -1;
     bool escribio;
-    escribio=fwrite(this, sizeof(HorasTrabajadas),1, p);
+    escribio = fwrite(this, sizeof(HorasTrabajadas), 1, p);
     fclose(p);
     return escribio;
 }
 
-bool HorasTrabajadas::leerDeDisco(int pos){
+bool HorasTrabajadas::leerDeDisco(int pos)
+{
     FILE *p;
-    p=fopen("horasTrabajadas.dat", "rb");
-    if(p==NULL) return -1;
-    fseek(p, sizeof(HorasTrabajadas)*pos,0);
+    p = fopen("horasTrabajadas.dat", "rb");
+    if (p == NULL)
+        return -1;
+    fseek(p, sizeof(HorasTrabajadas) * pos, 0);
     bool leyo;
-    leyo=fread(this, sizeof(HorasTrabajadas),1, p);
+    leyo = fread(this, sizeof(HorasTrabajadas), 1, p);
     fclose(p);
     return leyo;
 }
@@ -92,22 +98,27 @@ int HorasTrabajadasArchivo::getCantidad()
   return cant;
 }
 */
-void HorasTrabajadas::sumaHorasPorLegajo(int legajo) {
-    int pos=0;
+void HorasTrabajadas::sumaHorasPorLegajo(int legajo)
+{
+    int pos = 0;
     float sumaHorasTrabajadas = 0;
-    //int cantHoras = ht.getCantidad();
-    //for (i = 0; i < cantHoras; i++) {
-        //ht = htA.leer(i);
-    while(leerDeDisco(pos++)){
-        if (getLegajo() == legajo) {
+    // int cantHoras = ht.getCantidad();
+    // for (i = 0; i < cantHoras; i++) {
+    // ht = htA.leer(i);
+    while (leerDeDisco(pos++))
+    {
+        if (getLegajo() == legajo)
+        {
             sumaHorasTrabajadas += getHorasTrabajadas();
         }
     }
-    if(sumaHorasTrabajadas>0){
-        cout<<"Horas Trabajadas: "<<sumaHorasTrabajadas;
+    if (sumaHorasTrabajadas > 0)
+    {
+        cout << "Horas Trabajadas: " << sumaHorasTrabajadas;
     }
-    else{
-        cout<<"No se registran horas";
+    else
+    {
+        cout << "No se registran horas";
     }
 }
 /*
@@ -120,12 +131,15 @@ void HorasTrabajadas::MostrarHoras(float cant){
     }
 }
 */
-void HorasTrabajadas::agregarRegistros(){
+void HorasTrabajadas::agregarRegistros()
+{
     Empleados reg;
-    //cout << "Dia: ";
+    EmpleadosArchivo archivo;
+    // cout << "Dia: ";
     cout << "Legajo: ";
     cin >> _legajo;
-    if (reg.buscarLegajoExistente(_legajo)==true){
+    if (archivo.buscarLegajoExistente(_legajo) == true)
+    {
 
         setLegajo(_legajo);
 
@@ -133,76 +147,90 @@ void HorasTrabajadas::agregarRegistros(){
         cout << "Horas Trabajadas: ";
         cin >> _horasTrabajadas;
         setHorasTrabajadas(_horasTrabajadas);
-        cout<<endl;
+        cout << endl;
 
         grabarEnDisco();
-
     }
-    else{
-        cout<<"El legajo ingresado no existe"<<endl;
+    else
+    {
+        cout << "El legajo ingresado no existe" << endl;
     }
-
 }
 
-
-void HorasTrabajadas::mostrarRegistros(){
-    int pos=0;
-    while(leerDeDisco(pos++)){
+void HorasTrabajadas::mostrarRegistros()
+{
+    int pos = 0;
+    while (leerDeDisco(pos++))
+    {
         Mostrar();
     }
 }
 
-void HorasTrabajadas::PromedioGeneral(){
-    float promedio=0;
-    int cant=0, pos=0;
-    while(leerDeDisco(pos++)){
-        promedio+=getHorasTrabajadas();
+void HorasTrabajadas::PromedioGeneral()
+{
+    float promedio = 0;
+    int cant = 0, pos = 0;
+    while (leerDeDisco(pos++))
+    {
+        promedio += getHorasTrabajadas();
         cant++;
     }
-    cout<<"Promedio General: "<<promedio/cant<<" horas";
+    cout << "Promedio General: " << promedio / cant << " horas";
 }
 
-void HorasTrabajadas::PromedioPorLegajo(int legajo){
-    float promedio=0;
-    int cant=0, pos=0;
-    while(leerDeDisco(pos++)){
-        if (getLegajo() == legajo) {
-            promedio+=getHorasTrabajadas();
+void HorasTrabajadas::PromedioPorLegajo(int legajo)
+{
+    float promedio = 0;
+    int cant = 0, pos = 0;
+    while (leerDeDisco(pos++))
+    {
+        if (getLegajo() == legajo)
+        {
+            promedio += getHorasTrabajadas();
             cant++;
         }
     }
-    cout<<"Promedio del Legajo "<<legajo<<": "<<promedio/cant<<" horas";
+    cout << "Promedio del Legajo " << legajo << ": " << promedio / cant << " horas";
 }
 
-void HorasTrabajadas::PromedioPorLegajoYAnio(int legajo, int anio){
-    float promedio=0;
-    int cant=0, pos=0;
-    while(leerDeDisco(pos++)){
-        if (getLegajo() == legajo && getFechaHoraTrabajada().getAnio()==anio) {
-            promedio+=getHorasTrabajadas();
+void HorasTrabajadas::PromedioPorLegajoYAnio(int legajo, int anio)
+{
+    float promedio = 0;
+    int cant = 0, pos = 0;
+    while (leerDeDisco(pos++))
+    {
+        if (getLegajo() == legajo && getFechaHoraTrabajada().getAnio() == anio)
+        {
+            promedio += getHorasTrabajadas();
             cant++;
         }
     }
-    cout<<"Promedio del Legajo "<<legajo<<" en el anio "<<anio<<": "<<promedio/cant<<" horas";
+    cout << "Promedio del Legajo " << legajo << " en el anio " << anio << ": " << promedio / cant << " horas";
 }
 
-void HorasTrabajadas::PromedioPorLegajoYMes(int legajo, int mes){
-    float promedio=0;
-    int cant=0, pos=0;
+void HorasTrabajadas::PromedioPorLegajoYMes(int legajo, int mes)
+{
+    float promedio = 0;
+    int cant = 0, pos = 0;
 
-    while(leerDeDisco(pos++)){
-        if (getLegajo() == legajo && getFechaHoraTrabajada().getMes()==mes) {
-            promedio+=getHorasTrabajadas();
+    while (leerDeDisco(pos++))
+    {
+        if (getLegajo() == legajo && getFechaHoraTrabajada().getMes() == mes)
+        {
+            promedio += getHorasTrabajadas();
             cant++;
         }
     }
-    cout<<"Promedio del Legajo "<<legajo<<" en el mes "<<mes<<": "<<promedio/cant<<" horas";
+    cout << "Promedio del Legajo " << legajo << " en el mes " << mes << ": " << promedio / cant << " horas";
 }
 
-void HorasTrabajadas::mostrarRegistrosPorLegajo(int legajo){
-    int pos=0;
-    while(leerDeDisco(pos++)){
-        if (getLegajo() == legajo){
+void HorasTrabajadas::mostrarRegistrosPorLegajo(int legajo)
+{
+    int pos = 0;
+    while (leerDeDisco(pos++))
+    {
+        if (getLegajo() == legajo)
+        {
             Mostrar();
         }
     }

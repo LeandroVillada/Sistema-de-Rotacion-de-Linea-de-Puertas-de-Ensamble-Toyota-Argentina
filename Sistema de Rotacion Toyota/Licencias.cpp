@@ -1,4 +1,4 @@
-#include "Empleados.h"
+#include "EmpleadosArchivo.h"
 #include "Fecha.h"
 #include "Licencias.h"
 #include <cstdio>
@@ -53,18 +53,18 @@ bool Licencias::modificarEnDisco(int pos)
 }
 
 void licencia(){
-    Empleados reg;
+    EmpleadosArchivo archivo;
     Licencias lic;
     Fecha(9,7,22);
     int legajo, desde, hasta, mesD, mesH;
     std::cout << "Ingresar el Legajo: ";
     std::cin >> legajo;
-    if (reg.buscarLegajoExistente(legajo)==false)
+    if (archivo.buscarLegajoExistente(legajo)==false)
     {
         std::cout << "El legajo ingresado no existe." << std::endl;
         return;
     }
-    if (reg.LegajoDisponible(legajo)==false)
+    if (archivo.LegajoDisponible(legajo)==false)
     {
         std::cout << "El legajo ingresado ya se encuentra con licencia." << std::endl;
         return;
@@ -81,7 +81,7 @@ void licencia(){
     ///NO ANDA ESTA PARTE POR EL MOMENTO//////////////////////////////////////////////
 /*
     if(lic.getFechaInicioLicencia().getDia()==desde && lic.getFechaInicioLicencia().getMes()==mesD){
-        int pos = reg.buscarPosicionLegajo(legajo);
+        int pos = archivo.buscarPosicionLegajo(legajo);
         lic.leerDeDisco(pos);
         lic.setDisponibilidad(false);
         lic.modificarEnDisco(pos);

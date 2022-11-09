@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 class Empleados
 {
 protected:
@@ -12,11 +13,13 @@ protected:
 public:
     // CONSTRUCTORES
     Empleados();
+    /*
     // FUNCIONES ARCHIVOS
-    bool leerDeDisco(int);
+    //bool leerDeDisco(int);
     bool grabarEnDisco();
     bool modificarEnDisco(int);
     int cantidadRegistros();
+    */
     // SETS
     void setLegajo(int);
     void setNombre(std::string);
@@ -25,10 +28,12 @@ public:
     void setEstado(bool);
     // GETS
     int getLegajo();
-    const char *getNombre();
-    const char *getApellido();
+    std::string getNombre();
+    std::string getApellido();
     bool getDisponibilidad();
     bool getEstado();
+    std::string toString();
+    /*
     // FUNCIONES PUBLICAS
     bool buscarLegajoExistente(int);
     int buscarPosicionLegajo(int);
@@ -37,4 +42,5 @@ public:
     void mostrar();
     bool buscarLegajoInactivo(int);
     Empleados buscarEmpleadoPorLegajo(int);
+    */
 };
