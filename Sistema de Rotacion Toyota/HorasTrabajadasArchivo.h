@@ -4,13 +4,22 @@
 
 class HorasTrabajadasArchivo{
 public:
-  HorasTrabajadas leer(int nroRegistro);
-  //bool guardar(HorasTrabajadas ht);
-  //bool guardar(HorasTrabajadas ht, int nroRegistro);
-  int getCantidad();
-  int buscar(int id);
-  bool grabarEnDisco();
-};
+    // FUNCIONES ARCHIVOS
+    FILE *abrirArchivoHT();
+    HorasTrabajadas leer(int nroRegistro);
+    bool leer(HorasTrabajadas &horasTrabajadas, int nroRegistro);
+    bool leerTodos(HorasTrabajadas horasTrabajadas[], int cantidad);
+    bool guardar(HorasTrabajadas horasTrabajadas);
+    bool guardar(HorasTrabajadas horasTrabajadas, int nroRegistro);
+    int getCantidad();
+    int buscar(int);
+    //void mostrar(HorasTrabajadas);
 
+    void mostrarArchivo();
+
+    // FUNCIONES PUBLICAS
+    bool cargar();
+    void mostrar();
+};
 
 #endif // HORASTRABAJADASARCHIVO_H_INCLUDED

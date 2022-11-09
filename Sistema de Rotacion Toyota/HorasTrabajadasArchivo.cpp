@@ -1,70 +1,81 @@
 #include "HorasTrabajadasArchivo.h"
+#include <cstring>
 
-HorasTrabajadas HorasTrabajadasArchivo::leer(int nroRegistro){
-  HorasTrabajadas aux;
-  FILE* p;
-  p = fopen("horasTrabajadas.dat", "rb");
-  if (p == NULL){
-    return aux;
-  }
-  fseek(p, sizeof(HorasTrabajadas) * nroRegistro, SEEK_SET);
-  fread(&aux, sizeof(HorasTrabajadas), 1, p);
-  fclose(p);
-  return aux;
+FILE *HorasTrabajadasArchivo::abrirArchivoHT()
+{
+    FILE *pFile;
+    pFile = fopen("horasTrabajadas.dat", "rb");
+    if (pFile == NULL)
+    {
+        exit(1550);
+    }
+    return pFile;
 }
 
-bool HorasTrabajadasArchivo::grabarEnDisco()
+HorasTrabajadas HorasTrabajadasArchivo::leer(int nroRegistro)
 {
-    FILE *p;
-    p = fopen("horasTrabajadas.dat", "ab");
-    if (p == NULL)
+    HorasTrabajadas est;
+    FILE *pFile=abrirArchivoHT();
+
+    fseek(pFile, nroRegistro * sizeof(HorasTrabajadas), SEEK_SET);
+    fread(&est, sizeof(HorasTrabajadas), 1, pFile);
+    fclose(pFile);
+    return est;
+}
+
+bool HorasTrabajadasArchivo::leer(HorasTrabajadas &horasTrabajadas, int nroRegistro)
+{
+    FILE *pFile;
+    pFile = abrirArchivoHT();
+    fseek(pFile, nroRegistro * sizeof(HorasTrabajadas), SEEK_SET);
+    fread(&horasTrabajadas, sizeof(HorasTrabajadas), 1, pFile);
+    fclose(pFile);
+    return true;
+}
+
+bool HorasTrabajadasArchivo::leerTodos(HorasTrabajadas clases[], int cantidad)
+{
+    FILE *pFile;
+    pFile = abrirArchivoHT();
+    fread(clases, sizeof(HorasTrabajadas), cantidad, pFile);
+    fclose(pFile);
+    return true;
+}
+
+bool HorasTrabajadasArchivo::guardar(HorasTrabajadas clase)
+{
+    FILE *pFile = fopen("horasTrabajadas.dat", "ab");
+    if (pFile == NULL)
     {
         return false;
     }
-    bool grabo;
-    grabo = fwrite(this, sizeof(HorasTrabajadas), 1, p);
-    fclose(p);
-    return grabo;
-}
-/*
-bool HorasTrabajadasArchivo::guardar(HorasTrabajadas ht)
-{
-  FILE* p;
-  p = fopen("horasTrabajadas.dat", "ab");
-  if (p == NULL) {
-    return false;
-  }
-  fwrite(&ht, sizeof(HorasTrabajadas), 1, p);
-  fclose(p);
-  return true;
+    bool ok = fwrite(&clase, sizeof(HorasTrabajadas), 1, pFile);
+    fclose(pFile);
+    return ok;
 }
 
-bool HorasTrabajadasArchivo::guardar(HorasTrabajadas ht, int nroRegistro)
+bool HorasTrabajadasArchivo::guardar(HorasTrabajadas clase, int nroRegistro)
 {
-  FILE* p;
-  p = fopen("horasTrabajadas.dat", "rb+");
-  if (p == NULL) {
-    return false;
-  }
-  fseek(p, sizeof(HorasTrabajadas) * nroRegistro, SEEK_SET);
-  fwrite(&ht, sizeof(HorasTrabajadas), 1, p);
-  fclose(p);
-  return true;
+    FILE *pFile = fopen("horasTrabajadas.dat", "rb+");
+    if (pFile == NULL)
+    {
+        return false;
+    }
+    fseek(pFile, nroRegistro * sizeof(HorasTrabajadas), SEEK_SET);
+    bool ok = fwrite(&clase, sizeof(HorasTrabajadas), 1, pFile);
+    fclose(pFile);
+    return ok;
 }
-*/
+
 int HorasTrabajadasArchivo::getCantidad()
 {
-  FILE* p;
-  p = fopen("horasTrabajadas.dat", "rb");
-  if (p == NULL) {
-    return 0;
-  }
-  fseek(p, 0, SEEK_END);
-  int cant = ftell(p) / sizeof(HorasTrabajadas);
-  fclose(p);
-  return cant;
-}
+    FILE *pFile = abrirArchivoHT();
 
+    fseek(pFile, 0, SEEK_END);
+    int cant = ftell(pFile) / sizeof(HorasTrabajadas);
+    fclose(pFile);
+    return cant;
+}
 
 int HorasTrabajadasArchivo::buscar(int legajo)
 {
@@ -79,3 +90,4 @@ int HorasTrabajadasArchivo::buscar(int legajo)
   }
   return -1;
 }
+

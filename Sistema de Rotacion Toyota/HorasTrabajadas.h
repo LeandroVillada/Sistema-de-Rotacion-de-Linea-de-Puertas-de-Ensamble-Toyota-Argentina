@@ -12,17 +12,18 @@ public:
     // SETS
     void setLegajo(int);
     void setHorasTrabajadas(float);
+    void setFechaHoraTrabajadas(Fecha fechaHoraTrabajadas);
     // GETS
     int getLegajo();
     float getHorasTrabajadas();
+    Fecha getFechaHoraTrabajadas();
 
-    Fecha getFechaHoraTrabajada(){
-        return fechaHoraTrabajadas;
-    }
+    void Mostrar();
 
     // FUNCIONES PUBLICAS
+    /*
     void Cargar();
-    void Mostrar();
+
 
     void sumaHorasPorLegajo(int);
 
@@ -47,6 +48,7 @@ public:
     void PromedioPorLegajoYMes(int,int);
 
     void mostrarRegistrosPorLegajo(int);
+    */
 };
 
 

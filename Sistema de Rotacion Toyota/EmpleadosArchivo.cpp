@@ -1,5 +1,5 @@
 #include "EmpleadosArchivo.h"
-
+#include <cstring>
 Empleados EmpleadosArchivo::leer(int nroRegistro)
 {
     Empleados est;
@@ -119,13 +119,13 @@ int EmpleadosArchivo::BuscarPor(std::string codigo)
 
 bool EmpleadosArchivo::bajaLogica()
 {
-    cout << "NUMERO DE EMPRESA A DAR DE BAJA: ";
+    cout << "NUMERO DE LEGAJO A DAR DE BAJA: ";
     int numero;
     cin >> numero;
     int pos = buscarPosicionEmpleadoPorLegajo(numero);
     if (pos == -1)
     {
-        cout << "NUMERO DE EMPRESA NO EXISTE.\n";
+        cout << "NUMERO DE LEGAJO NO EXISTE.\n";
         return false;
     }
     Empleados registroModificado;
@@ -144,7 +144,7 @@ bool EmpleadosArchivo::modificar()
     int pos = buscarPosicionEmpleadoPorLegajo(_numero);
     if (pos == -1)
     {
-        cout << "NUMERO DE EMPRESA NO EXISTE.\n";
+        cout << "NUMERO DE LEGAJO NO EXISTE.\n";
         return false;
     }
     Empleados registroModificado;

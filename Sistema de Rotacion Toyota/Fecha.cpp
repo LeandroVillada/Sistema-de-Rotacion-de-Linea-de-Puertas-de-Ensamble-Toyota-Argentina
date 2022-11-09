@@ -1,4 +1,5 @@
 #include "Fecha.h"
+#include <cstring>
 // COSNTRUCTORES
 Fecha::Fecha()
 {

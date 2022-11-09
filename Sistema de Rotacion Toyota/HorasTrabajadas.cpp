@@ -19,11 +19,14 @@ void HorasTrabajadas::setLegajo(int legajo) { _legajo = legajo; }
 
 void HorasTrabajadas::setHorasTrabajadas(float horas) { _horasTrabajadas = horas; }
 
+void HorasTrabajadas::setFechaHoraTrabajadas(Fecha fecha){ fechaHoraTrabajadas=fecha; }
+
 // GETTS
 int HorasTrabajadas::getLegajo() { return _legajo; }
 
 float HorasTrabajadas::getHorasTrabajadas() { return _horasTrabajadas; }
 
+Fecha HorasTrabajadas::getFechaHoraTrabajadas(){return fechaHoraTrabajadas; }
 // FUNCIONES PUBLICAS
 /*
 void HorasTrabajadas::Cargar() {
@@ -50,6 +53,7 @@ void HorasTrabajadas::Cargar() {
     }
 }
 */
+
 void HorasTrabajadas::Mostrar()
 {
     cout << "Legajo: ";
@@ -57,9 +61,9 @@ void HorasTrabajadas::Mostrar()
     cout << fechaHoraTrabajadas;
     cout << "Horas Trabajadas: ";
     cout << _horasTrabajadas << endl
-         << endl;
+    << endl;
 }
-
+/*
 bool HorasTrabajadas::grabarEnDisco()
 {
     FILE *p;
@@ -98,6 +102,7 @@ int HorasTrabajadasArchivo::getCantidad()
   return cant;
 }
 */
+/*
 void HorasTrabajadas::sumaHorasPorLegajo(int legajo)
 {
     int pos = 0;
@@ -131,6 +136,7 @@ void HorasTrabajadas::MostrarHoras(float cant){
     }
 }
 */
+/*
 void HorasTrabajadas::agregarRegistros()
 {
     Empleados reg;
@@ -235,3 +241,4 @@ void HorasTrabajadas::mostrarRegistrosPorLegajo(int legajo)
         }
     }
 }
+*/

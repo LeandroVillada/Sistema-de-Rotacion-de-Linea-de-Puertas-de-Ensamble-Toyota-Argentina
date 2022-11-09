@@ -1,5 +1,4 @@
 #pragma once
-
 #include "EmpleadosArchivo.h"
 #include <iostream>
 using namespace std;

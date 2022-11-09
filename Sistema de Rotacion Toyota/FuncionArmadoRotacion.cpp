@@ -1,5 +1,5 @@
 #include "FuncionArmadoRotacion.h"
-#include "EmpleadosArchivo.h" 
+#include "EmpleadosArchivo.h"
 #include <ctime>
 void listarLegajosDisponiblesParaRotacion(int *legajosDisponibles, int cantidadDisponible)
 {
