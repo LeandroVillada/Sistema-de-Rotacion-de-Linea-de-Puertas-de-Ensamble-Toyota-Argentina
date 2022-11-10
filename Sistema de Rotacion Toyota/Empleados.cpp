@@ -1,7 +1,7 @@
 #include "Empleados.h"
-#include <cstdio>
-#include <cstring>
-#include <iostream>
+// #include <cstdio>
+// #include <cstring>
+// #include <iostream>
 
 // CONSTRUCTORES
 Empleados::Empleados()
@@ -96,11 +96,35 @@ bool Empleados::getDisponibilidad() { return _disponibilidad; }
 
 bool Empleados::getEstado() { return _estado; }
 
+int Empleados::getSize()
+{
+	return sizeof *this;
+}
+
 std::string Empleados::toString()
 {
 	std::string cadena;
 	cadena = std::to_string(_legajo) + "," + _nombre + "," + _apellido + "," + std::to_string(_disponibilidad) + "," + std::to_string(_estado);
 	return cadena;
+}
+
+void Empleados::operator=(Empleados *obj)
+{
+	_legajo = obj->_legajo;
+	strcpy(_nombre, obj->_nombre);
+	strcpy(_apellido, obj->_apellido);
+	_disponibilidad = obj->_disponibilidad;
+	_estado = obj->_estado;
+}
+
+bool Empleados::comparaID(Empleados *temp)
+{
+	Empleados *aux = temp;
+	if (_legajo == aux->_legajo)
+	{
+		return true;
+	}
+	return false;
 }
 
 /*
@@ -157,3 +181,33 @@ Empleados Empleados::buscarEmpleadoPorLegajo(int legajo)
 	return aux;
 }
 */
+
+std::ostream &operator<<(std::ostream &salida, Empleados &obj)
+{
+	std::cout << "LEGAJO: ";
+	salida << obj._legajo << std::endl;
+	std::cout << "NOMBRE: ";
+	salida << obj._nombre << std::endl;
+	std::cout << "APELLIDO: ";
+	salida << obj._apellido << std::endl;
+	std::cout << "DISPONIBILIDAD: ";
+	salida << obj._disponibilidad << std::endl;
+	std::cout << "ESTADO: ";
+	salida << obj._estado << std::endl;
+	return salida;
+}
+
+std::istream &operator>>(std::istream &entrada, Empleados &obj)
+{
+	std::cout << "LEGAJO: ";
+	entrada >> obj._legajo;
+	std::cout << "NOMBRE: ";
+	entrada >> obj._nombre;
+	std::cout << "APELLIDO: ";
+	entrada >> obj._apellido;
+	std::cout << "DISPONIBILIDAD: ";
+	entrada >> obj._disponibilidad;
+	std::cout << "ESTADO: ";
+	entrada >> obj._estado;
+	return entrada;
+}

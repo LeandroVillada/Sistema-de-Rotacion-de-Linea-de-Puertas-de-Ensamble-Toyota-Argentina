@@ -5,7 +5,7 @@
 int contarLegajosActivosDisponibles()
 {
     EmpleadosArchivo Archivo;
-    int cantidad = Archivo.getCantidad();
+    int cantidad = Archivo.getCantidadRegistros();
     Empleados* reg = new Empleados[cantidad];
     Archivo.leerTodos(reg, cantidad);
 
@@ -23,7 +23,7 @@ int contarLegajosActivosDisponibles()
 void asignarLegajosAlVector(int *vector, int tam)
 {
     EmpleadosArchivo Archivo;
-    int cantidad = Archivo.getCantidad();
+    int cantidad = Archivo.getCantidadRegistros();
     Empleados* reg = new Empleados[cantidad];
     Archivo.leerTodos(reg, cantidad);
 
@@ -41,7 +41,7 @@ void asignarLegajosAlVector(int *vector, int tam)
 void listarOperariosDisponiblesParaRotar()
 {
     EmpleadosArchivo Archivo;
-    int cantidad = Archivo.getCantidad();
+    int cantidad = Archivo.getCantidadRegistros();
     Empleados* reg = new Empleados[cantidad];
     Archivo.leerTodos(reg, cantidad);
 

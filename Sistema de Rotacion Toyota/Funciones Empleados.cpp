@@ -37,7 +37,7 @@ void cargarNuevo()
 void listarOperarios()
 {
     EmpleadosArchivo Archivo;
-    int cantidad = Archivo.getCantidad();
+    int cantidad = Archivo.getCantidadRegistros();
     Empleados* reg = new Empleados[cantidad];
     Archivo.leerTodos(reg, cantidad);
 

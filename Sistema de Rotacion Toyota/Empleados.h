@@ -32,9 +32,17 @@ public:
     std::string getApellido();
     bool getDisponibilidad();
     bool getEstado();
+    int getSize();
+        // return sizeof *this;
     std::string toString();
-    /*
+    // OPERADORES
+    void operator=(Empleados *obj);
+    friend std::ostream &operator<<(std::ostream &salida, Empleados &obj);
+    friend std::istream &operator>>(std::istream &entrada, Empleados &obj);
+
     // FUNCIONES PUBLICAS
+    bool comparaID(Empleados *temp);
+    /*
     bool buscarLegajoExistente(int);
     int buscarPosicionLegajo(int);
     bool LegajoDisponible(int);

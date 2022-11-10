@@ -1,70 +1,176 @@
 #include "EmpleadosArchivo.h"
 #include <cstring>
+int EmpleadosArchivo::cantidadRegistros()
+{
+    if (!abrirArchivo(SoloLectura))
+    {
+        estado = Cerrado;
+        return 0;
+    }
+    fseek(pFile, 0, SEEK_END);
+    long cant = ftell(pFile) / tamanioRegistro;
+    cerrarArchivo();
+    return (int)cant;
+}
+
+// abrirArchivo(Modo modo)
+// ABRE EL ARCHIVO EN EL MODO ESTABLECIDO POR EL PARAMETRO modo.
+// DEVUELVE TRUE SI PUDO ABRIR Y FALSE SI NO PUDO ABRIR
+bool EmpleadosArchivo::abrirArchivo(Modo modo)
+{
+    switch (estado)
+    {
+    case AbiertoR:
+    case AbiertoW:
+    case AbiertoA:
+    case AbiertoRW:
+        cerrarArchivo();
+        break;
+    }
+    switch (modo)
+    {
+    case SoloLectura:
+        pFile = fopen(nombreArchivo, "rb");
+        if (!pFile)
+            return false;
+        estado = AbiertoR;
+        break;
+    case Escritura:
+        pFile = fopen(nombreArchivo, "wb");
+        if (!pFile)
+            return false;
+        estado = AbiertoW;
+        break;
+    case Agregar:
+        pFile = fopen(nombreArchivo, "ab");
+        if (!pFile)
+            return false;
+        estado = AbiertoA;
+        break;
+    case LecturaEscritura:
+        pFile = fopen(nombreArchivo, "rb+");
+        if (!pFile)
+            return false;
+        estado = AbiertoRW;
+        break;
+    }
+    return true;
+}
+
+void EmpleadosArchivo::cerrarArchivo()
+{
+    fclose(pFile);
+    estado = Cerrado;
+}
+
+EmpleadosArchivo::EmpleadosArchivo()
+{
+    Empleados registro;
+    // Nombre para guardar o abrir los registros
+    std::string nombre = "Empleados.dat";
+    nombreArchivo = new char[strlen(nombre.c_str()) + 1];
+    if (nombreArchivo == NULL)
+    {
+        exit(1);
+    }
+    strcpy(nombreArchivo, nombre.c_str());
+
+    tamanioRegistro = registro.getSize();
+    pRegistro = (void *)malloc(tamanioRegistro);
+    cantRegistros = cantidadRegistros();
+    estado = Cerrado;
+}
+
+EmpleadosArchivo::~EmpleadosArchivo()
+{
+    delete nombreArchivo;
+    if (pFile)
+    {
+        fclose(pFile);
+    }
+    free(pRegistro);
+}
+
 Empleados EmpleadosArchivo::leer(int nroRegistro)
 {
-    Empleados est;
-    FILE *pFile = abrirArchivoRB();
+    // FILE *pFile = abrirArchivoRB();
+    abrirArchivo(SoloLectura);
+    
+    Empleados obj;
 
     fseek(pFile, nroRegistro * sizeof(Empleados), SEEK_SET);
-    fread(&est, sizeof(Empleados), 1, pFile);
-    fclose(pFile);
-    return est;
+    fread(&obj, sizeof(Empleados), 1, pFile);
+    // fclose(pFile);
+    cerrarArchivo();
+    return obj;
 }
 
 bool EmpleadosArchivo::leer(Empleados &empleado, int nroRegistro)
 {
-    FILE *pFile = abrirArchivoRB();
+    // FILE *pFile = abrirArchivoRB();
+    abrirArchivo(SoloLectura);
 
     fseek(pFile, nroRegistro * sizeof(Empleados), SEEK_SET);
-    fread(&empleado, sizeof(Empleados), 1, pFile);
-    fclose(pFile);
-    return true;
+    bool ok = fread(&empleado, sizeof(Empleados), 1, pFile);
+    // fclose(pFile);
+    cerrarArchivo();
+    return ok;
 }
 
 bool EmpleadosArchivo::leerTodos(Empleados clases[], int cantidad)
 {
-    FILE *pFile = abrirArchivoRB();
+    // FILE *pFile = abrirArchivoRB();
+    abrirArchivo(SoloLectura);
 
-    fread(clases, sizeof(Empleados), cantidad, pFile);
-    fclose(pFile);
-    return true;
+    bool ok = fread(clases, sizeof(Empleados), cantidad, pFile);
+    // fclose(pFile);
+    cerrarArchivo();
+    return ok;
 }
 
 bool EmpleadosArchivo::guardar(Empleados clase)
 {
-    FILE *pFile = fopen("Empleados.dat", "ab");
-    if (pFile == NULL)
-    {
-        return false;
-    }
+    // FILE *pFile = fopen("Empleados.dat", "ab");
+    // if (pFile == NULL)
+    // {
+    //     return false;
+    // }
+
+    abrirArchivo(Agregar);
     bool ok = fwrite(&clase, sizeof(Empleados), 1, pFile);
-    fclose(pFile);
+    // fclose(pFile);
+    cerrarArchivo();
     return ok;
 }
 
 bool EmpleadosArchivo::guardar(Empleados clase, int nroRegistro)
 {
-    FILE *pFile = fopen("Empleados.dat", "rb+");
-    if (pFile == NULL)
-    {
-        return false;
-    }
+    // FILE *pFile = fopen("Empleados.dat", "rb+");
+    // if (pFile == NULL)
+    // {
+    //     return false;
+    // }
+    
+    abrirArchivo(LecturaEscritura);
     fseek(pFile, nroRegistro * sizeof(Empleados), SEEK_SET);
     bool ok = fwrite(&clase, sizeof(Empleados), 1, pFile);
-    fclose(pFile);
+    // fclose(pFile);
+    cerrarArchivo();
     return ok;
 }
 
-int EmpleadosArchivo::getCantidad()
+int EmpleadosArchivo::getCantidadRegistros()
 {
-    FILE *pFile = abrirArchivoRB();
+    // FILE *pFile = abrirArchivoRB();
 
-    fseek(pFile, 0, SEEK_END);
-    int cant = ftell(pFile) / sizeof(Empleados);
-    fclose(pFile);
-    return cant;
+    // fseek(pFile, 0, SEEK_END);
+    // int cant = ftell(pFile) / sizeof(Empleados);
+    // fclose(pFile);
+    // return cant;
+    
+    return cantRegistros;
 }
-
+/* 
 FILE *EmpleadosArchivo::abrirArchivoRB()
 {
     FILE *pFile;
@@ -75,11 +181,11 @@ FILE *EmpleadosArchivo::abrirArchivoRB()
     }
     return pFile;
 }
-
+ */
 int EmpleadosArchivo::buscarPosicionEmpleadoPorLegajo(int legajo)
 {
     EmpleadosArchivo Archivo;
-    int cantidad = Archivo.getCantidad();
+    int cantidad = Archivo.getCantidadRegistros();
     Empleados *empleado = new Empleados[cantidad];
     Archivo.leerTodos(empleado, cantidad);
 
@@ -103,7 +209,7 @@ Empleados EmpleadosArchivo::buscarEmpleadoPorLegajo(int legajo)
 int EmpleadosArchivo::BuscarPor(std::string codigo)
 {
     EmpleadosArchivo Archivo;
-    int cantidad = Archivo.getCantidad();
+    int cantidad = Archivo.getCantidadRegistros();
     Empleados *clase = new Empleados[cantidad];
     Archivo.leerTodos(clase, cantidad);
 
@@ -165,7 +271,7 @@ void EmpleadosArchivo::mostrar(Empleados registro)
 void EmpleadosArchivo::mostrarArchivo()
 {
     EmpleadosArchivo Archivo;
-    int cantidad = Archivo.getCantidad();
+    int cantidad = Archivo.getCantidadRegistros();
     Empleados *clase = new Empleados[cantidad];
     Archivo.leerTodos(clase, cantidad);
 
@@ -176,13 +282,12 @@ void EmpleadosArchivo::mostrarArchivo()
     }
 }
 
-
 // FUNCIONES PUBLICAS
 bool EmpleadosArchivo::buscarLegajoExistente(int legajo)
 {
     EmpleadosArchivo Archivo;
-    int cantidad = Archivo.getCantidad();
-    Empleados* empleado = new Empleados[cantidad];
+    int cantidad = Archivo.getCantidadRegistros();
+    Empleados *empleado = new Empleados[cantidad];
     Archivo.leerTodos(empleado, cantidad);
 
     for (int i = 0; i < cantidad; i++)
@@ -200,14 +305,14 @@ bool EmpleadosArchivo::LegajoDisponible(int legajo)
     Empleados reg;
     int pos = buscarPosicionEmpleadoPorLegajo(legajo);
     leer(reg, pos);
-        if ((reg.getEstado()) && (reg.getDisponibilidad()))
+    if ((reg.getEstado()) && (reg.getDisponibilidad()))
     {
-            return true;
+        return true;
     }
-        else
-        {
-            return false;
-        }
+    else
+    {
+        return false;
+    }
 }
 
 bool EmpleadosArchivo::buscarLegajoInactivo(int legajo)

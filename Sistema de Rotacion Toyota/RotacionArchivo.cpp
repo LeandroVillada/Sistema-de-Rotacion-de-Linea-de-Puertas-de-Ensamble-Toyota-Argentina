@@ -54,7 +54,7 @@ bool RotacionArchivo::guardar(Rotacion rotacion, int nroRegistro)
     return ok;
 }
 
-int RotacionArchivo::getCantidad()
+int RotacionArchivo::getCantidadRegistros()
 {
     FILE *pFile = abrirArchivoRB();
 

@@ -12,7 +12,7 @@ public:
     bool leerTodos(Rotacion rotacion[], int cantidad);
     bool guardar(Rotacion rotacion);
     bool guardar(Rotacion rotacion, int nroRegistro);
-    int getCantidad();
+    int getCantidadRegistros();
     FILE *abrirArchivoRB();
 
 };
