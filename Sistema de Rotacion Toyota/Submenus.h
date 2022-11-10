@@ -4,3 +4,4 @@
 #include "SubmenuEdicionEmpleados.h"
 #include "SubmenuDisponibilidad.h"
 #include "Funciones Empleados.h"
+#include "MenuHorasTrabajadas.h"

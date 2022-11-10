@@ -1,11 +1,9 @@
-#ifndef MENUHORASTRABAJADAS_H_INCLUDED
-#define MENUHORASTRABAJADAS_H_INCLUDED
+#pragma once
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
+
+#include"Menu.h"
 #include "HorasTrabajadas.h"
 
 void MenuHoraTrabajadas();
-
-
-#endif // MENUHORASTRABAJADAS_H_INCLUDED
