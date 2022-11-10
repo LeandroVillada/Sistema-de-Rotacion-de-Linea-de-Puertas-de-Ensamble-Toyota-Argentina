@@ -1,24 +1,24 @@
 #pragma once
 #include <iostream>
 #include "Fecha.h"
-class Licencias: public Empleados{
+class Licencias{
 private:
+    int _legajo;
     Fecha fechaInicioLicencia;
     Fecha fechaFinLicencia;
 public:
+    // CONSTRUCTORES
+    Licencia();
     //setts
-    void setFechaInicioLicencia(Fecha fil) {fechaInicioLicencia=fil;}
-    void setFechaFinLicencia(Fecha ffl) {fechaFinLicencia=ffl;}
+    void setLegajo(int);
+    void setFechaInicioLicencia(Fecha fechaInicioLicencia);
+    void setFechaFinLicencia(Fecha fechaFinLicencia);
     //getts
-    Fecha getFechaInicioLicencia(){return fechaInicioLicencia;}
-    Fecha getFechaFinLicencia(){return fechaFinLicencia;}
+    int getLegajo();
+    Fecha getFechaInicioLicencia();
+    Fecha getFechaFinLicencia();
 
-    //Funciones Archivos
-    bool leerDeDisco(int);
-    bool grabarEnDisco();
-    bool modificarEnDisco(int);
-
-    void licencia();
+    void Mostrar();
 };
 
 

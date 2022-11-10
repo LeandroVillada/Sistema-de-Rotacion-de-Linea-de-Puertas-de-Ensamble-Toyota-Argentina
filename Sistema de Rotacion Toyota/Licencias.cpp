@@ -6,51 +6,38 @@
 #include <iostream>
 using namespace std;
 
-
-bool Licencias::leerDeDisco(int pos)
+// CONSTRUCTORES
+Licencias::Licencia()
 {
-    FILE *p;
-    p = fopen("Licencias.dat", "rb");
-    bool leyo;
-    if (p == NULL)
-    {
-        puts("NO SE PUDO ABRIR EL ARCHIVO");
-        return false;
-    }
-    fseek(p, pos * sizeof *this, 0);
-    leyo = fread(this, sizeof *this, 1, p);
-    fclose(p);
-    return leyo;
+    _legajo = 0;
 }
 
-bool Licencias::grabarEnDisco()
+// SETTS
+void Licencias::setLegajo(int legajo) { _legajo = legajo; }
+
+void Licencias::setFechaInicioLicencia(Fecha fechaIn){ fechaInicioLicencia=fechaIn; }
+
+void Licencias::setFechaFinLicencia(Fecha fechaFn){ fechaFinLicencia=fechaFn; }
+
+// GETTS
+int Licencias::getLegajo() { return _legajo; }
+
+Fecha Licencias::getFechaInicioLicencia(){return fechaInicioLicencia; }
+
+Fecha Licencias::getFechaFinLicencia(){return fechaFinLicencia; }
+
+void Licencias::Mostrar()
 {
-    FILE *p;
-    p = fopen("Licencias.dat", "ab");
-    bool grabo;
-    if (p == NULL)
-    {
-        return false;
-    }
-    grabo = fwrite(this, sizeof *this, 1, p);
-    fclose(p);
-    return grabo;
+    cout << "Legajo: ";
+    cout << _legajo << endl;
+    cout << "Fecha inicio licencia: "<<endl;
+    cout << fechaInicioLicencia << endl;
+    cout << "Fecha fin licencia: "<<endl;
+    cout << fechaFinLicencia << endl;
+    cout << endl;
 }
 
-bool Licencias::modificarEnDisco(int pos)
-{
-    FILE *p;
-    p = fopen("Licencias.dat", "rb+");
-    if (p == NULL)
-    {
-        puts("NO SE PUDO ABRIR EL ARCHIVO");
-        return false;
-    }
-    fseek(p, sizeof *this * pos, 0);
-    bool leyo = fwrite(this, sizeof *this, 1, p);
-    fclose(p);
-    return leyo;
-}
+/*
 
 void licencia(){
     EmpleadosArchivo archivo;
@@ -72,20 +59,20 @@ void licencia(){
     std::cout << "Ingresar Fecha Desde: ";
     std::cin >> desde;
     /*std::cout << "Ingresar Fecha Hasta: ";
-    std::cin >> hasta;*/
+    std::cin >> hasta;
     std::cout << "Ingresar Fecha Mes desde: ";
     std::cin >> mesD;
     /*std::cout << "Ingresar Fecha Mes hasta: ";
-    std::cin >> mesH;*/
+    std::cin >> mesH;
 
     ///NO ANDA ESTA PARTE POR EL MOMENTO//////////////////////////////////////////////
-/*
+
     if(lic.getFechaInicioLicencia().getDia()==desde && lic.getFechaInicioLicencia().getMes()==mesD){
         int pos = archivo.buscarPosicionLegajo(legajo);
         lic.leerDeDisco(pos);
         lic.setDisponibilidad(false);
         lic.modificarEnDisco(pos);
     }
-*/
-}
 
+}
+*/

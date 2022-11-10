@@ -112,5 +112,4 @@ void NOdisponible(){
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     archivo.guardar(reg, pos);
     std::cout << "Legajo se encuentra sin disponibilidad." << std::endl;
-
 }

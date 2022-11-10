@@ -1,5 +1,6 @@
 #include "SubmenuDisponibilidad.h"
-#include "Licencias.h"
+#include "MenuLicencias.h"
+
 
 /// En este menu modifico a los operarios activos y los agrego a la disponibilidad para rotacion
 void subMenuDisponibilidad()
@@ -46,7 +47,7 @@ void subMenuDisponibilidad()
             break;
 
         case 4:
-            licencia();
+            MenuLicencias();
             system("pause>nul");
             break;
         default:

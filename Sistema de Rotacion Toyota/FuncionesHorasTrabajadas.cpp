@@ -172,4 +172,34 @@ void mostrarRegistrosPorLegajo(int legajo)
         }
     }
 }
+/*
+TENGO QUE TRATAR DE QUE ANDE!
+IDEA: SACAR EL LEGAJO CON MENOS HORAS TRABAJADAS
+int minCantHoras(HorasTrabajadas *v, int tam)
+{
+    int posMin=0, i;
+    for(i=1;i<tam;i++){
+        if(v[i]<v[posMin]){
+            posMin=i;
+        }
+    }
+    return posMin;
+}
 
+void mostrarElMenorHorasLegajo()
+{
+    HorasTrabajadasArchivo archivoHT;
+    int cant= archivoHT.getCantidad();
+    HorasTrabajadas* ht=new HorasTrabajadas[cant];
+    archivoHT.leerTodos(ht,cant);
+    int i;
+    float cantH=0;
+    for (i = 0; i < cant; i++)
+    {
+        cantH+=ht[i].getHorasTrabajadas();
+        ht[cantH];
+    }
+
+    cout<<"El legajo con menor horas trabajadas en los registros es: "<<minCantHoras(ht,cant)+1;
+}
+*/
