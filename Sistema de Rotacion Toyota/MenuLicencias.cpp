@@ -13,7 +13,7 @@ void MenuLicencias()
     // Le damos el nombre que quieramos al objeto
     Menu MenuLicencias;
     // Agregamos el Titulo del menu
-    MenuLicencias.setTitulo("MENU HORAS TRABAJADAS");
+    MenuLicencias.setTitulo("MENU LICENCIAS");
     // Agregamos la Opcion para salir o volver al menu anterior
     MenuLicencias.setSalida(" Volver al Menu de Principal ");
 

@@ -48,7 +48,6 @@ void subMenuDisponibilidad()
 
         case 4:
             MenuLicencias();
-            system("pause>nul");
             break;
         default:
             // VOLVER AL MENU ANTERIOR O SALIR
