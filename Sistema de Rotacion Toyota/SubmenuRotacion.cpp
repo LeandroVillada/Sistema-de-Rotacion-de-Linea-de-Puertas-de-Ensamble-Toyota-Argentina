@@ -11,7 +11,7 @@ void submenuRotation()
     // Le damos el nombre que quieramos al objeto
     Menu MenuRotacion;
     // Agregamos la Opcion para salir o volver al menu anterior
-    MenuRotacion.setSalida(" Volver al Menu de Principal ");
+    MenuRotacion.setSalida("Volver al Menu de Principal");
     // Agregamos el Titulo del menu
     MenuRotacion.setTitulo("ARMADO DE ROTACION");
 

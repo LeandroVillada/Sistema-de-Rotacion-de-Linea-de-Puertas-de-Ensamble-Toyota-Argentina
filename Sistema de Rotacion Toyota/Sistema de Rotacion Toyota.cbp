@@ -76,6 +76,7 @@
 		<Unit filename="SubmenuEdicionEmpleados.h" />
 		<Unit filename="SubmenuRotacion.cpp" />
 		<Unit filename="SubmenuRotacion.h" />
+		<Unit filename="Submenus.h" />
 		<Unit filename="funcionEditarEmpleados.cpp" />
 		<Unit filename="funcionEditarEmpleados.h" />
 		<Unit filename="main.cpp" />

@@ -6,7 +6,7 @@ void menuEmpleadosEdicion()
     // Le damos el nombre que quieramos al objeto
     Menu MenuEdicionEmpleados;
     // Agregamos la Opcion para salir o volver al menu anterior
-    MenuEdicionEmpleados.setSalida(" Volver al Menu de Principal ");
+    MenuEdicionEmpleados.setSalida("Volver al Menu de Principal");
     // Agregamos el Titulo del menu
     MenuEdicionEmpleados.setTitulo("MENU EDICCION DE EMPLEADOS");
 

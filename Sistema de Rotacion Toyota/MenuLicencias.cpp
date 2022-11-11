@@ -15,7 +15,7 @@ void MenuLicencias()
     // Agregamos el Titulo del menu
     MenuLicencias.setTitulo("MENU LICENCIAS");
     // Agregamos la Opcion para salir o volver al menu anterior
-    MenuLicencias.setSalida(" Volver al Menu de Principal ");
+    MenuLicencias.setSalida("Volver al Menu de Principal ");
 
     // AGREGAMOS LAS OPCIONES CON UNA FUNCION
     // OPCION 1

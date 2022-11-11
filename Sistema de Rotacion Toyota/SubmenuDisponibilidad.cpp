@@ -10,7 +10,7 @@ void subMenuDisponibilidad()
     // Agregamos el Titulo del menu
     MenuDisponibilidad.setTitulo("MENU CAMBIO DE DISPONIBILIDAD");
     // Agregamos la Opcion para salir o volver al menu anterior
-    MenuDisponibilidad.setSalida(" Volver al Menu de Principal ");
+    MenuDisponibilidad.setSalida("Volver al Menu de Principal ");
 
     // AGREGAMOS LAS OPCIONES CON UNA FUNCION
     // OPCION 1
@@ -19,8 +19,6 @@ void subMenuDisponibilidad()
     MenuDisponibilidad.agregarOpcion("Confirmar disponibilidad");
     // OPCION 3
     MenuDisponibilidad.agregarOpcion("Eliminar disponibilidad");
-    // OPCION 4
-    MenuDisponibilidad.agregarOpcion("Licencia");
 
     // Aqui generamos un while en true en caso de que quieramos que dibuje nuevamente el menu
     while (true)
@@ -46,9 +44,6 @@ void subMenuDisponibilidad()
             system("pause>nul");
             break;
 
-        case 4:
-            MenuLicencias();
-            break;
         default:
             // VOLVER AL MENU ANTERIOR O SALIR
             return;

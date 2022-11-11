@@ -18,7 +18,7 @@ int main()
     // Agregamos el Titulo del menu
     principal.setTitulo("MENU PRINCIPAL");
     // Agregamos la Opcion para salir o volver al menu anterior
-    principal.setSalida(" Salir del Programa ");
+    principal.setSalida("Salir del Programa");
 
     // AGREGAMOS LAS OPCIONES CON UNA FUNCION
     // OPCION 1
@@ -31,6 +31,9 @@ int main()
     principal.agregarOpcion("Armar Rotacion");
     // OPCION 5
     principal.agregarOpcion("Horas Trabajadas");
+    //OPCION 6
+    principal.agregarOpcion("Licencias");
+
 
     // Aqui generamos un while en true en caso de que quieramos que dibuje nuevamente el menu
     while (true)
@@ -60,6 +63,10 @@ int main()
         case 5:
             /// menu horas trabajadas
             MenuHoraTrabajadas();
+            break;
+        case 6:
+            /// menu licencias
+            MenuLicencias();
             break;
         default:
             // VOLVER AL MENU ANTERIOR O SALIR

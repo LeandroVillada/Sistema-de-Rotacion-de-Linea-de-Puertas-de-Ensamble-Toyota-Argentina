@@ -15,7 +15,7 @@ void MenuHoraTrabajadas()
     // Agregamos el Titulo del menu
     MenuHorasTrabajadas.setTitulo("MENU HORAS TRABAJADAS");
     // Agregamos la Opcion para salir o volver al menu anterior
-    MenuHorasTrabajadas.setSalida(" Volver al Menu de Principal ");
+    MenuHorasTrabajadas.setSalida("Volver al Menu de Principal");
 
     // AGREGAMOS LAS OPCIONES CON UNA FUNCION
     // OPCION 1
@@ -40,7 +40,7 @@ void MenuHoraTrabajadas()
     {
         system("cls");
         // Elegimos el color del texto del menu y el Fondo del texto
-        int opciones = MenuHorasTrabajadas.dibujarMenu(rlutil::COLOR::WHITE, rlutil::COLOR::MAGENTA);
+        int opciones = MenuHorasTrabajadas.dibujarMenu(rlutil::COLOR::WHITE, rlutil::COLOR::GREY);
         system("cls");
         switch (opciones)
         {

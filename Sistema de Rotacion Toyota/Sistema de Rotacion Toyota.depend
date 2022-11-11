@@ -604,7 +604,7 @@
 
 1667917070 f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\rotacion.h
 
-1668123124 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenudisponibilidad.cpp
+1668172893 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenudisponibilidad.cpp
 	"SubmenuDisponibilidad.h"
 	"MenuLicencias.h"
 
@@ -629,7 +629,7 @@
 	<iostream>
 	"Fecha.h"
 
-1668116051 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenuedicionempleados.cpp
+1668173627 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenuedicionempleados.cpp
 	"SubmenuEdicionEmpleados.h"
 	"Funciones Empleados.h"
 
@@ -643,7 +643,7 @@
 	"EmpleadosArchivo.h"
 	<iostream>
 
-1668116051 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenurotacion.cpp
+1668173627 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenurotacion.cpp
 	"SubmenuRotacion.h"
 
 1668116051 f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenurotacion.h
@@ -713,17 +713,18 @@
 	<cstring>
 	<iostream>
 
-1668116051 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\main.cpp
+1668173627 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\main.cpp
 	<iostream>
 	"Menu.h"
 	"submenus.h"
 
-1668116051 f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenus.h
+1668173011 f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\submenus.h
 	"SubmenuRotacion.h"
 	"SubmenuEdicionEmpleados.h"
 	"SubmenuDisponibilidad.h"
 	"Funciones Empleados.h"
 	"MenuHorasTrabajadas.h"
+	"MenuLicencias.h"
 
 1668116051 f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\menuhorastrabajadas.h
 	"Menu.h"
@@ -731,7 +732,7 @@
 
 1667917070 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\menu.cpp
 
-1668116051 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\menuhorastrabajadas.cpp
+1668173627 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\menuhorastrabajadas.cpp
 	"HorasTrabajadas.h"
 	"EmpleadosArchivo.h"
 	"MenuHorasTrabajadas.h"
@@ -766,7 +767,7 @@
 1668122166 f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\funcioneslicencia.h
 	"LicenciasArchivo.h"
 
-1668123124 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\menulicencias.cpp
+1668173146 source:f:\2. documentos\2. utn\3er cuatri(1er año y 2do año)\laboratorio ii\tp grupal\codeblocks tp\sistema-de-rotacion-de-linea-de-puertas-de-ensamble-toyota-argentina\sistema de rotacion toyota\menulicencias.cpp
 	"Licencias.h"
 	"EmpleadosArchivo.h"
 	"MenuLicencias.h"
