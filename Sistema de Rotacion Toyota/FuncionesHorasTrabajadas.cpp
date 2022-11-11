@@ -39,7 +39,8 @@ void agregarRegistros()
     HorasTrabajadasArchivo archivoHT;
     HorasTrabajadas ht;
 
-    int _legajo, _horasTrabajadas;
+    int _legajo;
+    float _horasTrabajadas;
     Fecha fechaHorasTrabajadas;
     cout << "Legajo: ";
     cin >> _legajo;
