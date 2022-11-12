@@ -10,7 +10,11 @@ class Menu
 private:
 	int _cantidadOpciones;
 	std::string *_opciones;
+	int _cursor;
+	short _colorTextoPrincipal;
+	short _colorFondoPrincipal;
 	bool crearOpciones();
+	void resetColor();
 public:
 	Menu();
 	~Menu();
@@ -18,11 +22,15 @@ public:
 	void setOpcion(int opcion, std::string texto);
 	void setTitulo(std::string texto);
 	void setSalida(std::string texto);
+	void setColorTextoPrincipal(short colorTexto);
+	void setColorFondoPrincipal(short colorFondo);
 
 	// GETTERS
 	std::string getOpcion(int pos);
 	std::string getTitulo();
 	std::string getSalida();
+	short getColorTextoPrincipal();
+	short getColorFondoPrincipal();
 
 	void agregarOpcion(std::string);
 	int dibujarMenu(short colorTexto, short colorFondo);

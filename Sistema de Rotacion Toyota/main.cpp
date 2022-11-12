@@ -5,20 +5,17 @@ using namespace std;
 
 int main()
 {
-    // ELEGIMOS EL COLOR DE FONDO QUE DESEAMOS
-    rlutil::setBackgroundColor(rlutil::COLOR::BLACK);
-    // ELEGIMOS EL COLOR DEL TEXTO QUE DESEAMOS
-    rlutil::setColor(rlutil::WHITE);
-    // GUARDAMOS LOS COLORES PRINCIPALES DE LA CONSOLA
-    rlutil::saveDefaultColor();
-    // ESTO SOLO LO HARIAMOS EN EL MENU PRINCIPAL
-
     // Le damos el nombre que quieramos al objeto
     Menu principal;
+    // ELEGIMOS EL COLOR DE FONDO QUE DESEAMOS
+    principal.setColorFondoPrincipal(rlutil::BLACK);
+    // ELEGIMOS EL COLOR DEL TEXTO QUE DESEAMOS
+    principal.setColorTextoPrincipal(rlutil::WHITE);
+
     // Agregamos el Titulo del menu
     principal.setTitulo("MENU PRINCIPAL");
     // Agregamos la Opcion para salir o volver al menu anterior
-    principal.setSalida("Salir del Programa");
+    principal.setSalida(" Salir del Programa ");
 
     // AGREGAMOS LAS OPCIONES CON UNA FUNCION
     // OPCION 1
@@ -39,7 +36,7 @@ int main()
     while (true)
     {
         system("cls");
-        // Elegimos el color del texto del menu y el Fondo del texto
+        // Elegimos el color del texto del menu y el Fondo del texto para las opciones
         int opciones = principal.dibujarMenu(rlutil::COLOR::WHITE, rlutil::COLOR::CYAN);
         system("cls");
         switch (opciones)
@@ -74,59 +71,4 @@ int main()
             break;
         }
     }
-    /*
-        // Variables
-        int opciones;
-
-        // Desarrollo del Programa
-        while (true)
-        {
-            system("color 3");
-            system("cls");
-            cout << "\t\t\tMENU PRINCIPAL" << endl;
-            cout << "\n\t1. Cargar Operario nuevo" << endl;
-            cout << "\n\t2. Modificar datos de Empleados" << endl;
-            cout << "\n\t3. Modificar Disponibilidad para Rotacion" << endl;
-            cout << "\n\t4. Armar Rotacion" << endl; /// armar archivo con menu
-            cout << "\n\t5. Horas Trabajadas" << endl;
-            cout << "\n\t0. Salir del Programa" << endl
-                 << endl;
-            cout << "\nSELECCIONE UNA OPCION:  ";
-            cin >> opciones;
-            system("cls");
-            switch (opciones)
-            {
-            case 1:
-                /// menu para cargar un nuevo legajo
-                cargarNuevo();
-                break;
-            case 2:
-                /// menu con las opciones de edicion de legajos
-                menuEmpleadosEdicion();
-                break;
-            case 3:
-                /// menu que arma la lista con los disponibles para armar una rotacion
-                subMenuDisponibilidad();
-                break;
-            case 4:
-                /// menu armar rotacion
-                submenuRotation();
-                break;
-            case 5:
-                /// menu horas trabajadas
-                MenuHoraTrabajadas();
-                break;
-            case 6:
-                // cargarDatosDeInicio();
-                system("pause>nul");
-                break;
-            case 0:
-                return 0;
-            default:
-                cout << "OPCION INGRESADA INCORRECTA.";
-                system("pause>nul");
-                break;
-            }
-        }
-         */
 }

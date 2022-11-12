@@ -14,10 +14,21 @@ bool Menu::crearOpciones()
     return true;
 }
 
+void Menu::resetColor()
+{
+    // ELEGIMOS EL COLOR DE FONDO QUE DESEAMOS
+    rlutil::setBackgroundColor(_colorFondoPrincipal);
+    // ELEGIMOS EL COLOR DEL TEXTO QUE DESEAMOS
+    rlutil::setColor(_colorTextoPrincipal);
+}
+
 Menu::Menu()
 {
     _cantidadOpciones = 2;
     _opciones = nullptr;
+    _cursor = 1;
+    _colorTextoPrincipal = rlutil::COLOR::WHITE;
+    _colorFondoPrincipal = rlutil::COLOR::BLACK;
 }
 
 Menu::~Menu()
@@ -61,9 +72,29 @@ void Menu::setSalida(std::string texto)
     _opciones[_cantidadOpciones - 1] = texto;
 }
 
+void Menu::setColorTextoPrincipal(short colorTexto)
+{
+    _colorTextoPrincipal = colorTexto;
+}
+
+void Menu::setColorFondoPrincipal(short colorFondo)
+{
+    _colorFondoPrincipal = colorFondo;
+}
+
 std::string Menu::getSalida()
 {
     return _opciones[_cantidadOpciones - 1];
+}
+
+short Menu::getColorTextoPrincipal()
+{
+    return _colorTextoPrincipal;
+}
+
+short Menu::getColorFondoPrincipal()
+{
+    return _colorFondoPrincipal;
 }
 
 void Menu::agregarOpcion(std::string texto)
@@ -94,10 +125,6 @@ void Menu::agregarOpcion(std::string texto)
 int Menu::dibujarMenu(short colorTexto = 15, short colorFondo = 0)
 {
     rlutil::hidecursor();
-    rlutil::setBackgroundColor(colorFondo);
-    rlutil::setColor(colorTexto);
-    // Variable Y para ubicar el cursor
-    int y = 1;
     bool dibujar = true;
     while (dibujar)
     {
@@ -109,37 +136,46 @@ int Menu::dibujarMenu(short colorTexto = 15, short colorFondo = 0)
         int i;
         for (i = 1; i < _cantidadOpciones - 1; i++)
         {
-            showItem(getOpcion(i), 21, (6 + i), y == i, colorFondo);
+            showItem(getOpcion(i), 21, (6 + i), _cursor == i, colorFondo);
         }
 
         // SALIDA
         // showItem(" SALIR ", 21, (8 + i), y == i);
-        showItem(getSalida(), 21, (7 + i), y == i, rlutil::COLOR::RED);
+        showItem(getSalida(), 21, (7 + i), _cursor == i, rlutil::COLOR::RED);
 
         switch (rlutil::getkey())
         {
         case rlutil::KEY_UP:
-            y--;
-            if (y < 1)
+            _cursor--;
+            if (_cursor < 1)
             {
-                y = 1;
+                _cursor = _cantidadOpciones - 1;
+                // y = 1;
             }
             break;
         case rlutil::KEY_DOWN:
-            y++;
-            if (y > (_cantidadOpciones - 1))
+            _cursor++;
+            if (_cursor > (_cantidadOpciones - 1))
             {
-                y = (_cantidadOpciones - 1);
+                // y = (_cantidadOpciones - 1);
+                _cursor = 1;
             }
             break;
         case rlutil::KEY_ENTER:
             dibujar = false;
             break;
+        case rlutil::KEY_ESCAPE:
+            _cursor = _cantidadOpciones - 1;
+            showItem(getSalida(), 21, (7 + i), _cursor == i, rlutil::COLOR::RED);
+            rlutil::showcursor();
+            Menu::resetColor();
+            return _cursor;
+            break;
         }
     }
     rlutil::showcursor();
-    rlutil::resetColor();
-    return y;
+    Menu::resetColor();
+    return _cursor;
 }
 
 int Menu::aclararBackground(int colorFondo)
@@ -168,7 +204,7 @@ void Menu::showItem(const char *text, int posX, int posY, bool selected)
         rlutil::locate(posX, posY);
         std::cout << text;
     }
-    rlutil::resetColor();
+    Menu::resetColor();
 }
 
 void Menu::showItem(std::string text, int posX, int posY, bool selected, short colorFondo)
@@ -188,7 +224,7 @@ void Menu::showItem(std::string text, int posX, int posY, bool selected, short c
         rlutil::locate(posX, posY);
         std::cout << text;
     }
-    rlutil::resetColor();
+    Menu::resetColor();
 }
 
 void Menu::mostrarMensaje(std::string mensaje, int color, int colorFondo)
@@ -196,8 +232,7 @@ void Menu::mostrarMensaje(std::string mensaje, int color, int colorFondo)
     rlutil::setColor(color);
     rlutil::setBackgroundColor(colorFondo);
     std::cout << mensaje;
-    rlutil::resetColor();
-    // rlutil::setBackgroundColor(rlutil::BLACK);
+    Menu::resetColor();
 }
 
 void Menu::recuadro(short iniX, short iniY, short ancho, short alto, short colorLinea = 15, short colorFondo = 11)
