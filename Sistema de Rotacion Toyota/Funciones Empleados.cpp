@@ -1,12 +1,13 @@
 #include "Funciones Empleados.h"
+#include "Cadena.h"
 void cargarNuevo()
 {
     system("cls");
     EmpleadosArchivo archivo;
     Empleados reg;
     int legajo;
-    std::string nombre;
-    std::string apellido;
+    Cadena nombre{""};
+    Cadena apellido{""};
     cout << "--------Ingreso de Operario Nuevo--------" << endl;
     cout << "Ingrese Legajo de Operario Nuevo: ";
     cin >> legajo;
@@ -14,15 +15,27 @@ void cargarNuevo()
     {
         cout << "Ese legajo ya existe." << endl;
         system("pause>nul");
+        system("cls");
+        cargarNuevo();
+        return;
+    }
+    if (legajo < 1)
+    {
+        cout << "El legajo debe ser mayor a 0." << endl;
+        system("pause>nul");
+        system("cls");
+        cargarNuevo();
         return;
     }
     reg.setLegajo(legajo);
+
     cout << "Ingrese Nombre de Operario Nuevo: ";
     cin >> nombre;
-    reg.setNombre(nombre);
+    reg.setNombre(nombre.getP());
     cout << "Ingrese Apellido de operario Nuevo: ";
     cin >> apellido;
-    reg.setApellido(apellido);
+
+    reg.setApellido(apellido.getP());
     if (archivo.guardar(reg))
     {
         cout << "Se Agrego Operarios Nuevo" << endl;
@@ -38,17 +51,17 @@ void listarOperarios()
 {
     EmpleadosArchivo Archivo;
     int cantidad = Archivo.getCantidadRegistros();
-    Empleados* reg = new Empleados[cantidad];
+    Empleados *reg = new Empleados[cantidad];
     Archivo.leerTodos(reg, cantidad);
 
     for (int i = 0; i < cantidad; i++)
     {
-            std::cout << "LEGAJO: " << reg[i].getLegajo() << std::endl;
-            std::cout << "NOMBRE: " << reg[i].getNombre() << std::endl;
-            std::cout << "APELLIDO: " << reg[i].getApellido() << std::endl;
-            std::cout << "DISPONIBILIDAD: " << reg[i].getDisponibilidad() << std::endl;
-            std::cout << "ESTADO: " << reg[i].getEstado() << std::endl;
-            puts("");
+        std::cout << "LEGAJO: " << reg[i].getLegajo() << std::endl;
+        std::cout << "NOMBRE: " << reg[i].getNombre() << std::endl;
+        std::cout << "APELLIDO: " << reg[i].getApellido() << std::endl;
+        std::cout << "DISPONIBILIDAD: " << reg[i].getDisponibilidad() << std::endl;
+        std::cout << "ESTADO: " << reg[i].getEstado() << std::endl;
+        puts("");
         // cout << reg[i].toString() << endl;
     }
 }
@@ -83,5 +96,5 @@ void cargarDatosDeInicio()
         }
         archivo.guardar(reg);
     }
-    std::cout<<"DATOS DE PRUEBA CARGADO.\n";
+    std::cout << "DATOS DE PRUEBA CARGADO.\n";
 }
