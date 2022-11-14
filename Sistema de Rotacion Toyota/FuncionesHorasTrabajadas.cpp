@@ -10,7 +10,7 @@ using namespace std;
 void sumaHorasPorLegajo(int legajo)
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidad();
+    int cant= archivoHT.getCantidadRegistros();
     HorasTrabajadas* ht=new HorasTrabajadas[cant];
     archivoHT.leerTodos(ht,cant);
 
@@ -69,7 +69,7 @@ void agregarRegistros()
 void mostrarRegistros()
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidad();
+    int cant= archivoHT.getCantidadRegistros();
     HorasTrabajadas* ht=new HorasTrabajadas[cant];
     archivoHT.leerTodos(ht,cant);
     int i;
@@ -82,7 +82,7 @@ void mostrarRegistros()
 void promedioGeneral()
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidad();
+    int cant= archivoHT.getCantidadRegistros();
     HorasTrabajadas* ht=new HorasTrabajadas[cant];
     archivoHT.leerTodos(ht,cant);
 
@@ -100,7 +100,7 @@ void promedioGeneral()
 void promedioPorLegajo(int legajo)
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidad();
+    int cant= archivoHT.getCantidadRegistros();
     HorasTrabajadas* ht=new HorasTrabajadas[cant];
     archivoHT.leerTodos(ht,cant);
 
@@ -120,7 +120,7 @@ void promedioPorLegajo(int legajo)
 void promedioPorLegajoYAnio(int legajo, int anio)
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidad();
+    int cant= archivoHT.getCantidadRegistros();
     HorasTrabajadas* ht=new HorasTrabajadas[cant];
     archivoHT.leerTodos(ht,cant);
 
@@ -140,7 +140,7 @@ void promedioPorLegajoYAnio(int legajo, int anio)
 void promedioPorLegajoYMes(int legajo, int mes)
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidad();
+    int cant= archivoHT.getCantidadRegistros();
     HorasTrabajadas* ht=new HorasTrabajadas[cant];
     archivoHT.leerTodos(ht,cant);
 
@@ -161,7 +161,7 @@ void promedioPorLegajoYMes(int legajo, int mes)
 void mostrarRegistrosPorLegajo(int legajo)
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidad();
+    int cant= archivoHT.getCantidadRegistros();
     HorasTrabajadas* ht=new HorasTrabajadas[cant];
     archivoHT.leerTodos(ht,cant);
 
@@ -190,7 +190,7 @@ int minCantHoras(HorasTrabajadas *v, int tam)
 void mostrarElMenorHorasLegajo()
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidad();
+    int cant= archivoHT.getCantidadRegistros();
     HorasTrabajadas* ht=new HorasTrabajadas[cant];
     archivoHT.leerTodos(ht,cant);
     int i;

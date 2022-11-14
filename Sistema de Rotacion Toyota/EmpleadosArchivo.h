@@ -1,27 +1,8 @@
 #pragma once
 #include <iostream>
 #include "Empleados.h"
+#include "EnumArchivos.h"
 using namespace std;
-
-///////////////////////////
-// TIPOS ENUMERADOS PARA USAR CON LA CLASE ARCHIVO
-enum Estado
-{ // DEFINE LOS ESTADOS EN LOS QUE PUEDE ESTAR EL ARCHIVO
-    NoExiste,
-    Cerrado,
-    AbiertoR,
-    AbiertoW,
-    AbiertoA,
-    AbiertoRW
-};
-
-enum Modo
-{ // DEFINE LOS MODOS DE APERTURA DE UN ARCHIVO
-    SoloLectura,
-    Escritura,
-    Agregar,
-    LecturaEscritura
-};
 
 class EmpleadosArchivo
 {

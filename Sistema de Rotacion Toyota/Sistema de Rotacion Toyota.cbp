@@ -34,6 +34,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Cadena.cpp" />
+		<Unit filename="Cadena.h" />
 		<Unit filename="Empleados.cpp" />
 		<Unit filename="Empleados.h" />
 		<Unit filename="EmpleadosArchivo.cpp" />
@@ -81,6 +83,10 @@
 		<Unit filename="funcionEditarEmpleados.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="rlutil.h" />
-		<Extensions />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

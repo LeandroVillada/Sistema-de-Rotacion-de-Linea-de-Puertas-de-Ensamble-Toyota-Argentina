@@ -8,7 +8,7 @@ private:
     Fecha fechaFinLicencia;
 public:
     // CONSTRUCTORES
-    Licencia();
+    Licencias();
     //setts
     void setLegajo(int);
     void setFechaInicioLicencia(Fecha fechaInicioLicencia);
@@ -17,6 +17,7 @@ public:
     int getLegajo();
     Fecha getFechaInicioLicencia();
     Fecha getFechaFinLicencia();
+    int getSize();
 
     void Mostrar();
 };

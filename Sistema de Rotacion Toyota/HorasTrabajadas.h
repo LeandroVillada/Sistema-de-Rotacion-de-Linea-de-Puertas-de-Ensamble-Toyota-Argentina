@@ -1,11 +1,13 @@
-#ifndef HORASTRABAJADAS_H_INCLUDED
-#define HORASTRABAJADAS_H_INCLUDED
+#pragma once
 #include "Fecha.h"
-class HorasTrabajadas{
+
+class HorasTrabajadas
+{
 private:
     int _legajo;
     float _horasTrabajadas;
     Fecha fechaHoraTrabajadas;
+
 public:
     // CONSTRUCTORES
     HorasTrabajadas();
@@ -17,6 +19,7 @@ public:
     int getLegajo();
     float getHorasTrabajadas();
     Fecha getFechaHoraTrabajadas();
+    int getSize();
 
     void Mostrar();
 
@@ -31,7 +34,7 @@ public:
 
     bool leerDeDisco(int);
 
-    int getCantidad();
+    int getCantidadRegistros();
 
     //void MostrarHoras(float);
 
@@ -50,6 +53,3 @@ public:
     void mostrarRegistrosPorLegajo(int);
     */
 };
-
-
-#endif // HORASTRABAJADAS_H_INCLUDED

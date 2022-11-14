@@ -17,7 +17,7 @@ void agregarEmpleadosDisponiblesParaRotar(int *, int *);
 
 void mostrarMensajeCargaIngresados(int);
 
-#include "Rotacion.h"
+#include "RotacionArchivo.h"
 
 bool validarLegajoRepetido(int *, int);
 void cargarBloqueUno(int (*)[26], int *);

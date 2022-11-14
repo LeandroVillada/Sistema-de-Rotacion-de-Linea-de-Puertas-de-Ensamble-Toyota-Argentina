@@ -45,7 +45,7 @@ void agregarRegistrosLicencia()
 void mostrarRegistrosLicencia()
 {
     LicenciasArchivo archivoL;
-    int cant= archivoL.getCantidad();
+    int cant= archivoL.getCantidadRegistros();
     Licencias* licencias=new Licencias[cant];
     archivoL.leerTodos(licencias,cant);
     int i;
@@ -107,7 +107,7 @@ void FinLicencia(int legajo)
 void mostrarLicenciasRegistrosPorLegajo(int legajo)
 {
     LicenciasArchivo archivoL;
-    int cant= archivoL.getCantidad();
+    int cant= archivoL.getCantidadRegistros();
     Licencias* licencias=new Licencias[cant];
     archivoL.leerTodos(licencias,cant);
 

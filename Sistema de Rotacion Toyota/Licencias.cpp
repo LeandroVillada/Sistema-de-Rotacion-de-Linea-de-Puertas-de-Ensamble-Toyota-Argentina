@@ -7,7 +7,7 @@
 using namespace std;
 
 // CONSTRUCTORES
-Licencias::Licencia()
+Licencias::Licencias()
 {
     _legajo = 0;
 }
@@ -25,6 +25,11 @@ int Licencias::getLegajo() { return _legajo; }
 Fecha Licencias::getFechaInicioLicencia(){return fechaInicioLicencia; }
 
 Fecha Licencias::getFechaFinLicencia(){return fechaFinLicencia; }
+
+int Licencias::getSize()
+{
+    return sizeof * this;
+}
 
 void Licencias::Mostrar()
 {

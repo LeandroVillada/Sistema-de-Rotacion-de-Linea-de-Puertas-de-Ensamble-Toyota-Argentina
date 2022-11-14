@@ -1,93 +1,176 @@
 #include <iostream>
+#include <cstring>
 #include "LicenciasArchivo.h"
 
-FILE *LicenciasArchivo::abrirArchivoL()
+int LicenciasArchivo::cantidadRegistros()
 {
-    FILE *pFile;
-    pFile = fopen("Licencias.dat", "rb");
-    if (pFile == NULL)
+    if (!abrirArchivo(SoloLectura))
     {
-        exit(1550);
+        estado = Cerrado;
+        return 0;
     }
-    return pFile;
+    fseek(pFile, 0, SEEK_END);
+    long cant = ftell(pFile) / tamanioRegistro;
+    cerrarArchivo();
+    return (int)cant;
+}
+
+bool LicenciasArchivo::abrirArchivo(Modo modo)
+{
+    switch (estado)
+    {
+    case AbiertoR:
+    case AbiertoW:
+    case AbiertoA:
+    case AbiertoRW:
+        cerrarArchivo();
+        break;
+    }
+    switch (modo)
+    {
+    case SoloLectura:
+        pFile = fopen(nombreArchivo, "rb");
+        if (!pFile)
+            return false;
+        estado = AbiertoR;
+        break;
+    case Escritura:
+        pFile = fopen(nombreArchivo, "wb");
+        if (!pFile)
+            return false;
+        estado = AbiertoW;
+        break;
+    case Agregar:
+        pFile = fopen(nombreArchivo, "ab");
+        if (!pFile)
+            return false;
+        estado = AbiertoA;
+        break;
+    case LecturaEscritura:
+        pFile = fopen(nombreArchivo, "rb+");
+        if (!pFile)
+            return false;
+        estado = AbiertoRW;
+        break;
+    }
+    return true;
+}
+
+void LicenciasArchivo::cerrarArchivo()
+{
+    fclose(pFile);
+    estado = Cerrado;
+}
+
+LicenciasArchivo::LicenciasArchivo()
+{
+    Licencias registro;
+    // Nombre para guardar o abrir los registros
+    std::string nombre = "Licencias.dat";
+    nombreArchivo = new char[strlen(nombre.c_str()) + 1];
+    if (nombreArchivo == NULL)
+    {
+        exit(1);
+    }
+    strcpy(nombreArchivo, nombre.c_str());
+
+    tamanioRegistro = registro.getSize();
+    pRegistro = (void *)malloc(tamanioRegistro);
+    cantRegistros = cantidadRegistros();
+    estado = Cerrado;
+}
+
+LicenciasArchivo::~LicenciasArchivo()
+{
+    delete nombreArchivo;
+    if (pFile)
+    {
+        fclose(pFile);
+    }
+    free(pRegistro);
 }
 
 Licencias LicenciasArchivo::leer(int nroRegistro)
 {
-    Licencias est;
-    FILE *pFile=abrirArchivoL();
+    Licencias obj{};
+    if (!abrirArchivo(SoloLectura))
+    {
+        return obj;
+    }
 
-    fseek(pFile, nroRegistro * sizeof(Licencias), SEEK_SET);
-    fread(&est, sizeof(Licencias), 1, pFile);
-    fclose(pFile);
-    return est;
+    fseek(pFile, nroRegistro * obj.getSize(), SEEK_SET);
+    fread(&obj, obj.getSize(), 1, pFile);
+    cerrarArchivo();
+    return obj;
 }
 
 bool LicenciasArchivo::leer(Licencias &licencias, int nroRegistro)
 {
-    FILE *pFile;
-    pFile = abrirArchivoL();
-    fseek(pFile, nroRegistro * sizeof(Licencias), SEEK_SET);
-    fread(&licencias, sizeof(Licencias), 1, pFile);
-    fclose(pFile);
-    return true;
-}
-
-bool LicenciasArchivo::leerTodos(Licencias clases[], int cantidad)
-{
-    FILE *pFile;
-    pFile = abrirArchivoL();
-    fread(clases, sizeof(Licencias), cantidad, pFile);
-    fclose(pFile);
-    return true;
-}
-
-bool LicenciasArchivo::guardar(Licencias clase)
-{
-    FILE *pFile = fopen("Licencias.dat", "ab");
-    if (pFile == NULL)
+    if (!abrirArchivo(SoloLectura))
     {
         return false;
     }
-    bool ok = fwrite(&clase, sizeof(Licencias), 1, pFile);
+
+    fseek(pFile, nroRegistro * sizeof(Licencias), SEEK_SET);
+    bool ok = fread(&licencias, sizeof(Licencias), 1, pFile);
+    cerrarArchivo();
+    return ok;
+}
+
+bool LicenciasArchivo::leerTodos(Licencias registros[], int cantidad)
+{
+    if (cantRegistros == 0)
+    {
+        return false;
+    }
+    if (!abrirArchivo(SoloLectura))
+    {
+        return false;
+    }
+
+    bool ok = fread(registros, sizeof(Licencias), cantidad, pFile);
+    cerrarArchivo();
+    return ok;
+}
+
+bool LicenciasArchivo::guardar(Licencias registro)
+{
+    if (!abrirArchivo(Escritura))
+    {
+        return false;
+    }
+    bool ok = fwrite(&registro, sizeof(Licencias), 1, pFile);
     fclose(pFile);
     return ok;
 }
 
-bool LicenciasArchivo::guardar(Licencias clase, int nroRegistro)
+bool LicenciasArchivo::guardar(Licencias registro, int nroRegistro)
 {
-    FILE *pFile = fopen("Licencias.dat", "rb+");
-    if (pFile == NULL)
+    if (!abrirArchivo(LecturaEscritura))
     {
         return false;
     }
+
     fseek(pFile, nroRegistro * sizeof(Licencias), SEEK_SET);
-    bool ok = fwrite(&clase, sizeof(Licencias), 1, pFile);
-    fclose(pFile);
+    bool ok = fwrite(&registro, sizeof(Licencias), 1, pFile);
+    cerrarArchivo();
     return ok;
 }
 
-int LicenciasArchivo::getCantidad()
+int LicenciasArchivo::getCantidadRegistros()
 {
-    FILE *pFile = abrirArchivoL();
-
-    fseek(pFile, 0, SEEK_END);
-    int cant = ftell(pFile) / sizeof(Licencias);
-    fclose(pFile);
-    return cant;
+    return cantRegistros;
 }
 
-int LicenciasArchivo::buscar(int legajo)
+int LicenciasArchivo::buscarPorLegajo(int legajo)
 {
-  Licencias aux;
-  int i = 0;
-  int cantHoras = getCantidad();
-  for (i = 0; i < cantHoras; i++) {
-    aux = leer(i);
-    if (aux.getLegajo() == legajo) {
-      return i;
+    Licencias *aux = new Licencias[cantRegistros];
+    for (int i = 0; i < cantRegistros; i++)
+    {
+        if (aux[i].getLegajo() == legajo)
+        {
+            return i;
+        }
     }
-  }
-  return -1;
+    return -1;
 }
-

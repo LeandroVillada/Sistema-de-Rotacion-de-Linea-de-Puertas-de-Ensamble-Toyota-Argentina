@@ -9,7 +9,7 @@ private:
     int _bloqueTres[26];
     int _bloqueCuatro[26];
 
-public:
+public:/* 
     // FUNCIONES ARCHIVOS
     bool leerDeDisco(int);
     bool grabarEnDisco();
@@ -18,7 +18,7 @@ public:
     bool leerDeDiscoBKP(int);
     bool grabarEnBackUp();
     bool restaurarBackUP();
-    bool exportar();
+    bool exportar(); */
     // SETTS
     void setOperarios(int *);
     void setBloqueUno(int *);
@@ -31,4 +31,5 @@ public:
     int *getBloqueDos();
     int *getBloqueTres();
     int *getBloqueCuatro();
+    int getSize();
 };

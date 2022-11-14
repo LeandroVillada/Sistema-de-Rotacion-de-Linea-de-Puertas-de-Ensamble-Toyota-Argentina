@@ -27,6 +27,10 @@ int HorasTrabajadas::getLegajo() { return _legajo; }
 float HorasTrabajadas::getHorasTrabajadas() { return _horasTrabajadas; }
 
 Fecha HorasTrabajadas::getFechaHoraTrabajadas(){return fechaHoraTrabajadas; }
+int HorasTrabajadas::getSize()
+{
+    return sizeof * this;
+}
 // FUNCIONES PUBLICAS
 /*
 void HorasTrabajadas::Cargar() {
@@ -89,7 +93,7 @@ bool HorasTrabajadas::leerDeDisco(int pos)
     return leyo;
 }
 /*
-int HorasTrabajadasArchivo::getCantidad()
+int HorasTrabajadasArchivo::getCantidadRegistros()
 {
   FILE* p;
   p = fopen("horasTrabajadas.dat", "rb");
@@ -107,7 +111,7 @@ void HorasTrabajadas::sumaHorasPorLegajo(int legajo)
 {
     int pos = 0;
     float sumaHorasTrabajadas = 0;
-    // int cantHoras = ht.getCantidad();
+    // int cantHoras = ht.getCantidadRegistros();
     // for (i = 0; i < cantHoras; i++) {
     // ht = htA.leer(i);
     while (leerDeDisco(pos++))

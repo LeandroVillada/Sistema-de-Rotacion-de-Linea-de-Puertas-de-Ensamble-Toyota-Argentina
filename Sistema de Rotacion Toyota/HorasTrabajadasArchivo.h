@@ -1,19 +1,32 @@
-#ifndef HORASTRABAJADASARCHIVO_H_INCLUDED
-#define HORASTRABAJADASARCHIVO_H_INCLUDED
+#pragma once
 #include "HorasTrabajadas.h"
+#include "EnumArchivos.h"
 
-class HorasTrabajadasArchivo{
+class HorasTrabajadasArchivo
+{
+private:
+    FILE *pFile;
+    int tamanioRegistro;
+    void *pRegistro;
+    char *nombreArchivo;
+    int cantRegistros;
+    int estado;
+    int cantidadRegistros();
+    bool abrirArchivo(Modo modo);
+    void cerrarArchivo();
+
 public:
+    HorasTrabajadasArchivo();
+    ~HorasTrabajadasArchivo();
     // FUNCIONES ARCHIVOS
-    FILE *abrirArchivoHT();
     HorasTrabajadas leer(int nroRegistro);
     bool leer(HorasTrabajadas &horasTrabajadas, int nroRegistro);
     bool leerTodos(HorasTrabajadas horasTrabajadas[], int cantidad);
     bool guardar(HorasTrabajadas horasTrabajadas);
     bool guardar(HorasTrabajadas horasTrabajadas, int nroRegistro);
-    int getCantidad();
-    int buscar(int);
-    //void mostrar(HorasTrabajadas);
+    int getCantidadRegistros();
+    int buscarPorLegajo(int);
+    // void mostrar(HorasTrabajadas);
 
     void mostrarArchivo();
 
@@ -21,5 +34,3 @@ public:
     bool cargar();
     void mostrar();
 };
-
-#endif // HORASTRABAJADASARCHIVO_H_INCLUDED
