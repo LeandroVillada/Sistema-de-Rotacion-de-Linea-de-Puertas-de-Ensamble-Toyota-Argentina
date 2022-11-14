@@ -40,6 +40,7 @@
 		<Unit filename="Empleados.h" />
 		<Unit filename="EmpleadosArchivo.cpp" />
 		<Unit filename="EmpleadosArchivo.h" />
+		<Unit filename="EnumArchivos.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="FuncionArmadoRotacion.cpp" />
@@ -72,6 +73,8 @@
 		<Unit filename="MenuLicencias.h" />
 		<Unit filename="Rotacion.cpp" />
 		<Unit filename="Rotacion.h" />
+		<Unit filename="RotacionArchivo.cpp" />
+		<Unit filename="RotacionArchivo.h" />
 		<Unit filename="SubmenuDisponibilidad.cpp" />
 		<Unit filename="SubmenuDisponibilidad.h" />
 		<Unit filename="SubmenuEdicionEmpleados.cpp" />
@@ -83,10 +86,6 @@
 		<Unit filename="funcionEditarEmpleados.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="rlutil.h" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
