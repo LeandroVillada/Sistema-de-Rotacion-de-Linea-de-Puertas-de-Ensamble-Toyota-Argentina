@@ -109,21 +109,21 @@ bool Fecha::operator!=(Fecha aux)
 }
 bool Fecha::operator>(Fecha aux)
 {
-    if (_anio < aux._anio)
-        return false;
-    if (_mes < aux._mes)
-        return false;
-    if (_dia < aux._dia)
-        return false;
-    return true;
-}
-bool Fecha::operator<(Fecha aux)
-{
     if (_anio > aux._anio)
         return false;
     if (_mes > aux._mes)
         return false;
     if (_dia > aux._dia)
+        return false;
+    return true;
+}
+bool Fecha::operator<(Fecha aux)
+{
+    if (_anio < aux._anio)
+        return false;
+    if (_mes < aux._mes)
+        return false;
+    if (_dia < aux._dia)
         return false;
     return true;
 }

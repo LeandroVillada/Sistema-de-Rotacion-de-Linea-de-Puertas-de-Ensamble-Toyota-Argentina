@@ -146,3 +146,50 @@ void mostrarLicenciasRegistrosPorLegajo(int legajo)
         }
     }
 }
+
+void comprobarLicencias()
+{
+    LicenciasArchivo archivoLicencias;
+    // int CantRegLicencias = archivoLicencias.getCantidadRegistros();
+    // Licencias licencias;
+    // Licencias *licencias = new Licencias[CantRegLicencias];
+    // if (licencias == NULL)
+    // {
+    //     return;
+    // }
+    // if (!archivoLicencias.leerTodos(licencias, CantRegLicencias))
+    // {
+    //     return;
+    // }
+
+    EmpleadosArchivo archivoEmpleados;
+    int CantRegEmpleados = archivoEmpleados.getCantidadRegistros();
+    Empleados *empleados = new Empleados[CantRegEmpleados];
+    if (empleados == NULL)
+    {
+        return;
+    }
+    if (!archivoEmpleados.leerTodos(empleados, CantRegEmpleados))
+    {
+        return;
+    }
+
+    Fecha fechaActual;
+
+    for (int i = 0; i < CantRegEmpleados; i++)
+    {
+        int pos = archivoLicencias.BuscarUltimoRegistroLegajo(empleados[i].getLegajo());
+        if ((pos > -1) && (!empleados[i].getDisponibilidad()))
+        {
+            if (archivoLicencias.leer(pos).getFechaFinLicencia() > fechaActual)
+            {
+                empleados[i].setDisponibilidad(true);
+                if (!archivoEmpleados.guardar(empleados[i], i))
+                {
+                    cout << "No se pudo grabar en disco." << endl;
+                    return;
+                }
+            }
+        }
+    }
+}

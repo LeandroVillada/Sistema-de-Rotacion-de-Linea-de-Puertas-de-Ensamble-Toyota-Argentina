@@ -26,7 +26,7 @@ public:
     bool guardar(Licencias licencias);
     bool guardar(Licencias licencias, int nroRegistro);
     int getCantidadRegistros();
-    int buscarPorLegajo(int);
+    int BuscarUltimoRegistroLegajo(int);
 
     void mostrarArchivo();
 };

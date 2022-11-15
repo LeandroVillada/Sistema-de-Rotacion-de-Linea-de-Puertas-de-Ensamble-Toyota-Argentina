@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstring>
 #include "LicenciasArchivo.h"
 
 int LicenciasArchivo::cantidadRegistros()
@@ -135,7 +134,7 @@ bool LicenciasArchivo::leerTodos(Licencias registros[], int cantidad)
 
 bool LicenciasArchivo::guardar(Licencias registro)
 {
-    if (!abrirArchivo(Escritura))
+    if (!abrirArchivo(Agregar))
     {
         return false;
     }
@@ -162,15 +161,24 @@ int LicenciasArchivo::getCantidadRegistros()
     return cantRegistros;
 }
 
-int LicenciasArchivo::buscarPorLegajo(int legajo)
+int LicenciasArchivo::BuscarUltimoRegistroLegajo(int legajo)
 {
+    int ultimoLegajo = -1;
     Licencias *aux = new Licencias[cantRegistros];
+    if (!leerTodos(aux, cantRegistros))
+    {
+        return -2;
+    }
+    if (aux == NULL)
+    {
+        return -2;
+    }
     for (int i = 0; i < cantRegistros; i++)
     {
         if (aux[i].getLegajo() == legajo)
         {
-            return i;
+            ultimoLegajo = i;
         }
     }
-    return -1;
+    return ultimoLegajo;
 }
