@@ -6,8 +6,15 @@ int contarLegajosActivosDisponibles()
 {
     EmpleadosArchivo Archivo;
     int cantidad = Archivo.getCantidadRegistros();
-    Empleados* reg = new Empleados[cantidad];
-    Archivo.leerTodos(reg, cantidad);
+    Empleados *reg = new Empleados[cantidad];
+    if (reg == NULL)
+    {
+        return -2;
+    }
+    if (!Archivo.leerTodos(reg, cantidad))
+    {
+        return -2;
+    }
 
     int contador = 0;
 
@@ -24,11 +31,18 @@ void asignarLegajosAlVector(int *vector, int tam)
 {
     EmpleadosArchivo Archivo;
     int cantidad = Archivo.getCantidadRegistros();
-    Empleados* reg = new Empleados[cantidad];
-    Archivo.leerTodos(reg, cantidad);
+    Empleados *reg = new Empleados[cantidad];
+    if (reg == NULL)
+    {
+        return;
+    }
+    if (!Archivo.leerTodos(reg, cantidad))
+    {
+        return;
+    }
 
     int contador = 0;
-        for (int i = 0; i < cantidad; i++)
+    for (int i = 0; i < cantidad; i++)
     {
         if ((reg[i].getEstado()) && (reg[i].getDisponibilidad()))
         {
@@ -42,20 +56,41 @@ void listarOperariosDisponiblesParaRotar()
 {
     EmpleadosArchivo Archivo;
     int cantidad = Archivo.getCantidadRegistros();
-    Empleados* reg = new Empleados[cantidad];
-    Archivo.leerTodos(reg, cantidad);
-
-
+    Empleados *reg = new Empleados[cantidad];
+    if (reg == NULL)
+    {
+        return;
+    }
+    if (!Archivo.leerTodos(reg, cantidad))
+    {
+        return;
+    }
+    // ENCABEZADO
+    gotoxy(2, 2);
+    cout << "LEGAJO";
+    gotoxy(20, 2);
+    cout << "APELLIDO";
+    gotoxy(50, 2);
+    cout << "NOMBRE" << endl;
+    cout << "---------------------------------------------------------------" << endl;
+    int y = 0;
     for (int i = 0; i < cantidad; i++)
     {
         if ((reg[i].getEstado()) && (reg[i].getDisponibilidad()))
         {
+            gotoxy(4, 4 + y);
             std::cout << reg[i].getLegajo() << std::endl;
+            gotoxy(20, 4 + y);
+            std::cout << reg[i].getApellido() << std::endl;
+            gotoxy(50, 4 + y);
+            std::cout << reg[i].getNombre() << std::endl;
+            y++;
         }
     }
 }
 
-void disponible(){
+void disponible()
+{
     Empleados reg;
     EmpleadosArchivo archivo;
     int legajo;
@@ -80,12 +115,16 @@ void disponible(){
     // Cambiamos el valor del estado del registro
     reg.setDisponibilidad(true);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
-    archivo.guardar(reg, pos);
+    if (!archivo.guardar(reg, pos))
+    {
+        cout << "No se pudo grabar en disco." << endl;
+        return;
+    }
     std::cout << "Legajo se encuentra con disponibilidad." << std::endl;
-
 }
 
-void NOdisponible(){
+void NOdisponible()
+{
     EmpleadosArchivo archivo;
     Empleados reg;
     int legajo;
@@ -110,6 +149,10 @@ void NOdisponible(){
     // Cambiamos el valor del estado del registro
     reg.setDisponibilidad(false);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
-    archivo.guardar(reg, pos);
+    if (!archivo.guardar(reg, pos))
+    {
+        cout << "No se pudo grabar en disco." << endl;
+        return;
+    }
     std::cout << "Legajo se encuentra sin disponibilidad." << std::endl;
 }

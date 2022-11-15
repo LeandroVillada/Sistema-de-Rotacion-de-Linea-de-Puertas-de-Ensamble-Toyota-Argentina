@@ -1,4 +1,4 @@
-#include"funcionEditarEmpleados.h"
+#include "funcionEditarEmpleados.h"
 #include "EmpleadosArchivo.h"
 #include "Funciones Globales.h"
 #include <iostream>
@@ -26,14 +26,13 @@ void darBajaLegajo()
     // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
     int pos = archivo.buscarPosicionEmpleadoPorLegajo(legajo);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    archivo.leer(reg,pos);
+    archivo.leer(reg, pos);
     // Cambiamos el valor del estado del registro
     reg.setEstado(false);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     archivo.guardar(reg, pos);
     cout << "Legajo dado de baja con exito." << endl;
 }
-
 
 void darAltaLegajo()
 {
@@ -65,40 +64,6 @@ void darAltaLegajo()
     cout << "Legajo dado de alta con exito." << endl;
 }
 
-
-/*void editarLegajoEmpleado()
-{
-    Empleados reg;
-    int legajo;
-    cout << "Ingresar el Legajo a editar: ";
-    cin >> legajo;
-    // Aqui comprobamos si el legajo ingresado no existe.
-    if (!reg.buscarLegajoExistente(legajo))
-    {
-        cout << "El legajo ingresado no existe." << endl;
-        return;
-    }
-    // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
-    int pos = reg.buscarLegajo(legajo);
-    // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    reg.leerDeDisco(pos);
-    // Reutilizamos la variable "legajo"
-    cout << "Numero de legajo nuevo: ";
-    cin >> legajo;
-    // Comprobamos si el legajo ingresado ya existe.
-    if (reg.buscarLegajoExistente(legajo))
-    {
-        cout << "El legajo ingresado ya existe." << endl;
-        return;
-    }
-    // Cambiamos el valor del legajo y actualizamos el registro.
-    reg.set_legajo(legajo);
-    // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
-    reg.modificarEnDisco(pos);
-    cout << "Legajo editado con exito." << endl;
-}
-*/
-
 void editarNombreEmpleado()
 {
     Empleados reg;
@@ -125,9 +90,7 @@ void editarNombreEmpleado()
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     archivo.guardar(reg, pos);
     cout << "Nombre editado con exito." << endl;
-
 }
-
 
 void editarApellidoEmpleado()
 {
@@ -149,7 +112,7 @@ void editarApellidoEmpleado()
     // Utilizamos la funcion cargarCadenas(mandando apellido y el tamanio -1).
     cin >> apellido;
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    archivo.leer(reg,pos);
+    archivo.leer(reg, pos);
     // Actualizamos el apellido del registro
     reg.setApellido(apellido);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.

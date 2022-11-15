@@ -12,7 +12,7 @@ void listarLegajosDisponiblesParaRotacion(int *legajosDisponibles, int cantidadD
         if (legajosDisponibles[q] != 0)
         {
             gotoxy(10, 5 + y);
-            cout<<archivo.buscarEmpleadoPorLegajo(legajosDisponibles[q]).getApellido();
+            cout << archivo.buscarEmpleadoPorLegajo(legajosDisponibles[q]).getApellido();
             gotoxy(35, 5 + y);
             cout << legajosDisponibles[q] << endl;
             y++;
@@ -31,7 +31,7 @@ void listarLegajosCargadosParaRotacion(int *operariosParaRotar)
         if (operariosParaRotar[w] != 0)
         {
             gotoxy(85, 5 + y);
-            cout<<archivo.buscarEmpleadoPorLegajo(operariosParaRotar[w]).getApellido();
+            cout << archivo.buscarEmpleadoPorLegajo(operariosParaRotar[w]).getApellido();
             gotoxy(105, 5 + y);
             cout << operariosParaRotar[w] << endl;
             y++;
@@ -98,21 +98,24 @@ void agregarEmpleadosDisponiblesParaRotar(int *legajosDisponibles, int *operario
             listarLegajosCargadosParaRotacion(operariosParaRotar);
             break;
         }
-    }while (true && legajoIngresado!=0);
+    } while (true && legajoIngresado != 0);
 
     mostrarMensajeCargaIngresados(legajoIngresado);
 
     return;
 }
 
-void mostrarMensajeCargaIngresados(int legajo){
-        if (legajo!=0){
+void mostrarMensajeCargaIngresados(int legajo)
+{
+    if (legajo != 0)
+    {
         system("cls");
         gotoxy(35, 5);
         mostrarMensaje("Todos los Puestos Fueron Cargados.", 15, 2);
     }
-    else{
-        ///Si legajo ==0 cancela la carga y muestro mensaje
+    else
+    {
+        /// Si legajo ==0 cancela la carga y muestro mensaje
         system("cls");
         gotoxy(50, 5);
         mostrarMensaje("Se cancelo la carga!", 15, 4);
@@ -213,13 +216,17 @@ void cargarBloqueCuatro(int rotacion[][26], int *operariosParaRotar)
     }
 }
 
-void encabezado(){
-
-    cout<<endl;
-    cout <<" PUESTO"<<"\t"<<"\t";
-    cout <<"LEGAJO"<<"\t"<<"\t";
-    cout <<"APELLIDO             NOMBRE"<<endl;
-    cout <<"---------------------------------------------------------------"<<endl;
+void encabezado()
+{
+    cout << endl;
+    cout << " PUESTO"
+         << "\t"
+         << "\t";
+    cout << "LEGAJO"
+         << "\t"
+         << "\t";
+    cout << "APELLIDO             NOMBRE" << endl;
+    cout << "---------------------------------------------------------------" << endl;
 }
 
 void mostrarRotacionUno()
@@ -227,25 +234,26 @@ void mostrarRotacionUno()
     EmpleadosArchivo archivoEmpleado;
     RotacionArchivo archivoRotacion;
     Rotacion reg;
-    if(!archivoRotacion.leer(reg, 0)){
-        cout <<"BLOQUE 1 NO SE PUDO LEER." << endl;
+    if (!archivoRotacion.leer(reg, 0))
+    {
+        cout << "BLOQUE 1 NO SE PUDO LEER." << endl;
         system("pause>nul");
         return;
     }
-    int y=0;
+    int y = 0;
     for (int i = 0; i < 26; i++)
     {
         gotoxy(4, 4 + y);
-        cout <<i + 1;
+        cout << i + 1;
         gotoxy(19, 4 + y);
         cout << reg.getBloqueUno()[i];
         gotoxy(33, 4 + y);
-        cout <<archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueUno()[i]).getApellido();
+        cout << archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueUno()[i]).getApellido();
         gotoxy(54, 4 + y);
-        cout <<archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueUno()[i]).getNombre()<<endl;
+        cout << archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueUno()[i]).getNombre() << endl;
         y++;
     }
-    cout <<"---------------------------------------------------------------"<<endl;
+    cout << "---------------------------------------------------------------" << endl;
 }
 
 void mostrarRotacionDos()
@@ -253,26 +261,27 @@ void mostrarRotacionDos()
     EmpleadosArchivo archivoEmpleado;
     RotacionArchivo archivoRotacion;
     Rotacion reg;
-    if(!archivoRotacion.leer(reg, 0)){
-        cout <<"BLOQUE 2 NO SE PUDO LEER." << endl;
+    if (!archivoRotacion.leer(reg, 0))
+    {
+        cout << "BLOQUE 2 NO SE PUDO LEER." << endl;
         system("pause>nul");
         return;
     }
-    int y=0;
+    int y = 0;
 
     for (int i = 0; i < 26; i++)
     {
         gotoxy(4, 34 + y);
-        cout <<i + 1;
+        cout << i + 1;
         gotoxy(19, 34 + y);
         cout << reg.getBloqueDos()[i];
         gotoxy(33, 34 + y);
         cout << archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueDos()[i]).getApellido();
         gotoxy(54, 34 + y);
-        cout << archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueDos()[i]).getNombre()<<endl;
+        cout << archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueDos()[i]).getNombre() << endl;
         y++;
     }
-    cout <<"---------------------------------------------------------------"<<endl;
+    cout << "---------------------------------------------------------------" << endl;
 }
 
 void mostrarRotacionTres()
@@ -280,26 +289,27 @@ void mostrarRotacionTres()
     EmpleadosArchivo archivoEmpleado;
     RotacionArchivo archivoRotacion;
     Rotacion reg;
-    if(!archivoRotacion.leer(reg, 0)){
-        cout <<"BLOQUE 3 NO SE PUDO LEER." << endl;
+    if (!archivoRotacion.leer(reg, 0))
+    {
+        cout << "BLOQUE 3 NO SE PUDO LEER." << endl;
         system("pause>nul");
         return;
     }
-    int y=0;
+    int y = 0;
 
     for (int i = 0; i < 26; i++)
     {
         gotoxy(4, 64 + y);
-        cout <<i + 1;
+        cout << i + 1;
         gotoxy(19, 64 + y);
         cout << reg.getBloqueTres()[i];
         gotoxy(33, 64 + y);
         cout << archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueTres()[i]).getApellido();
         gotoxy(54, 64 + y);
-        cout << archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueTres()[i]).getNombre()<<endl;
+        cout << archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueTres()[i]).getNombre() << endl;
         y++;
     }
-    cout <<"---------------------------------------------------------------"<<endl;
+    cout << "---------------------------------------------------------------" << endl;
 }
 
 void mostrarRotacionCuatro()
@@ -307,12 +317,13 @@ void mostrarRotacionCuatro()
     EmpleadosArchivo archivoEmpleado;
     RotacionArchivo archivoRotacion;
     Rotacion reg;
-    if(!archivoRotacion.leer(reg, 0)){
-        cout <<"BLOQUE 4 NO SE PUDO LEER." << endl;
+    if (!archivoRotacion.leer(reg, 0))
+    {
+        cout << "BLOQUE 4 NO SE PUDO LEER." << endl;
         system("pause>nul");
         return;
     }
-    int y=0;
+    int y = 0;
 
     for (int i = 0; i < 26; i++)
     {
@@ -323,36 +334,36 @@ void mostrarRotacionCuatro()
         gotoxy(33, 94 + y);
         cout << archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueCuatro()[i]).getApellido();
         gotoxy(54, 94 + y);
-        cout << archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueCuatro()[i]).getNombre()<<endl;
+        cout << archivoEmpleado.buscarEmpleadoPorLegajo(reg.getBloqueCuatro()[i]).getNombre() << endl;
         y++;
     }
-    cout <<"---------------------------------------------------------------"<<endl;
+    cout << "---------------------------------------------------------------" << endl;
 }
 
 void mostrarRotacion()
 {
-    ///Bloque 1
+    /// Bloque 1
     gotoxy(50, 1);
     mostrarMensaje("Bloque 1", 15, 9);
     gotoxy(0, 2);
     encabezado();
     mostrarRotacionUno();
 
-    ///Bloque 2
+    /// Bloque 2
     gotoxy(50, 31);
     mostrarMensaje("Bloque 2", 15, 9);
     gotoxy(0, 36);
     encabezado();
     mostrarRotacionDos();
 
-    ///Bloque 3
+    /// Bloque 3
     gotoxy(50, 61);
     mostrarMensaje("Bloque 3", 15, 9);
     gotoxy(0, 65);
     encabezado();
     mostrarRotacionTres();
 
-    ///Bloque 4
+    /// Bloque 4
     gotoxy(50, 91);
     mostrarMensaje("Bloque 4", 15, 9);
     gotoxy(0, 96);
@@ -362,6 +373,12 @@ void mostrarRotacion()
 
 void armarRotacion(int *operariosParaRotar)
 {
+    // Combrueba que se hayan cargado correctamente los operarios para rotar;
+    if (operariosParaRotar[25] == 0)
+    {
+        cout << "Debe cargar los operarios para rotar antes." << endl;
+        return;
+    }
     mostrarMensaje("Generando una nueva rotacion, porfavor espere...\n", 15, 10);
     int rotacion[4][26] = {0};
     cargarBloqueUno(rotacion, operariosParaRotar);
@@ -385,7 +402,10 @@ void armarRotacion(int *operariosParaRotar)
     reg.setBloqueTres(rotacion[2]);
     reg.setBloqueCuatro(rotacion[3]);
     RotacionArchivo archivo;
-    archivo.guardar(reg);
-
+    if (!archivo.guardar(reg))
+    {
+        cout << "No se pudo Grabar en disco." << endl;
+        return;
+    }
     mostrarRotacion();
 }

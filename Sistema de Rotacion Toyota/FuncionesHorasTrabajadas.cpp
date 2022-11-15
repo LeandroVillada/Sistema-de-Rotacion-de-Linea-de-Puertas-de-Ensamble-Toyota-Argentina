@@ -6,18 +6,25 @@ using namespace std;
 #include "Empleados.h"
 #include "EmpleadosArchivo.h"
 
-
 void sumaHorasPorLegajo(int legajo)
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidadRegistros();
-    HorasTrabajadas* ht=new HorasTrabajadas[cant];
-    archivoHT.leerTodos(ht,cant);
+    int cant = archivoHT.getCantidadRegistros();
+    HorasTrabajadas *ht = new HorasTrabajadas[cant];
+    if (ht == NULL)
+    {
+        return;
+    }
+    if (!archivoHT.leerTodos(ht, cant))
+    {
+        return;
+    }
 
     int i;
     float sumaHorasTrabajadas = 0;
 
-    for (i = 0; i < cant; i++) {
+    for (i = 0; i < cant; i++)
+    {
         if (ht[i].getLegajo() == legajo)
         {
             sumaHorasTrabajadas += ht[i].getHorasTrabajadas();
@@ -49,7 +56,7 @@ void agregarRegistros()
 
         ht.setLegajo(_legajo);
 
-        cin>>fechaHorasTrabajadas;
+        cin >> fechaHorasTrabajadas;
         ht.setFechaHoraTrabajadas(fechaHorasTrabajadas);
 
         cout << "Horas Trabajadas: ";
@@ -69,9 +76,16 @@ void agregarRegistros()
 void mostrarRegistros()
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidadRegistros();
-    HorasTrabajadas* ht=new HorasTrabajadas[cant];
-    archivoHT.leerTodos(ht,cant);
+    int cant = archivoHT.getCantidadRegistros();
+    HorasTrabajadas *ht = new HorasTrabajadas[cant];
+    if (ht == NULL)
+    {
+        return;
+    }
+    if (!archivoHT.leerTodos(ht, cant))
+    {
+        return;
+    }
     int i;
     for (i = 0; i < cant; i++)
     {
@@ -82,9 +96,16 @@ void mostrarRegistros()
 void promedioGeneral()
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidadRegistros();
-    HorasTrabajadas* ht=new HorasTrabajadas[cant];
-    archivoHT.leerTodos(ht,cant);
+    int cant = archivoHT.getCantidadRegistros();
+    HorasTrabajadas *ht = new HorasTrabajadas[cant];
+    if (ht == NULL)
+    {
+        return;
+    }
+    if (!archivoHT.leerTodos(ht, cant))
+    {
+        return;
+    }
 
     float promedio = 0;
     int cantP = 0, i;
@@ -100,9 +121,16 @@ void promedioGeneral()
 void promedioPorLegajo(int legajo)
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidadRegistros();
-    HorasTrabajadas* ht=new HorasTrabajadas[cant];
-    archivoHT.leerTodos(ht,cant);
+    int cant = archivoHT.getCantidadRegistros();
+    HorasTrabajadas *ht = new HorasTrabajadas[cant];
+    if (ht == NULL)
+    {
+        return;
+    }
+    if (!archivoHT.leerTodos(ht, cant))
+    {
+        return;
+    }
 
     float promedio = 0;
     int cantP = 0, i;
@@ -120,9 +148,16 @@ void promedioPorLegajo(int legajo)
 void promedioPorLegajoYAnio(int legajo, int anio)
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidadRegistros();
-    HorasTrabajadas* ht=new HorasTrabajadas[cant];
-    archivoHT.leerTodos(ht,cant);
+    int cant = archivoHT.getCantidadRegistros();
+    HorasTrabajadas *ht = new HorasTrabajadas[cant];
+    if (ht == NULL)
+    {
+        return;
+    }
+    if (!archivoHT.leerTodos(ht, cant))
+    {
+        return;
+    }
 
     float promedio = 0;
     int cantP = 0, i;
@@ -140,9 +175,16 @@ void promedioPorLegajoYAnio(int legajo, int anio)
 void promedioPorLegajoYMes(int legajo, int mes)
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidadRegistros();
-    HorasTrabajadas* ht=new HorasTrabajadas[cant];
-    archivoHT.leerTodos(ht,cant);
+    int cant = archivoHT.getCantidadRegistros();
+    HorasTrabajadas *ht = new HorasTrabajadas[cant];
+    if (ht == NULL)
+    {
+        return;
+    }
+    if (!archivoHT.leerTodos(ht, cant))
+    {
+        return;
+    }
 
     float promedio = 0;
     int cantP = 0, i;
@@ -161,14 +203,22 @@ void promedioPorLegajoYMes(int legajo, int mes)
 void mostrarRegistrosPorLegajo(int legajo)
 {
     HorasTrabajadasArchivo archivoHT;
-    int cant= archivoHT.getCantidadRegistros();
-    HorasTrabajadas* ht=new HorasTrabajadas[cant];
-    archivoHT.leerTodos(ht,cant);
+    int cant = archivoHT.getCantidadRegistros();
+    HorasTrabajadas *ht = new HorasTrabajadas[cant];
+    if (ht == NULL)
+    {
+        return;
+    }
+    if (!archivoHT.leerTodos(ht, cant))
+    {
+        return;
+    }
 
     int i;
     for (i = 0; i < cant; i++)
     {
-        if (ht[i].getLegajo() == legajo){
+        if (ht[i].getLegajo() == legajo)
+        {
             ht[i].Mostrar();
         }
     }

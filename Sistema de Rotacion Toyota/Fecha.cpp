@@ -43,7 +43,7 @@ void Fecha::NumeroSerieaFecha(int ns)
     _anio = anio_real - 1;
     // Cantidad de dias pasados desde anio
     int dias_anio_actual = ns - suma_ant, i = 0;
-    int vmes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int vmes[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     if (esbisiesto(_anio))
         vmes[1] = 29;
     suma = 0;

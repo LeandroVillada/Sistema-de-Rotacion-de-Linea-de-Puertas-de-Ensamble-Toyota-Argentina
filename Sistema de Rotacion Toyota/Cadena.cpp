@@ -1,8 +1,9 @@
 #include "Cadena.h"
 #include <cstring>
+
 // DESARROLLO DE LOS METODOS
 // CONSTRUCTOR
-Cadena::Cadena(const char* cad = NULL)
+Cadena::Cadena(const char *cad = NULL)
 {
 	if (cad == NULL)
 	{
@@ -10,7 +11,7 @@ Cadena::Cadena(const char* cad = NULL)
 		tam = 0;
 		return;
 	}
-	tam = strlen(cad) + 1;
+	tam = (int)strlen(cad) + 1;
 	p = new char[tam];
 	if (p == NULL)
 		exit(1);
@@ -18,18 +19,18 @@ Cadena::Cadena(const char* cad = NULL)
 }
 
 // SETS
-void Cadena::setP(const char* cad)
+void Cadena::setP(const char *cad)
 {
 	if (p)
 		delete p;
-	tam = strlen(cad) + 1;
+	tam = (int)strlen(cad) + 1;
 	p = new char[tam];
 	if (p == NULL)
 		exit(1);
 	strcpy(p, cad);
 }
 
-void Cadena::setP(const Cadena& cad)
+void Cadena::setP(const Cadena &cad)
 {
 	if (p)
 		delete p;
@@ -67,11 +68,11 @@ bool Cadena::vacio()
 	 }
 */
 // ASIGNACION
-Cadena& Cadena::operator=(const char* cad) // Para asignar a un objeto una cadena
+Cadena &Cadena::operator=(const char *cad) // Para asignar a un objeto una cadena
 {
 	if (p)
 		delete p;
-	tam = strlen(cad) + 1;
+	tam = (int)strlen(cad) + 1;
 	p = new char[tam];
 	if (p == NULL)
 		exit(1);
@@ -79,7 +80,7 @@ Cadena& Cadena::operator=(const char* cad) // Para asignar a un objeto una caden
 	return *this;
 }
 
-Cadena& Cadena::operator=(const Cadena& c)
+Cadena &Cadena::operator=(const Cadena &c)
 {
 	if (this != &c)
 	{
@@ -96,14 +97,14 @@ Cadena& Cadena::operator=(const Cadena& c)
 }
 
 //==
-bool Cadena::operator==(const Cadena& obj) // Para comparar dos objetos
+bool Cadena::operator==(const Cadena &obj) // Para comparar dos objetos
 {
 	if (strcmp(p, obj.p) == 0)
 		return true;
 	return false;
 }
 
-bool Cadena::operator==(const char* obj) // Para comparar un objeto con una cadena
+bool Cadena::operator==(const char *obj) // Para comparar un objeto con una cadena
 {
 	if (strcmp(p, obj) == 0)
 		return true;
@@ -111,7 +112,7 @@ bool Cadena::operator==(const char* obj) // Para comparar un objeto con una cade
 }
 
 //+
-Cadena Cadena::operator+(const Cadena& obj) // Para concatenar dos objetos Cadena en un 3
+Cadena Cadena::operator+(const Cadena &obj) // Para concatenar dos objetos Cadena en un 3
 {
 	Cadena aux;
 	aux.tam = tam + obj.tam - 1;
@@ -123,10 +124,10 @@ Cadena Cadena::operator+(const Cadena& obj) // Para concatenar dos objetos Caden
 	return aux;
 }
 
-Cadena Cadena::operator+(const char* obj) // Para concatenar un objeto con una cadena
+Cadena Cadena::operator+(const char *obj) // Para concatenar un objeto con una cadena
 {
 	Cadena aux;
-	aux.tam = strlen(p) + strlen(obj) + 1;
+	aux.tam = (int)strlen(p) + (int)strlen(obj) + 1;
 	aux.p = new char[aux.tam];
 	if (aux.p == NULL)
 		exit(1);
@@ -136,26 +137,25 @@ Cadena Cadena::operator+(const char* obj) // Para concatenar un objeto con una c
 }
 
 //+=
-void Cadena::operator+=(const char* obj) // Para concatenar un objeto con una cadena
+void Cadena::operator+=(const char *obj) // Para concatenar un objeto con una cadena
 {
-	char* temp;
+	char *temp;
 	temp = new char[tam];
 	if (temp == NULL)
 		exit(1);
 	strcpy(temp, p);
-	tam = tam + strlen(obj) + 1;
+	tam = tam + (int)strlen(obj) + 1;
 	delete p;
 	p = new char[tam];
 	if (p == NULL)
 		exit(1);
 	strcpy(p, temp);
 	strcat(p, obj);
-	delete temp;
 }
 
-void Cadena::operator+=(const Cadena& cad) // Para concatenar dos objetos cadena
+void Cadena::operator+=(const Cadena &cad) // Para concatenar dos objetos cadena
 {
-	char* temp;
+	char *temp;
 	temp = new char[tam];
 	if (temp == NULL)
 		exit(1);
@@ -167,19 +167,18 @@ void Cadena::operator+=(const Cadena& cad) // Para concatenar dos objetos cadena
 		exit(1);
 	strcpy(p, temp);
 	strcat(p, cad.p);
-	delete temp;
 }
 
 // FUNCIONES AMIGAS PARA USAR CIN Y COUT
 // NOTESE QUE DENTRO DE ESTAS FUNCIONES NO EXISTE this
 // YA QUE NO SON FUNCIONES DE LAS CLASES
-std::ostream& operator<<(std::ostream& salida, Cadena& obj)
+std::ostream &operator<<(std::ostream &salida, Cadena &obj)
 {
 	salida << obj.p;
 	return salida;
 }
 
-std::istream& operator>>(std::istream& entrada, Cadena& obj)
+std::istream &operator>>(std::istream &entrada, Cadena &obj)
 {
 	fflush(stdin);
 	std::string palabra;
@@ -196,7 +195,7 @@ std::istream& operator>>(std::istream& entrada, Cadena& obj)
 	}
 	palabra[pos] = '\0';
 	delete obj.p;
-	obj.tam = strlen(palabra.c_str()) + 1;
+	obj.tam = (int)strlen(palabra.c_str()) + 1;
 	obj.p = new char[obj.tam];
 	strcpy(obj.p, palabra.c_str());
 	fflush(stdin);

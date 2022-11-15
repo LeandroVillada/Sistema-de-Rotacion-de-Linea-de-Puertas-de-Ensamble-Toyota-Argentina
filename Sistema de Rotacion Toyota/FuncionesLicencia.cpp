@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 void agregarRegistrosLicencia()
 {
     EmpleadosArchivo archivo;
@@ -22,18 +21,21 @@ void agregarRegistrosLicencia()
 
         licencia.setLegajo(_legajo);
 
-        cout<<"Inicio Licencia: "<<endl;
-        cin>>fechaInicioLicencia;
+        cout << "Inicio Licencia: " << endl;
+        cin >> fechaInicioLicencia;
         licencia.setFechaInicioLicencia(fechaInicioLicencia);
 
-        cout<<"Fin Licencia: "<<endl;
-        cin>>fechaFinLicencia;
+        cout << "Fin Licencia: " << endl;
+        cin >> fechaFinLicencia;
         licencia.setFechaFinLicencia(fechaFinLicencia);
-
 
         cout << endl;
 
-        archivoL.guardar(licencia);
+        if (!archivoL.guardar(licencia))
+        {
+            cout << "No se pudo Grabar en Disco" << endl;
+            return;
+        }
     }
     else
     {
@@ -45,16 +47,21 @@ void agregarRegistrosLicencia()
 void mostrarRegistrosLicencia()
 {
     LicenciasArchivo archivoL;
-    int cant= archivoL.getCantidadRegistros();
-    Licencias* licencias=new Licencias[cant];
-    archivoL.leerTodos(licencias,cant);
-    int i;
-    for (i = 0; i < cant; i++)
+    int cant = archivoL.getCantidadRegistros();
+    Licencias *licencias = new Licencias[cant];
+    if (licencias == NULL)
+    {
+        return;
+    }
+    if (!archivoL.leerTodos(licencias, cant))
+    {
+        return;
+    }
+    for (int i = 0; i < cant; i++)
     {
         licencias[i].Mostrar();
     }
 }
-
 
 void InicioLicencia(int legajo)
 {
@@ -72,11 +79,18 @@ void InicioLicencia(int legajo)
     // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
     int pos = archivo.buscarPosicionEmpleadoPorLegajo(legajo);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    archivo.leer(reg, pos);
+    if (!archivo.leer(reg, pos))
+    {
+        return;
+    }
     // Cambiamos el valor del estado del registro
     reg.setDisponibilidad(false);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
-    archivo.guardar(reg, pos);
+    if (!archivo.guardar(reg, pos))
+    {
+        cout << "No se pudo Grabar en Disco" << endl;
+        return;
+    }
     std::cout << "Se regristro la licencia del legajo." << std::endl;
 }
 
@@ -96,25 +110,38 @@ void FinLicencia(int legajo)
     // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
     int pos = archivo.buscarPosicionEmpleadoPorLegajo(legajo);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    archivo.leer(reg, pos);
+    if (!archivo.leer(reg, pos))
+    {
+        return;
+    }
     // Cambiamos el valor del estado del registro
     reg.setDisponibilidad(true);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
-    archivo.guardar(reg, pos);
+    if (!archivo.guardar(reg, pos))
+    {
+        cout << "No se pudo Grabar en Disco" << endl;
+        return;
+    }
     std::cout << "Se finalizo la licencia del legajo." << std::endl;
 }
 
 void mostrarLicenciasRegistrosPorLegajo(int legajo)
 {
     LicenciasArchivo archivoL;
-    int cant= archivoL.getCantidadRegistros();
-    Licencias* licencias=new Licencias[cant];
-    archivoL.leerTodos(licencias,cant);
-
-    int i;
-    for (i = 0; i < cant; i++)
+    int cant = archivoL.getCantidadRegistros();
+    Licencias *licencias = new Licencias[cant];
+    if (licencias == NULL)
     {
-        if (licencias[i].getLegajo() == legajo){
+        return;
+    }
+    if (!archivoL.leerTodos(licencias, cant))
+    {
+        return;
+    }
+    for (int i = 0; i < cant; i++)
+    {
+        if (licencias[i].getLegajo() == legajo)
+        {
             licencias[i].Mostrar();
         }
     }

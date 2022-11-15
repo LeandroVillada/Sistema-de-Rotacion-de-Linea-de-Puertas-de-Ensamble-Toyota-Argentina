@@ -181,6 +181,10 @@ FILE *EmpleadosArchivo::abrirArchivoRB()
 int EmpleadosArchivo::buscarPosicionEmpleadoPorLegajo(int legajo)
 {
     Empleados *empleado = new Empleados[cantRegistros];
+    if (empleado == NULL)
+    {
+        return -2;
+    }
     if (!leerTodos(empleado, cantRegistros))
     {
         return -2;
@@ -206,6 +210,10 @@ Empleados EmpleadosArchivo::buscarEmpleadoPorLegajo(int legajo)
 int EmpleadosArchivo::BuscarPor(std::string codigo)
 {
     Empleados *empleado = new Empleados[cantRegistros];
+    if (empleado == NULL)
+    {
+        return -2;
+    }
     if (!leerTodos(empleado, cantRegistros))
     {
         return -2;
@@ -275,6 +283,10 @@ void EmpleadosArchivo::mostrar(Empleados registro)
 void EmpleadosArchivo::mostrarArchivo()
 {
     Empleados *empleado = new Empleados[cantRegistros];
+    if (empleado == NULL)
+    {
+        return;
+    }
     if (!leerTodos(empleado, cantRegistros))
     {
         return;
@@ -291,6 +303,10 @@ void EmpleadosArchivo::mostrarArchivo()
 bool EmpleadosArchivo::buscarLegajoExistente(int legajo)
 {
     Empleados *empleado = new Empleados[cantRegistros];
+    if (empleado == NULL)
+    {
+        return false;
+    }
     if (!leerTodos(empleado, cantRegistros))
     {
         return false;

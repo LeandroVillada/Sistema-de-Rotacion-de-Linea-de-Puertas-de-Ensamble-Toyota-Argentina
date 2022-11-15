@@ -163,6 +163,10 @@ int HorasTrabajadasArchivo::getCantidadRegistros()
 int HorasTrabajadasArchivo::buscarPorLegajo(int legajo)
 {
     HorasTrabajadas *aux = new HorasTrabajadas[cantRegistros];
+    if (aux == NULL)
+    {
+        return -2;
+    }
     for (int i = 0; i < cantRegistros; i++)
     {
         if (aux[i].getLegajo() == legajo)

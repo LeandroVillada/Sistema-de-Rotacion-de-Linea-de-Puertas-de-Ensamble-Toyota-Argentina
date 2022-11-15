@@ -3,6 +3,10 @@ void submenuRotation()
 {
     int *legajosDisponibles;
     legajosDisponibles = new int[contarLegajosActivosDisponibles()];
+    if (legajosDisponibles == NULL)
+    {
+        return;
+    }
     vectorEnCero(legajosDisponibles, contarLegajosActivosDisponibles());
 
     int operariosParaRotar[26];
@@ -55,7 +59,7 @@ void submenuRotation()
             system("pause>nul");
             break;
         default:
-            delete legajosDisponibles;
+            // delete legajosDisponibles;
             // VOLVER AL MENU ANTERIOR O SALIR
             return;
             break;
