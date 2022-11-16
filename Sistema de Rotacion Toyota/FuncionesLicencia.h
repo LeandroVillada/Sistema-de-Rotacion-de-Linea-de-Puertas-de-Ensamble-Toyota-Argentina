@@ -8,4 +8,5 @@ void mostrarRegistrosLicencia();
 void InicioLicencia(int);
 void FinLicencia(int);
 void mostrarLicenciasRegistrosPorLegajo(int);
-void comprobarLicencias();
+void comprobarInicioLicencias();
+void comprobarExpiracionLicencias();

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "LicenciasArchivo.h"
 
 int LicenciasArchivo::cantidadRegistros()

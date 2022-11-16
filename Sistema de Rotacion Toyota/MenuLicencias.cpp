@@ -25,9 +25,11 @@ void MenuLicencias()
     // OPCION 3
     MenuLicencias.agregarOpcion("Mostrar registros (por Legajo)");
     // OPCION 4
-    MenuLicencias.agregarOpcion("Comprobar Expiracion de Licencias");
+    MenuLicencias.agregarOpcion("Comprobar Inicio de Licencias");
     // OPCION 5
-    MenuLicencias.agregarOpcion("Inicio Licencia (Legajo)");
+    MenuLicencias.agregarOpcion("Comprobar Expiracion de Licencias");
+
+
 
     // Aqui generamos un while en true en caso de que quieramos que dibuje nuevamente el menu
     while (true)
@@ -62,23 +64,14 @@ void MenuLicencias()
 
             system("pause>nul");
             break;
+
         case 4:
-            comprobarLicencias();
+            comprobarInicioLicencias();
             system("pause>nul");
             break;
+
         case 5:
-
-            cout << "Que legajo desea registrar el inicio de la licencia: ";
-            cin >> legajo;
-            if (archivo.buscarPosicionEmpleadoPorLegajo(legajo) != -1)
-            {
-                InicioLicencia(legajo);
-            }
-            else
-            {
-                cout << "El legajo no existe!!";
-            }
-
+            comprobarExpiracionLicencias();
             system("pause>nul");
             break;
 

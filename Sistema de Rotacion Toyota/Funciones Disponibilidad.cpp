@@ -89,7 +89,7 @@ void listarOperariosDisponiblesParaRotar()
     }
 }
 
-void disponible()
+void estadoON()
 {
     Empleados reg;
     EmpleadosArchivo archivo;
@@ -104,7 +104,7 @@ void disponible()
     }
     if (archivo.LegajoDisponible(legajo))
     {
-        std::cout << "El legajo ingresado ya se encuentra disponible." << std::endl;
+        std::cout << "El legajo ingresado ya esta en estado ON." << std::endl;
         return;
     }
 
@@ -113,6 +113,7 @@ void disponible()
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
     archivo.leer(reg, pos);
     // Cambiamos el valor del estado del registro
+    reg.setEstado(true);
     reg.setDisponibilidad(true);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     if (!archivo.guardar(reg, pos))
@@ -120,10 +121,10 @@ void disponible()
         cout << "No se pudo grabar en disco." << endl;
         return;
     }
-    std::cout << "Legajo se encuentra con disponibilidad." << std::endl;
+    std::cout << "Legajo se encuentra con estado ON." << std::endl;
 }
 
-void NOdisponible()
+void estadoOFF()
 {
     EmpleadosArchivo archivo;
     Empleados reg;
@@ -138,7 +139,7 @@ void NOdisponible()
     }
     if (!archivo.LegajoDisponible(legajo))
     {
-        std::cout << "El legajo ingresado ya se encuentra no disponible." << std::endl;
+        std::cout << "El legajo ingresado ya esta en estado OFF." << std::endl;
         return;
     }
 
@@ -147,6 +148,7 @@ void NOdisponible()
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
     archivo.leer(reg, pos);
     // Cambiamos el valor del estado del registro
+    reg.setEstado(false);
     reg.setDisponibilidad(false);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     if (!archivo.guardar(reg, pos))
@@ -154,5 +156,5 @@ void NOdisponible()
         cout << "No se pudo grabar en disco." << endl;
         return;
     }
-    std::cout << "Legajo se encuentra sin disponibilidad." << std::endl;
+    std::cout << "Legajo se encuentra con estado OFF." << std::endl;
 }
