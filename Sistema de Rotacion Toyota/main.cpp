@@ -15,7 +15,7 @@ int main()
     // Agregamos el Titulo del menu
     principal.setTitulo("MENU PRINCIPAL");
     // Agregamos la Opcion para salir o volver al menu anterior
-    principal.setSalida(" Salir del Programa ");
+    principal.setSalida("Salir del Programa ");
 
     // AGREGAMOS LAS OPCIONES CON UNA FUNCION
     // OPCION 1

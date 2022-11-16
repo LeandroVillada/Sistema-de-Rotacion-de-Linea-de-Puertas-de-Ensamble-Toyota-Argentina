@@ -14,11 +14,11 @@ void subMenuDisponibilidad()
 
     // AGREGAMOS LAS OPCIONES CON UNA FUNCION
     // OPCION 1
-    MenuDisponibilidad.agregarOpcion("Listar Operarios Activos para rotacion");
+    MenuDisponibilidad.agregarOpcion("Listar operarios disponibles para rotacion");
     // OPCION 2
-    MenuDisponibilidad.agregarOpcion("Modificar/Cambiar a Estado ON");
+    MenuDisponibilidad.agregarOpcion("Alta de disponibilidad");
     // OPCION 3
-    MenuDisponibilidad.agregarOpcion("Modificar/Cambiar a Estado OFF");
+    MenuDisponibilidad.agregarOpcion("Baja de disponibilidad");
 
     // Aqui generamos un while en true en caso de que quieramos que dibuje nuevamente el menu
     while (true)
@@ -35,12 +35,12 @@ void subMenuDisponibilidad()
             break;
 
         case 2:
-            estadoON();
+            disponible();
             system("pause>nul");
             break;
 
         case 3:
-            estadoOFF();
+            NOdisponible();
             system("pause>nul");
             break;
 

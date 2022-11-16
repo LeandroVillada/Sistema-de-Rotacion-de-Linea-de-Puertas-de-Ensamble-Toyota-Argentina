@@ -79,32 +79,32 @@ void listarOperariosDisponiblesParaRotar()
         if ((reg[i].getEstado()) && (reg[i].getDisponibilidad()))
         {
             gotoxy(4, 4 + y);
-            std::cout << reg[i].getLegajo() << std::endl;
+            cout << reg[i].getLegajo() << endl;
             gotoxy(20, 4 + y);
-            std::cout << reg[i].getApellido() << std::endl;
+            cout << reg[i].getApellido() << endl;
             gotoxy(50, 4 + y);
-            std::cout << reg[i].getNombre() << std::endl;
+            cout << reg[i].getNombre() << endl;
             y++;
         }
     }
 }
 
-void estadoON()
+void disponible()
 {
     Empleados reg;
     EmpleadosArchivo archivo;
     int legajo;
-    std::cout << "Ingresar el Legajo: ";
-    std::cin >> legajo;
+    cout << "Ingresar el Legajo: ";
+    cin >> legajo;
     // Aqui comprobamos si el legajo ingresado no existe.
     if (!archivo.buscarLegajoExistente(legajo))
     {
-        std::cout << "El legajo ingresado no existe." << std::endl;
+        cout << "El legajo ingresado no existe." << endl;
         return;
     }
     if (archivo.LegajoDisponible(legajo))
     {
-        std::cout << "El legajo ingresado ya esta en estado ON." << std::endl;
+        mostrarMensaje("El legajo ingresado ya esta disponible.", 15, 2);
         return;
     }
 
@@ -112,8 +112,7 @@ void estadoON()
     int pos = archivo.buscarPosicionEmpleadoPorLegajo(legajo);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
     archivo.leer(reg, pos);
-    // Cambiamos el valor del estado del registro
-    reg.setEstado(true);
+    // Cambiamos el valor de la disponibilidad del registro
     reg.setDisponibilidad(true);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     if (!archivo.guardar(reg, pos))
@@ -121,25 +120,25 @@ void estadoON()
         cout << "No se pudo grabar en disco." << endl;
         return;
     }
-    std::cout << "Legajo se encuentra con estado ON." << std::endl;
+    mostrarMensaje("El legajo se encuentra disponible.", 15, 2);
 }
 
-void estadoOFF()
+void NOdisponible()
 {
     EmpleadosArchivo archivo;
     Empleados reg;
     int legajo;
-    std::cout << "Ingresar el Legajo: ";
-    std::cin >> legajo;
+    cout << "Ingresar el Legajo: ";
+    cin >> legajo;
     // Aqui comprobamos si el legajo ingresado no existe.
     if (!archivo.buscarLegajoExistente(legajo))
     {
-        std::cout << "El legajo ingresado no existe." << std::endl;
+        cout << "El legajo ingresado no existe." << endl;
         return;
     }
     if (!archivo.LegajoDisponible(legajo))
     {
-        std::cout << "El legajo ingresado ya esta en estado OFF." << std::endl;
+        mostrarMensaje("El legajo ingresado ya se encuentra no disponible.", 15, 4);
         return;
     }
 
@@ -147,8 +146,7 @@ void estadoOFF()
     int pos = archivo.buscarPosicionEmpleadoPorLegajo(legajo);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
     archivo.leer(reg, pos);
-    // Cambiamos el valor del estado del registro
-    reg.setEstado(false);
+    // Cambiamos el valor de la disponibilidad del registro
     reg.setDisponibilidad(false);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     if (!archivo.guardar(reg, pos))
@@ -156,5 +154,5 @@ void estadoOFF()
         cout << "No se pudo grabar en disco." << endl;
         return;
     }
-    std::cout << "Legajo se encuentra con estado OFF." << std::endl;
+    mostrarMensaje("El legajo se encuentra no disponible.", 15, 4);
 }

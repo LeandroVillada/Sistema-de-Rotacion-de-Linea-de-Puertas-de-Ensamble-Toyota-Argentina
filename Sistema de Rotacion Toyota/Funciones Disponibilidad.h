@@ -7,5 +7,6 @@ int contarLegajosActivosDisponibles();
 void asignarLegajosAlVector(int *, int);
 
 void listarOperariosDisponiblesParaRotar();
-void estadoON();
-void estadoOFF();
+void disponible();
+void NOdisponible();
+

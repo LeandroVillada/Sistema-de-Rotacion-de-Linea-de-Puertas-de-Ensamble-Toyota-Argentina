@@ -2,6 +2,7 @@
 #include "FuncionesLicencia.h"
 #include "Empleados.h"
 #include "EmpleadosArchivo.h"
+#include "Funciones Globales.h"
 
 using namespace std;
 
@@ -62,71 +63,6 @@ void mostrarRegistrosLicencia()
         licencias[i].Mostrar();
     }
 }
-/*
-void InicioLicencia(int legajo)
-{
-    Empleados reg;
-    EmpleadosArchivo archivo;
-
-    // Aqui comprobamos si el legajo ingresado no existe.
-
-    if (!archivo.LegajoDisponible(legajo))
-    {
-        std::cout << "El legajo ya se encuentra en licencia." << std::endl;
-        return;
-    }
-
-    // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
-    int pos = archivo.buscarPosicionEmpleadoPorLegajo(legajo);
-    // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    if (!archivo.leer(reg, pos))
-    {
-        return;
-    }
-    // Cambiamos el valor del estado del registro
-    reg.setDisponibilidad(false);
-    // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
-    if (!archivo.guardar(reg, pos))
-    {
-        cout << "No se pudo Grabar en Disco" << endl;
-        return;
-    }
-    std::cout << "Se regristro la licencia del legajo." << std::endl;
-}
-*/
-/*
-void FinLicencia(int legajo)
-{
-    EmpleadosArchivo archivo;
-    Empleados reg;
-
-    // Aqui comprobamos si el legajo ingresado no existe.
-
-    if (archivo.LegajoDisponible(legajo))
-    {
-        std::cout << "El legajo ya finalizo la licencia." << std::endl;
-        return;
-    }
-
-    // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
-    int pos = archivo.buscarPosicionEmpleadoPorLegajo(legajo);
-    // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    if (!archivo.leer(reg, pos))
-    {
-        return;
-    }
-    // Cambiamos el valor del estado del registro
-    reg.setDisponibilidad(true);
-    // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
-    if (!archivo.guardar(reg, pos))
-    {
-        cout << "No se pudo Grabar en Disco" << endl;
-        return;
-    }
-    std::cout << "Se finalizo la licencia del legajo." << std::endl;
-}
-*/
-
 
 void mostrarLicenciasRegistrosPorLegajo(int legajo)
 {
@@ -166,15 +102,17 @@ void comprobarInicioLicencias()
     }
 
     Fecha fechaActual;
-
+    mostrarMensaje("Inicio Licencia:", 15, 5);
+    cout<<endl<<endl;
     for (int i = 0; i < CantRegEmpleados; i++)
     {
         int pos = archivoLicencias.BuscarUltimoRegistroLegajo(empleados[i].getLegajo());
         if ((pos > -1) && (empleados[i].getDisponibilidad()))
         {
-            if (archivoLicencias.leer(pos).getFechaFinLicencia() < fechaActual)
+            if (archivoLicencias.leer(pos).getFechaInicioLicencia() < fechaActual && archivoLicencias.leer(pos).getFechaFinLicencia() > fechaActual)
             {
                 empleados[i].setDisponibilidad(false);
+                cout<<empleados[i]<<endl;
                 if (!archivoEmpleados.guardar(empleados[i], i))
                 {
                     cout << "No se pudo grabar en disco." << endl;
@@ -183,6 +121,8 @@ void comprobarInicioLicencias()
             }
         }
     }
+    cout<<endl;
+    mostrarMensaje("Fin comprobacion de inicio de licencias", 15, 5);
 }
 
 void comprobarExpiracionLicencias()
@@ -202,14 +142,17 @@ void comprobarExpiracionLicencias()
 
     Fecha fechaActual;
 
+    mostrarMensaje("Fin Licencia:", 15, 5);
+    cout<<endl<<endl;
     for (int i = 0; i < CantRegEmpleados; i++)
     {
         int pos = archivoLicencias.BuscarUltimoRegistroLegajo(empleados[i].getLegajo());
         if ((pos > -1) && (!empleados[i].getDisponibilidad()))
         {
-            if (archivoLicencias.leer(pos).getFechaFinLicencia() > fechaActual)
+            if (archivoLicencias.leer(pos).getFechaFinLicencia() < fechaActual && archivoLicencias.leer(pos).getFechaInicioLicencia() < fechaActual)
             {
                 empleados[i].setDisponibilidad(true);
+                cout<<empleados[i]<<endl;
                 if (!archivoEmpleados.guardar(empleados[i], i))
                 {
                     cout << "No se pudo grabar en disco." << endl;
@@ -218,4 +161,7 @@ void comprobarExpiracionLicencias()
             }
         }
     }
+    cout<<endl;
+    mostrarMensaje("Fin comprobacion de expiracion de licencias", 15, 5);
+
 }

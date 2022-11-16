@@ -42,12 +42,7 @@ void listarLegajosCargadosParaRotacion(int *operariosParaRotar)
 void agregarEmpleadosDisponiblesParaRotar(int *legajosDisponibles, int *operariosParaRotar)
 {
     int cantidadDisponible = contarLegajosActivosDisponibles();
-    // legajosDisponibles = new int[cantidadDisponible];
-    // if (legajosDisponibles == NULL)
-    // {
-    //     std::cout << "NO SE PUDO ASIGNAR MEMORIA.\n";
-    //     return;
-    // }
+
     asignarLegajosAlVector(legajosDisponibles, cantidadDisponible);
 
     vectorEnCero(operariosParaRotar, 26);
@@ -343,28 +338,28 @@ void mostrarRotacionCuatro()
 void mostrarRotacion()
 {
     /// Bloque 1
-    gotoxy(50, 1);
+    gotoxy(30, 1);
     mostrarMensaje("Bloque 1", 15, 9);
     gotoxy(0, 2);
     encabezado();
     mostrarRotacionUno();
 
     /// Bloque 2
-    gotoxy(50, 31);
+    gotoxy(30, 31);
     mostrarMensaje("Bloque 2", 15, 9);
     gotoxy(0, 36);
     encabezado();
     mostrarRotacionDos();
 
     /// Bloque 3
-    gotoxy(50, 61);
+    gotoxy(30, 61);
     mostrarMensaje("Bloque 3", 15, 9);
     gotoxy(0, 65);
     encabezado();
     mostrarRotacionTres();
 
     /// Bloque 4
-    gotoxy(50, 91);
+    gotoxy(30, 91);
     mostrarMensaje("Bloque 4", 15, 9);
     gotoxy(0, 96);
     encabezado();
