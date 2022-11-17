@@ -27,7 +27,6 @@ public:
     bool guardar(Empleados empleado);
     bool guardar(Empleados empleado, int nroRegistro);
     int getCantidadRegistros();
-    // FILE *abrirArchivoRB();
 
     int buscarPosicionEmpleadoPorLegajo(int);
     Empleados buscarEmpleadoPorLegajo(int);

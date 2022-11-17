@@ -111,13 +111,17 @@ void disponible()
     // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
     int pos = archivo.buscarPosicionEmpleadoPorLegajo(legajo);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    archivo.leer(reg, pos);
+    if (!archivo.leer(reg, pos))
+    {
+        cout << "No de pudo abrir el archivo Empleados.dat\n";
+        return;
+    }
     // Cambiamos el valor de la disponibilidad del registro
     reg.setDisponibilidad(true);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     if (!archivo.guardar(reg, pos))
     {
-        cout << "No se pudo grabar en disco." << endl;
+        cout << "No se pudo grabar en Empleados.dat.\n";
         return;
     }
     mostrarMensaje("El legajo se encuentra disponible.", 15, 2);
@@ -145,13 +149,17 @@ void NOdisponible()
     // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
     int pos = archivo.buscarPosicionEmpleadoPorLegajo(legajo);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    archivo.leer(reg, pos);
+    if (!archivo.leer(reg, pos))
+    {
+        cout << "No de pudo abrir el archivo Empleados.dat\n";
+        return;
+    }
     // Cambiamos el valor de la disponibilidad del registro
     reg.setDisponibilidad(false);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     if (!archivo.guardar(reg, pos))
     {
-        cout << "No se pudo grabar en disco." << endl;
+        cout << "No se pudo grabar en Empleados.dat.\n";
         return;
     }
     mostrarMensaje("El legajo se encuentra no disponible.", 15, 4);

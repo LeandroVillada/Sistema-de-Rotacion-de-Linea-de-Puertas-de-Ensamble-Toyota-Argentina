@@ -26,11 +26,20 @@ void darBajaLegajo()
     // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
     int pos = archivo.buscarPosicionEmpleadoPorLegajo(legajo);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    archivo.leer(reg, pos);
+    if (!archivo.leer(reg, pos))
+    {
+        cout << "No de pudo abrir el archivo Empleados.dat\n";
+        return;
+    }
     // Cambiamos el valor del estado del registro
     reg.setEstado(false);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
     archivo.guardar(reg, pos);
+    if (!archivo.guardar(reg, pos))
+    {
+        cout << "No se pudo grabar en Empleados.dat.\n";
+        return;
+    }
     cout << "Legajo dado de baja con exito." << endl;
 }
 
@@ -56,11 +65,19 @@ void darAltaLegajo()
     // La variable "pos" guarda la posicion donde se encuentra el registro del legajo ingresado.
     int pos = archivo.buscarPosicionEmpleadoPorLegajo(legajo);
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    archivo.leer(reg, pos);
+    if (!archivo.leer(reg, pos))
+    {
+        cout << "No de pudo abrir el archivo Empleados.dat\n";
+        return;
+    }
     // Cambiamos el valor del estado del registro
     reg.setEstado(true);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
-    archivo.guardar(reg, pos);
+    if (!archivo.guardar(reg, pos))
+    {
+        cout << "No se pudo grabar en Empleados.dat.\n";
+        return;
+    }
     cout << "Legajo dado de alta con exito." << endl;
 }
 
@@ -84,11 +101,19 @@ void editarNombreEmpleado()
     // Utilizamos la funcion cargarCadenas(mandando nombre y el tamanio -1).
     cin >> nombre;
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    archivo.leer(reg, pos);
+    if (!archivo.leer(reg, pos))
+    {
+        cout << "No de pudo abrir el archivo Empleados.dat\n";
+        return;
+    }
     // Actualizamos el nombre del registro
     reg.setNombre(nombre);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
-    archivo.guardar(reg, pos);
+    if (!archivo.guardar(reg, pos))
+    {
+        cout << "No se pudo grabar en Empleados.dat.\n";
+        return;
+    }
     cout << "Nombre editado con exito." << endl;
 }
 
@@ -112,10 +137,18 @@ void editarApellidoEmpleado()
     // Utilizamos la funcion cargarCadenas(mandando apellido y el tamanio -1).
     cin >> apellido;
     // Leemos el registro en la posicion de la variable pos para obtener el registro.
-    archivo.leer(reg, pos);
+    if (!archivo.leer(reg, pos))
+    {
+        cout << "No de pudo abrir el archivo Empleados.dat\n";
+        return;
+    }
     // Actualizamos el apellido del registro
     reg.setApellido(apellido);
     // Grabamos en el registro el cambio que realizamos mandando la posicion correspondiente del registro a editar.
-    archivo.guardar(reg, pos);
+    if (!archivo.guardar(reg, pos))
+    {
+        cout << "No se pudo grabar en Empleados.dat.\n";
+        return;
+    }
     cout << "Apellido editado con exito." << endl;
 }

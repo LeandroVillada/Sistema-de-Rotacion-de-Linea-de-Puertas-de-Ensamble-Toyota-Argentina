@@ -13,13 +13,6 @@ protected:
 public:
     // CONSTRUCTORES
     Empleados();
-    /*
-    // FUNCIONES ARCHIVOS
-    //bool leerDeDisco(int);
-    bool grabarEnDisco();
-    bool modificarEnDisco(int);
-    int cantidadRegistros();
-    */
     // SETS
     void setLegajo(int);
     void setNombre(std::string);
@@ -33,8 +26,8 @@ public:
     bool getDisponibilidad();
     bool getEstado();
     int getSize();
-        // return sizeof *this;
     std::string toString();
+    std::string toStringDisponibilidad();
     // OPERADORES
     void operator=(Empleados *obj);
     friend std::ostream &operator<<(std::ostream &salida, Empleados &obj);
@@ -42,13 +35,4 @@ public:
 
     // FUNCIONES PUBLICAS
     bool comparaID(Empleados *temp);
-    /*
-    bool buscarLegajoExistente(int);
-    int buscarPosicionLegajo(int);
-    bool LegajoDisponible(int);
-    bool cargar();
-    void mostrar();
-    bool buscarLegajoInactivo(int);
-    Empleados buscarEmpleadoPorLegajo(int);
-    */
 };

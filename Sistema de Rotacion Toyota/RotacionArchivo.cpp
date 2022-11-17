@@ -94,6 +94,7 @@ Rotacion RotacionArchivo::leer(int nroRegistro)
     Rotacion obj{};
     if (!abrirArchivo(SoloLectura))
     {
+        estado = Cerrado;
         return obj;
     }
 
@@ -107,6 +108,7 @@ bool RotacionArchivo::leer(Rotacion &rotacion, int nroRegistro)
 {
     if (!abrirArchivo(SoloLectura))
     {
+        estado = Cerrado;
         return false;
     }
 
@@ -124,25 +126,24 @@ bool RotacionArchivo::leerTodos(Rotacion rotaciones[], int cantidad)
     }
     if (!abrirArchivo(SoloLectura))
     {
+        estado = Cerrado;
         return false;
     }
 
     bool ok = fread(rotaciones, sizeof(Rotacion), cantidad, pFile);
-    // fclose(pFile);
     cerrarArchivo();
     return ok;
 }
 
 bool RotacionArchivo::guardar(Rotacion rotacion)
 {
-    // if (!abrirArchivo(Agregar))
     if (!abrirArchivo(Escritura))
     {
+        estado = Cerrado;
         return false;
     }
 
     bool ok = fwrite(&rotacion, sizeof(Rotacion), 1, pFile);
-    // fclose(pFile);
     cerrarArchivo();
     return ok;
 }
@@ -151,28 +152,18 @@ bool RotacionArchivo::guardar(Rotacion rotacion, int nroRegistro)
 {
     if (!abrirArchivo(LecturaEscritura))
     {
+        estado = Cerrado;
         return false;
     }
 
     fseek(pFile, nroRegistro * sizeof(Rotacion), SEEK_SET);
     bool ok = fwrite(&rotacion, sizeof(Rotacion), 1, pFile);
-    // fclose(pFile);
     cerrarArchivo();
     return ok;
 }
 
 int RotacionArchivo::getCantidadRegistros()
 {
-    // FILE *pFile = fopen("Rotacion.dat", "rb");
-    // if (pFile == NULL)
-    // {
-    //     return false;
-    // }
-
-    // fseek(pFile, 0, SEEK_END);
-    // int cant = ftell(pFile) / sizeof(Rotacion);
-    // fclose(pFile);
-    // return cant;
     return cantRegistros;
 }
 
@@ -189,7 +180,11 @@ bool RotacionArchivo::exportar()
         return false;
     }
     Rotacion *registros = new Rotacion[cantRegistros];
-    leerTodos(registros, cantRegistros);
+    if (!leerTodos(registros, cantRegistros))
+    {
+        fclose(p);
+        return false;
+    }
 
     bool ok = fwrite(&registros, registros[0].getSize(), cantRegistros, p);
 

@@ -64,7 +64,11 @@ void agregarRegistros()
         ht.setHorasTrabajadas(_horasTrabajadas);
         cout << endl;
 
-        archivoHT.guardar(ht);
+        if(!archivoHT.guardar(ht))
+        {
+            cout << "No se pudo grabar en HorasTrabajadas.dat\n";
+            return;
+        }
     }
     else
     {

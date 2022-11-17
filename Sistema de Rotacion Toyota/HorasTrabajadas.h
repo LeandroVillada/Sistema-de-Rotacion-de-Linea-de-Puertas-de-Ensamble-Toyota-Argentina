@@ -22,34 +22,4 @@ public:
     int getSize();
 
     void Mostrar();
-
-    // FUNCIONES PUBLICAS
-    /*
-    void Cargar();
-
-
-    void sumaHorasPorLegajo(int);
-
-    bool grabarEnDisco();
-
-    bool leerDeDisco(int);
-
-    int getCantidadRegistros();
-
-    //void MostrarHoras(float);
-
-    void agregarRegistros();
-
-    void mostrarRegistros();
-
-    void PromedioGeneral();
-
-    void PromedioPorLegajo(int);
-
-    void PromedioPorLegajoYAnio(int,int);
-
-    void PromedioPorLegajoYMes(int,int);
-
-    void mostrarRegistrosPorLegajo(int);
-    */
 };

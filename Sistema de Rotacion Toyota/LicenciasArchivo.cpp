@@ -95,6 +95,7 @@ Licencias LicenciasArchivo::leer(int nroRegistro)
     Licencias obj{};
     if (!abrirArchivo(SoloLectura))
     {
+        estado = Cerrado;
         return obj;
     }
 
@@ -108,6 +109,7 @@ bool LicenciasArchivo::leer(Licencias &licencias, int nroRegistro)
 {
     if (!abrirArchivo(SoloLectura))
     {
+        estado = Cerrado;
         return false;
     }
 
@@ -125,6 +127,7 @@ bool LicenciasArchivo::leerTodos(Licencias registros[], int cantidad)
     }
     if (!abrirArchivo(SoloLectura))
     {
+        estado = Cerrado;
         return false;
     }
 
@@ -137,6 +140,7 @@ bool LicenciasArchivo::guardar(Licencias registro)
 {
     if (!abrirArchivo(Agregar))
     {
+        estado = Cerrado;
         return false;
     }
     bool ok = fwrite(&registro, sizeof(Licencias), 1, pFile);
@@ -148,6 +152,7 @@ bool LicenciasArchivo::guardar(Licencias registro, int nroRegistro)
 {
     if (!abrirArchivo(LecturaEscritura))
     {
+        estado = Cerrado;
         return false;
     }
 

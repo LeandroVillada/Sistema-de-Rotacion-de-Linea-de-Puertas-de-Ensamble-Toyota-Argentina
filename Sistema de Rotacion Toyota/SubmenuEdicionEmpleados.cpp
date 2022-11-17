@@ -14,7 +14,7 @@ void menuEmpleadosEdicion()
     // OPCION 1
     MenuEdicionEmpleados.agregarOpcion("Dar de Baja un Legajo");
     // OPCION 2
-    MenuEdicionEmpleados.agregarOpcion("Dar de Alta un Legajo");
+    // MenuEdicionEmpleados.agregarOpcion("Dar de Alta un Legajo");
     // OPCION 3
     MenuEdicionEmpleados.agregarOpcion("Editar Nombre");
     // OPCION 4
@@ -36,22 +36,22 @@ void menuEmpleadosEdicion()
             system("pause>nul");
 
             break;
-        case 2:
-            darAltaLegajo();
-            system("pause>nul");
+        // case 2:
+        //     darAltaLegajo();
+        //     system("pause>nul");
 
             break;
-        case 3:
+        case 2:
             editarNombreEmpleado();
             system("pause>nul");
 
             break;
-        case 4:
+        case 3:
             editarApellidoEmpleado();
             system("pause>nul");
 
             break;
-        case 5:
+        case 4:
             listarOperarios();
             system("pause>nul");
 

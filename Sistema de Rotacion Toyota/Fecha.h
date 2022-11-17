@@ -10,7 +10,6 @@ private:
     int _dia;
     int _mes;
     int _anio;
-    // int hora;
     bool esbisiesto(int);
     void NumeroSerieaFecha(int);
     void FechaHora(int);
@@ -29,7 +28,6 @@ public:
     int getAnio();
     std::string toString();
     std::string toStringMes(int mes);
-    // int getHora();
     //  OPERADOR
     void operator=(Fecha);
     bool operator==(Fecha);

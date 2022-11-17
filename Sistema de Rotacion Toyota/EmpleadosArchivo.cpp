@@ -93,12 +93,12 @@ EmpleadosArchivo::~EmpleadosArchivo()
 
 Empleados EmpleadosArchivo::leer(int nroRegistro)
 {
+    Empleados obj;
     if (!abrirArchivo(SoloLectura))
     {
-        exit(20);
+        estado = Cerrado;
+        return obj;
     }
-
-    Empleados obj;
 
     fseek(pFile, nroRegistro * sizeof(Empleados), SEEK_SET);
     fread(&obj, sizeof(Empleados), 1, pFile);
@@ -110,6 +110,7 @@ bool EmpleadosArchivo::leer(Empleados &empleado, int nroRegistro)
 {
     if (!abrirArchivo(SoloLectura))
     {
+        estado = Cerrado;
         return false;
     }
 
@@ -123,6 +124,7 @@ bool EmpleadosArchivo::leerTodos(Empleados clases[], int cantidad)
 {
     if (!abrirArchivo(SoloLectura))
     {
+        estado = Cerrado;
         return false;
     }
 
@@ -135,6 +137,7 @@ bool EmpleadosArchivo::guardar(Empleados clase)
 {
     if (!abrirArchivo(Agregar))
     {
+        estado = Cerrado;
         return false;
     }
 
@@ -147,6 +150,7 @@ bool EmpleadosArchivo::guardar(Empleados clase, int nroRegistro)
 {
     if (!abrirArchivo(LecturaEscritura))
     {
+        estado = Cerrado;
         return false;
     }
     fseek(pFile, nroRegistro * sizeof(Empleados), SEEK_SET);
@@ -157,27 +161,9 @@ bool EmpleadosArchivo::guardar(Empleados clase, int nroRegistro)
 
 int EmpleadosArchivo::getCantidadRegistros()
 {
-    // FILE *pFile = abrirArchivoRB();
-
-    // fseek(pFile, 0, SEEK_END);
-    // int cant = ftell(pFile) / sizeof(Empleados);
-    // fclose(pFile);
-    // return cant;
-
     return cantRegistros;
 }
-/*
-FILE *EmpleadosArchivo::abrirArchivoRB()
-{
-    FILE *pFile;
-    pFile = fopen("Empleados.dat", "rb");
-    if (pFile == NULL)
-    {
-        exit(1550);
-    }
-    return pFile;
-}
- */
+
 int EmpleadosArchivo::buscarPosicionEmpleadoPorLegajo(int legajo)
 {
     Empleados *empleado = new Empleados[cantRegistros];
@@ -203,7 +189,16 @@ int EmpleadosArchivo::buscarPosicionEmpleadoPorLegajo(int legajo)
 Empleados EmpleadosArchivo::buscarEmpleadoPorLegajo(int legajo)
 {
     Empleados aux;
-    leer(aux, buscarPosicionEmpleadoPorLegajo(legajo));
+    int pos = buscarPosicionEmpleadoPorLegajo(legajo);
+    if (pos < 0)
+    {
+        cout << "Legajo no encontrado.\n";
+    }
+    if (!leer(aux, pos))
+    {
+        cout << "No se pudo abrir Empleados.dat\n";
+        return aux;
+    }
     return aux;
 }
 

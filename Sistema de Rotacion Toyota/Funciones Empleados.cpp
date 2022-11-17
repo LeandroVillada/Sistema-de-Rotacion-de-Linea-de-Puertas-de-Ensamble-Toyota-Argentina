@@ -52,20 +52,28 @@ void listarOperarios()
     EmpleadosArchivo Archivo;
     int cantidad = Archivo.getCantidadRegistros();
     Empleados *reg = new Empleados[cantidad];
-    Archivo.leerTodos(reg, cantidad);
+    if (!Archivo.leerTodos(reg, cantidad))
+    {
+        cout << "No se pudo abrir Empleados.dat\n";
+        return;
+    }
 
     for (int i = 0; i < cantidad; i++)
     {
-        std::cout << "LEGAJO: " << reg[i].getLegajo() << std::endl;
-        std::cout << "NOMBRE: " << reg[i].getNombre() << std::endl;
-        std::cout << "APELLIDO: " << reg[i].getApellido() << std::endl;
-        std::cout << "DISPONIBILIDAD: " << reg[i].getDisponibilidad() << std::endl;
-        std::cout << "ESTADO: " << reg[i].getEstado() << std::endl;
-        puts("");
+        if (reg[i].getEstado())
+        {
+            std::cout << "LEGAJO: " << reg[i].getLegajo() << std::endl;
+            std::cout << "NOMBRE: " << reg[i].getNombre() << std::endl;
+            std::cout << "APELLIDO: " << reg[i].getApellido() << std::endl;
+            std::cout << "DISPONIBILIDAD: " << reg[i].toStringDisponibilidad() << std::endl;
+            // std::cout << "ESTADO: " << reg[i].getEstado() << std::endl;
+            puts("");
+        }
         // cout << reg[i].toString() << endl;
     }
 }
 
+// DATOS DE PRUEBA
 void cargarDatosDeInicio()
 {
     // BORRA TODOS LOS DATOS CARGADOS ANTERIORMENTE

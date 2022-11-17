@@ -1,7 +1,5 @@
 #include "Empleados.h"
-// #include <cstdio>
 #include <cstring>
-// #include <iostream>
 
 // CONSTRUCTORES
 Empleados::Empleados()
@@ -12,60 +10,7 @@ Empleados::Empleados()
 	_disponibilidad = true;
 	_estado = true;
 }
-/*
-// FUNCIONES ARCHIVOS
-bool Empleados::leerDeDisco(int pos)
-{
-	FILE *p;
-	p = fopen("Empleados.dat", "rb");
-	bool leyo;
-	if (p == NULL)
-	{
-		puts("NO SE PUDO ABRIR EL ARCHIVO");
-		return false;
-	}
-	fseek(p, pos * sizeof *this, 0);
-	leyo = fread(this, sizeof *this, 1, p);
-	fclose(p);
-	return leyo;
-}
-bool Empleados::grabarEnDisco()
-{
-	FILE* p;
-	p = fopen("Empleados.dat", "ab");
-	bool grabo;
-	if (p == NULL)
-	{
-		return false;
-	}
-	grabo = fwrite(this, sizeof * this, 1, p);
-	fclose(p);
-	return grabo;
-}
-bool Empleados::modificarEnDisco(int pos)
-{
-	FILE* p;
-	p = fopen("Empleados.dat", "rb+");
-	if (p == NULL)
-	{
-		puts("NO SE PUDO ABRIR EL ARCHIVO");
-		return false;
-	}
-	fseek(p, sizeof * this * pos, 0);
 
-	bool leyo = fwrite(this, sizeof * this, 1, p);
-	fclose(p);
-	return leyo;
-}
-int Empleados::cantidadRegistros()
-{
-	int cantidad = 0;
-	while (leer(cantidad++))
-	{
-	}
-	return cantidad - 1;
-}
-*/
 // SETTS
 void Empleados::setLegajo(int legajo) { _legajo = legajo; }
 
@@ -108,6 +53,20 @@ std::string Empleados::toString()
 	return cadena;
 }
 
+std::string Empleados::toStringDisponibilidad()
+{
+	std::string cadena;
+	if (_disponibilidad)
+	{
+		cadena = "SI";
+	}
+	else
+	{
+		cadena = "NO";
+	}
+	return cadena;
+}
+
 void Empleados::operator=(Empleados *obj)
 {
 	_legajo = obj->_legajo;
@@ -126,61 +85,6 @@ bool Empleados::comparaID(Empleados *temp)
 	}
 	return false;
 }
-
-/*
-// FUNCIONES PUBLICAS
-bool Empleados::buscarLegajoExistente(int legajo)
-{
-	Empleados reg;
-	int pos = 0;
-	while (reg.leer(pos++))
-	{
-		if (reg.getLegajo() == legajo)
-			return true;
-	}
-	return false;
-}
-int Empleados::buscarPosicionLegajo(int legajo)
-{
-	Empleados reg;
-	int pos = 0;
-	while (reg.leer(pos))
-	{
-		if (legajo == reg.getLegajo())
-			return pos;
-		pos++;
-	}
-	return -1;
-}
-bool Empleados::LegajoDisponible(int legajo)
-{
-	Empleados reg;
-	int pos = buscarPosicionLegajo(legajo);
-	reg.leer(pos);
-	if ((reg.getEstado()) && (reg.getDisponibilidad()))
-		return true;
-	else
-		return false;
-}
-
-bool Empleados::buscarLegajoInactivo(int legajo)
-{
-	Empleados reg;
-	int pos = reg.buscarPosicionLegajo(legajo);
-	reg.leer(pos);
-	if (!reg.getEstado())
-		return true;
-	else
-		return false;
-}
-
-Empleados Empleados::buscarEmpleadoPorLegajo(int legajo)
-{
-	Empleados aux;
-	aux.leer(aux.buscarPosicionLegajo(legajo));
-	return aux;
-}
-*/
 
 std::ostream &operator<<(std::ostream &salida, Empleados &obj)
 {

@@ -94,6 +94,7 @@ HorasTrabajadas HorasTrabajadasArchivo::leer(int nroRegistro)
     HorasTrabajadas obj{};
     if (!abrirArchivo(SoloLectura))
     {
+        estado = Cerrado;
         return obj;
     }
 
@@ -107,6 +108,7 @@ bool HorasTrabajadasArchivo::leer(HorasTrabajadas &horasTrabajadas, int nroRegis
 {
     if (!abrirArchivo(SoloLectura))
     {
+        estado = Cerrado;
         return false;
     }
 
@@ -124,6 +126,7 @@ bool HorasTrabajadasArchivo::leerTodos(HorasTrabajadas horasTrabajadas[], int ca
     }
     if (!abrirArchivo(SoloLectura))
     {
+        estado = Cerrado;
         return false;
     }
 
@@ -136,6 +139,7 @@ bool HorasTrabajadasArchivo::guardar(HorasTrabajadas horasTrabajadas)
 {
     if (!abrirArchivo(Agregar))
     {
+        estado = Cerrado;
         return false;
     }
     bool ok = fwrite(&horasTrabajadas, sizeof(HorasTrabajadas), 1, pFile);
@@ -147,6 +151,7 @@ bool HorasTrabajadasArchivo::guardar(HorasTrabajadas obj, int nroRegistro)
 {
     if (!abrirArchivo(LecturaEscritura))
     {
+        estado = Cerrado;
         return false;
     }
     fseek(pFile, nroRegistro * sizeof(HorasTrabajadas), SEEK_SET);
