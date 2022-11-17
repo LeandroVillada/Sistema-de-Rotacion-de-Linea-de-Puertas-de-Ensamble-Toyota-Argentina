@@ -1,6 +1,5 @@
 #include <iostream>
 #include "FuncionesLicencia.h"
-#include "Empleados.h"
 #include "EmpleadosArchivo.h"
 #include "Funciones Globales.h"
 
@@ -86,48 +85,37 @@ void mostrarLicenciasRegistrosPorLegajo(int legajo)
     }
 }
 
-void comprobarInicioLicencias()
+void encabezadoComprobarLicencias()
 {
-    LicenciasArchivo archivoLicencias;
-    EmpleadosArchivo archivoEmpleados;
-    int CantRegEmpleados = archivoEmpleados.getCantidadRegistros();
-    Empleados *empleados = new Empleados[CantRegEmpleados];
-    if (empleados == NULL)
-    {
-        return;
-    }
-    if (!archivoEmpleados.leerTodos(empleados, CantRegEmpleados))
-    {
-        return;
-    }
-
-    Fecha fechaActual;
-    mostrarMensaje("Inicio Licencia:", 15, 5);
-    cout<<endl<<endl;
-    for (int i = 0; i < CantRegEmpleados; i++)
-    {
-        int pos = archivoLicencias.BuscarUltimoRegistroLegajo(empleados[i].getLegajo());
-        if ((pos > -1) && (empleados[i].getDisponibilidad()))
-        {
-            if (archivoLicencias.leer(pos).getFechaInicioLicencia() < fechaActual && archivoLicencias.leer(pos).getFechaFinLicencia() > fechaActual)
-            {
-                empleados[i].setDisponibilidad(false);
-                cout<<empleados[i]<<endl;
-                if (!archivoEmpleados.guardar(empleados[i], i))
-                {
-                    cout << "No se pudo grabar en disco." << endl;
-                    return;
-                }
-            }
-        }
-    }
-    cout<<endl;
-    mostrarMensaje("Fin comprobacion de inicio de licencias", 15, 5);
+    // ENCABEZADO
+    gotoxy(37, 2);
+    mostrarMensaje("OPERARIOS CON LICENCIAS", 15, rlutil::COLOR::BLUE);
+    gotoxy(13, 3);
+    mostrarMensaje("ACTIVAS", 15, rlutil::COLOR::GREEN);
+    gotoxy(80, 3);
+    mostrarMensaje("EXPIRADAS", 15, rlutil::COLOR::DARKGREY);
+    gotoxy(1, 4);
+    cout << "---------------------------------------------------------------------------------------------------" << endl;
+    // ACTIVOS
+    gotoxy(2, 5);
+    cout << "LEGAJO";
+    gotoxy(12, 5);
+    cout << "APELLIDO";
+    gotoxy(30, 5);
+    cout << "HASTA";
+    // EXPIRADOS
+    gotoxy(75, 5);
+    cout << "LEGAJO";
+    gotoxy(87, 5);
+    cout << "APELLIDO";
+    gotoxy(1, 6);
+    cout << "---------------------------------------------------------------------------------------------------" << endl;
 }
 
-void comprobarExpiracionLicencias()
+void comprobarLicencias()
 {
     LicenciasArchivo archivoLicencias;
+    Licencias licencia;
     EmpleadosArchivo archivoEmpleados;
     int CantRegEmpleados = archivoEmpleados.getCantidadRegistros();
     Empleados *empleados = new Empleados[CantRegEmpleados];
@@ -141,27 +129,54 @@ void comprobarExpiracionLicencias()
     }
 
     Fecha fechaActual;
+    encabezadoComprobarLicencias();
+    int ContadorActivos = 0, contadorExpirados = 0;
 
-    mostrarMensaje("Fin Licencia:", 15, 5);
-    cout<<endl<<endl;
     for (int i = 0; i < CantRegEmpleados; i++)
     {
         int pos = archivoLicencias.BuscarUltimoRegistroLegajo(empleados[i].getLegajo());
-        if ((pos > -1) && (!empleados[i].getDisponibilidad()))
+        if (pos > -1)
         {
-            if (archivoLicencias.leer(pos).getFechaFinLicencia() < fechaActual && archivoLicencias.leer(pos).getFechaInicioLicencia() < fechaActual)
+            if (!archivoLicencias.leer(licencia, pos))
+            {
+                return;
+            }
+            if ((licencia.getFechaFinLicencia() < fechaActual) && (!empleados[i].getDisponibilidad()))
             {
                 empleados[i].setDisponibilidad(true);
-                cout<<empleados[i]<<endl;
                 if (!archivoEmpleados.guardar(empleados[i], i))
                 {
                     cout << "No se pudo grabar en disco." << endl;
                     return;
                 }
+
+                gotoxy(75, 7 + contadorExpirados);
+                cout << empleados[i].getLegajo();
+                gotoxy(87, 7 + contadorExpirados);
+                cout << empleados[i].getApellido();
+                contadorExpirados++;
+            }
+            // else if ((archivoLicencias.leer(pos).getFechaInicioLicencia() <= fechaActual) && (archivoLicencias.leer(pos).getFechaFinLicencia() >= fechaActual) && (empleados[i].getDisponibilidad()))
+            else if ((licencia.getFechaInicioLicencia() <= fechaActual) && (licencia.getFechaFinLicencia() >= fechaActual))
+            {
+                if (empleados[i].getDisponibilidad())
+                {
+                    empleados[i].setDisponibilidad(false);
+                    if (!archivoEmpleados.guardar(empleados[i], i))
+                    {
+                        cout << "No se pudo grabar en disco." << endl;
+                        return;
+                    }
+                }
+
+                gotoxy(2, 7 + ContadorActivos);
+                cout << empleados[i].getLegajo();
+                gotoxy(12, 7 + ContadorActivos);
+                cout << empleados[i].getApellido();
+                gotoxy(30, 7 + ContadorActivos);
+                cout << licencia.getFechaFinLicencia().toString();
+                ContadorActivos++;
             }
         }
     }
-    cout<<endl;
-    mostrarMensaje("Fin comprobacion de expiracion de licencias", 15, 5);
-
 }

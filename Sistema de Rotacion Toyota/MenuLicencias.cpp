@@ -25,11 +25,7 @@ void MenuLicencias()
     // OPCION 3
     MenuLicencias.agregarOpcion("Mostrar registros (por Legajo)");
     // OPCION 4
-    MenuLicencias.agregarOpcion("Comprobar Inicio de Licencias");
-    // OPCION 5
     MenuLicencias.agregarOpcion("Comprobar Expiracion de Licencias");
-
-
 
     // Aqui generamos un while en true en caso de que quieramos que dibuje nuevamente el menu
     while (true)
@@ -64,14 +60,8 @@ void MenuLicencias()
 
             system("pause>nul");
             break;
-
         case 4:
-            comprobarInicioLicencias();
-            system("pause>nul");
-            break;
-
-        case 5:
-            comprobarExpiracionLicencias();
+            comprobarLicencias();
             system("pause>nul");
             break;
 

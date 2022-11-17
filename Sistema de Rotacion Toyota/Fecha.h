@@ -34,7 +34,9 @@ public:
     bool operator==(Fecha);
     bool operator!=(Fecha);
     bool operator>(Fecha);
+    bool operator>=(Fecha);
     bool operator<(Fecha);
+    bool operator<=(Fecha);
     Fecha operator+(int);
     int operator-(Fecha &);
     void operator+=(int);
@@ -49,5 +51,4 @@ public:
     void MostrarFecha();
     void MostrarFechaTexto();
     bool validarFecha();
-    bool Cargar();
 };

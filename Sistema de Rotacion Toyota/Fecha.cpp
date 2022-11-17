@@ -115,7 +115,17 @@ bool Fecha::operator>(Fecha aux)
         return false;
     if (_dia < aux._dia)
         return false;
+    if (_dia == aux._dia)
+        return false;
     return true;
+}
+bool Fecha::operator>=(Fecha aux)
+{
+    if ((*this > aux) || (*this == aux))
+    {
+        return true;
+    }
+    return false;
 }
 bool Fecha::operator<(Fecha aux)
 {
@@ -125,7 +135,17 @@ bool Fecha::operator<(Fecha aux)
         return false;
     if (_dia > aux._dia)
         return false;
+    if (_dia == aux._dia)
+        return false;
     return true;
+}
+bool Fecha::operator<=(Fecha aux)
+{
+    if ((*this < aux) || (*this == aux))
+    {
+        return true;
+    }
+    return false;
 }
 int Fecha::operator==(const char *diaSemana)
 {
