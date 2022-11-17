@@ -79,6 +79,23 @@ string Fecha::toString()
     fecha = to_string(_dia) + "/" + to_string(_mes) + "/" + to_string(_anio);
     return fecha;
 }
+std::string Fecha::toStringMes(int mes)
+{
+    char mmes[12][11];
+    strcpy(mmes[0], "Enero");
+    strcpy(mmes[1], "Febrero");
+    strcpy(mmes[2], "Marzo");
+    strcpy(mmes[3], "Abril");
+    strcpy(mmes[4], "Mayo");
+    strcpy(mmes[5], "Junio");
+    strcpy(mmes[6], "Julio");
+    strcpy(mmes[7], "Agosto");
+    strcpy(mmes[8], "Septiembre");
+    strcpy(mmes[9], "Octubre");
+    strcpy(mmes[10], "Noviembre");
+    strcpy(mmes[11], "Diciembre");
+    return mmes[mes - 1];
+}
 // int Fecha::getHora() {return hora;}
 //  OPERADORES
 void Fecha::operator=(Fecha aux)

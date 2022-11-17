@@ -28,6 +28,7 @@ public:
     int getMes();
     int getAnio();
     std::string toString();
+    std::string toStringMes(int mes);
     // int getHora();
     //  OPERADOR
     void operator=(Fecha);

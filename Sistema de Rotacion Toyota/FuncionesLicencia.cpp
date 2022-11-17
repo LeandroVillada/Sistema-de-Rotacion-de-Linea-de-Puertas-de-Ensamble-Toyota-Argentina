@@ -87,13 +87,14 @@ void mostrarLicenciasRegistrosPorLegajo(int legajo)
 
 void encabezadoComprobarLicencias()
 {
+    Fecha fechaActual;
     // ENCABEZADO
     gotoxy(37, 2);
     mostrarMensaje("OPERARIOS CON LICENCIAS", 15, rlutil::COLOR::BLUE);
     gotoxy(13, 3);
-    mostrarMensaje("ACTIVAS", 15, rlutil::COLOR::GREEN);
-    gotoxy(80, 3);
-    mostrarMensaje("EXPIRADAS", 15, rlutil::COLOR::DARKGREY);
+    mostrarMensaje("Activas", 15, rlutil::COLOR::GREEN);
+    gotoxy(75, 3);
+    mostrarMensaje("Expiradas en " + fechaActual.toStringMes(fechaActual.getMes()), 15, rlutil::COLOR::DARKGREY);
     gotoxy(1, 4);
     cout << "---------------------------------------------------------------------------------------------------" << endl;
     // ACTIVOS
@@ -141,22 +142,33 @@ void comprobarLicencias()
             {
                 return;
             }
-            if ((licencia.getFechaFinLicencia() < fechaActual) && (!empleados[i].getDisponibilidad()))
+            // if ((licencia.getFechaFinLicencia() < fechaActual) && (!empleados[i].getDisponibilidad()))
+            if (licencia.getFechaFinLicencia() < fechaActual)
             {
-                empleados[i].setDisponibilidad(true);
-                if (!archivoEmpleados.guardar(empleados[i], i))
+                // Mestra las licencias expiradas en el mes actual
+                if ((empleados[i].getDisponibilidad()) && (licencia.getFechaFinLicencia().getMes() == fechaActual.getMes()))
                 {
-                    cout << "No se pudo grabar en disco." << endl;
-                    return;
+                    gotoxy(75, 7 + contadorExpirados);
+                    cout << empleados[i].getLegajo();
+                    gotoxy(87, 7 + contadorExpirados);
+                    cout << empleados[i].getApellido();
                 }
+                else if (!empleados[i].getDisponibilidad())
+                {
+                    empleados[i].setDisponibilidad(true);
+                    if (!archivoEmpleados.guardar(empleados[i], i))
+                    {
+                        cout << "No se pudo grabar en disco." << endl;
+                        return;
+                    }
 
-                gotoxy(75, 7 + contadorExpirados);
-                cout << empleados[i].getLegajo();
-                gotoxy(87, 7 + contadorExpirados);
-                cout << empleados[i].getApellido();
+                    gotoxy(75, 7 + contadorExpirados);
+                    cout << empleados[i].getLegajo();
+                    gotoxy(87, 7 + contadorExpirados);
+                    cout << empleados[i].getApellido();
+                }
                 contadorExpirados++;
             }
-            // else if ((archivoLicencias.leer(pos).getFechaInicioLicencia() <= fechaActual) && (archivoLicencias.leer(pos).getFechaFinLicencia() >= fechaActual) && (empleados[i].getDisponibilidad()))
             else if ((licencia.getFechaInicioLicencia() <= fechaActual) && (licencia.getFechaFinLicencia() >= fechaActual))
             {
                 if (empleados[i].getDisponibilidad())
