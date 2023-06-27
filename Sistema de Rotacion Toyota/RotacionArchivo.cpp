@@ -166,28 +166,3 @@ int RotacionArchivo::getCantidadRegistros()
 {
     return cantRegistros;
 }
-
-bool RotacionArchivo::exportar()
-{
-    if (cantRegistros == 0)
-    {
-        return false;
-    }
-    FILE *p;
-    p = fopen("Rotacion.txt", "wb");
-    if (p == NULL)
-    {
-        return false;
-    }
-    Rotacion *registros = new Rotacion[cantRegistros];
-    if (!leerTodos(registros, cantRegistros))
-    {
-        fclose(p);
-        return false;
-    }
-
-    bool ok = fwrite(&registros, registros[0].getSize(), cantRegistros, p);
-
-    fclose(p);
-    return ok;
-}

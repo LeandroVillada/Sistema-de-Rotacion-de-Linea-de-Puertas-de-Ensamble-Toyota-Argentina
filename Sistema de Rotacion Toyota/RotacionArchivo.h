@@ -27,5 +27,5 @@ public:
     bool guardar(Rotacion rotacion);
     bool guardar(Rotacion rotacion, int nroRegistro);
     int getCantidadRegistros();
-    bool exportar();
+    // bool exportar();
 };
