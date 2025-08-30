@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 #include "Menu.h"
-#include "submenus.h"
+#include "Submenus.h"
 
 int main()
 {
     // Le damos el nombre que quieramos al objeto
     Menu principal;
     // ELEGIMOS EL COLOR DE FONDO QUE DESEAMOS
-    principal.setColorFondoPrincipal(rlutil::BLACK);
+    principal.setColorFondoPrincipal(rlutil::BLUE);
     // ELEGIMOS EL COLOR DEL TEXTO QUE DESEAMOS
     principal.setColorTextoPrincipal(rlutil::WHITE);
 
@@ -35,10 +35,10 @@ int main()
     // Aqui generamos un while en true en caso de que quieramos que dibuje nuevamente el menu
     while (true)
     {
-        system("cls");
+        rlutil::cls();
         // Elegimos el color del texto del menu y el Fondo del texto para las opciones
         int opciones = principal.dibujarMenu(rlutil::COLOR::WHITE, rlutil::COLOR::CYAN);
-        system("cls");
+        rlutil::cls();
         switch (opciones)
         {
         case 1:

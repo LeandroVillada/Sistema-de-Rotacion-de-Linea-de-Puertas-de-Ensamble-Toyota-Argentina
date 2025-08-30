@@ -2,17 +2,15 @@
 
 #include <cstdio>
 #include <ctime>
+#include <iostream>
+#include "rlutil.h"
 
 void vectorEnCero(int *, int);
 
 int cargarAleatorio(int);
 
-#include <iostream>
-#include <windows.h>
-#include "rlutil.h"
-
-void gotoxy(short, short);
-
 void mostrarMensaje(std::string, int, int);
 
 void confirmarSalida();
+
+void esperar(int ms);

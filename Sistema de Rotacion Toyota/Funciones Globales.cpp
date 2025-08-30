@@ -1,5 +1,13 @@
 #include "Funciones Globales.h"
 
+#ifdef _WIN32
+#include <windows.h>
+void esperar(int ms) { Sleep(ms); }
+#else
+#include <unistd.h>
+void esperar(int ms) { usleep(ms * 1000); }
+#endif
+
 void vectorEnCero(int *vector, int tam)
 {
     for (int i = 0; i < tam; i++)
@@ -11,14 +19,6 @@ void vectorEnCero(int *vector, int tam)
 int cargarAleatorio(int limite)
 {
     return (rand() % limite);
-}
-
-void gotoxy(short x, short y)
-{
-    COORD a;
-    a.X = x;
-    a.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), a);
 }
 
 void mostrarMensaje(std::string mensaje, int color, int colorFondo)

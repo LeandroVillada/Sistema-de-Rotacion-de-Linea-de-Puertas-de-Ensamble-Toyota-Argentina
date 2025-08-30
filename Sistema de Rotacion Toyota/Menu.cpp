@@ -316,11 +316,14 @@ void Menu::separadorV(short iniX, short iniY, short alto, short colorLinea = rlu
     setlocale(LC_ALL, "spanish");
 }
 
+#ifdef _WIN32
+#include <windows.h>
 bool Menu::AjustarVentana(int Ancho, int Alto)
 {
-    _COORD Coordenada;
-    Coordenada.X = Ancho;
-    Coordenada.Y = Alto;
+    // _COORD Coordenada;
+    // Coordenada.X = Ancho;
+    // Coordenada.Y = Alto;
+    gotoxy(Ancho, Alto);
 
     _SMALL_RECT Rect;
     Rect.Top = 0;
@@ -338,3 +341,10 @@ bool Menu::AjustarVentana(int Ancho, int Alto)
     SetConsoleWindowInfo(hConsola, TRUE, &Rect);
     return TRUE;
 }
+#else
+bool Menu::AjustarVentana(int Ancho, int Alto)
+{
+    // No implementado en Linux/Mac
+    return false;
+}
+#endif

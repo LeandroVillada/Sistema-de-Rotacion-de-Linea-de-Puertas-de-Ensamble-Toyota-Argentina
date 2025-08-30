@@ -1,6 +1,7 @@
 #include "FuncionArmadoRotacion.h"
 #include "EmpleadosArchivo.h"
 #include <ctime>
+
 void listarLegajosDisponiblesParaRotacion(int *legajosDisponibles, int cantidadDisponible)
 {
     EmpleadosArchivo archivo;
@@ -378,13 +379,13 @@ void armarRotacion(int *operariosParaRotar)
     int rotacion[4][26] = {0};
     cargarBloqueUno(rotacion, operariosParaRotar);
     mostrarMensaje("BLOQUE 1 GENERADA\n", 15, 9);
-    Sleep(2000);
+    esperar(2000);
     cargarBloqueDos(rotacion, operariosParaRotar);
     mostrarMensaje("BLOQUE 2 GENERADA\n", 15, 9);
-    Sleep(3000);
+    esperar(3000);
     cargarBloqueTres(rotacion, operariosParaRotar);
     mostrarMensaje("BLOQUE 3 GENERADA\n", 15, 9);
-    Sleep(4000);
+    esperar(4000);
     cargarBloqueCuatro(rotacion, operariosParaRotar);
     mostrarMensaje("BLOQUE 4 GENERADA\n", 15, 9);
 
